@@ -1,0 +1,122 @@
+// MOBILE //
+$breakpoints: (
+  'mobile': (max-width: 1000px),
+  'pc': (min-width: 1001px),
+  'sPc': (max-width: 1440px),
+  'wide': (min-width: 1940px),
+);
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+/* var */
+$color-def: #333;
+$color-sub: #606060;
+$color-ftr: #737373;
+$color-point: #006ebc;
+$font-def: 'NotoSans-Regular','Roboto','Droid Sans','Malgun Gothic','Helvetica','Apple-Gothic','애플고딕','Tahoma',dotum,'돋움',gulim,'굴림', sans-serif;
+$font-str: 'NotoSans-Bold','Roboto','Droid Sans','Malgun Gothic','Helvetica','Apple-Gothic','애플고딕','Tahoma',dotum,'돋움',gulim,'굴림', sans-serif;
+$font-thin: 'NotoSans-Thin','Roboto','Droid Sans','Malgun Gothic','Helvetica','Apple-Gothic','애플고딕','Tahoma',dotum,'돋움',gulim,'굴림', sans-serif;
+
+/* mixin */
+@mixin hiddenText {
+	overflow: hidden;
+	font-size: 1px;
+	line-height: 0;
+	text: {
+		indent: -9999px;
+		align: left;
+	}
+}
+@mixin clearfix {
+	&:after {
+		display: block;
+		content:'';
+		clear: both;
+	}
+}
+//contents
+@mixin btndef($height, $l-height ) {
+    display: inline-block;
+    height: $height;
+    padding: 0 20px;
+    line-height: $l-height;
+    background: #fff;
+    border-radius: 18px;
+    color: #666;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    &:hover {
+        background: $color-point;
+        color: #fff;
+        border: none;
+    }
+}
+@mixin arrow($b-color) {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: {
+        width: 2px 0 0 2px;
+        color: $b-color;
+        style: solid
+    }
+    transform: rotate(135deg);
+    box-sizing: border-box;
+    @include respond-to(mobile) {
+        width: 10px;
+        height: 10px;
+    }
+}
+@mixin bult($width, $height, $b-color) {
+    content: '';
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: $b-color;
+    border-radius: 50%;
+}
+@mixin arrowBtn {
+    display: inline-block;
+    height: 43px;
+    padding: 0 25px;
+    background: $color-point;
+    border-radius: 22px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 41px;
+    &:after {
+        @include arrow(#fff);
+        margin-left: 5px;
+        vertical-align: 1px;
+    }
+    &:hover {
+        background: #0d588d;
+    }
+    @include respond-to(mobile) {
+        height: 39px;
+        font-size: 15px;
+        line-height: 38px;
+        &:after {
+            width: 9px;
+            height: 9px;
+        }
+    }
+}
