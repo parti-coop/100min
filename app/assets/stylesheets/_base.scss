@@ -12,7 +12,7 @@ body {
 	-webkit-text-size-adjust: none;
 	font-family: $font-def;
 }
-body, div, 
+body, div,
 dl, dt, dd, ul, ol, li,
 h1, h2, h3, h4, h5, h6,
 pre, form, fieldset, input, select, textarea, p, blockquote, th, td, legend, button {
@@ -38,7 +38,7 @@ ul, ol, li{
 }
 a {
 	text-decoration: none;
-	color: $color-def; 
+	color: $color-def;
 }
 i, em, address {
 	font-style: normal;
@@ -92,7 +92,7 @@ input[type="password"] {
 		height: 46px;
 		font-size: 16px;
 	}
-	
+
 }
 ::placeholder {
 	color: rgba(43, 43, 43, .5);
@@ -292,6 +292,12 @@ select {
 		background-position: 100% 19px;
 	}
 }
-select::-ms-expand { 
+select::-ms-expand {
   display: none;
+}
+.no-outline {
+	outline:none;
+}
+.collapse {
+	display: none;
 }

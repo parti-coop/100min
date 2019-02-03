@@ -21,7 +21,7 @@
           %a{href: "#snMenu"} 주메뉴 바로가기
     %header#snContent
       %h1
-        %a{href: "#"} 100년 토론광장
+        %a{href: root_path} 100년 토론광장
       %button.js-selectable-btn{type: "button"}
         %span 메뉴 열림
       .nav-wrap
@@ -38,14 +38,16 @@
             %li
               %a{href: "#"} 소식과 공지
         .join
-          %a{href: "#"} 로그인
-          %a{href: "#"} 회원가입
-          .after-login
-            %button.js-selectable-btn{type: "button"}
-              %span abcdefgh님
-            %div
-              %a{href: "#"} 로그아웃
-              %a{href: "#"} 탈퇴
+          - unless user_signed_in?
+            %a{href: new_user_session_path} 로그인
+            %a{href: new_user_registration_path} 회원가입
+          - else
+            .after-login.js-dropdown
+              %button.js-selectable-btn.js-dropdown-btn.no-outline{type: "button"}
+                %span #{current_user.name} 님
+              .js-dropdown-menu.collapse
+                = link_to '로그아웃', destroy_user_session_path, method: :delete
+                = link_to '탈퇴', cancel_current_user_path, method: :delete, 'data-confirm': '탈퇴하면 작성한 모든 글이 사라집니다. 이 동작은 되돌릴 수 없습니다. 정말 탈퇴하시겠습니까?'
         %button.js-selectable-btn{type: "button"}
           %span 메뉴 닫힘
     %hr/

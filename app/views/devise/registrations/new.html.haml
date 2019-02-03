@@ -1,0 +1,23 @@
+%section
+  %h3 가입
+  .join-buttons
+    = link_to user_facebook_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-facebook btn-block' do
+      %i.fa.fa-facebook.fa-fw
+      %span.hidden-xs 페이스북으로
+      가입
+    = link_to user_twitter_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-twitter btn-block' do
+      %i.fa.fa-twitter.fa-fw
+      %span.hidden-xs 트위터로
+      가입
+    = link_to user_google_oauth2_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-naver btn-block' do
+      %i.fa.fa-google.fa-fw
+      %span.hidden-xs 구글로
+      가입
+    = link_to user_kakao_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-naver btn-block' do
+      %i.fa.fa-asterisk.fa-fw
+      %span.hidden-xs 카카오로
+      가입
+    = link_to user_naver_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-naver btn-block' do
+      %i.fa.fa-snapchat-ghost.fa-fw
+      %span.hidden-xs 네이버로
+      가입

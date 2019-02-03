@@ -17,10 +17,22 @@ gem 'auto_strip_attributes', '~> 2.5'
 
 # auth
 gem 'devise', '~> 4.5'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2', '~> 0.6.0'
+gem 'omniauth-kakao', :git => 'git://github.com/johnnyshields/omniauth-kakao'
+gem 'omniauth-naver'
+gem 'omniauth-twitter'
+
+# file
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'file_validators'
 
 # view
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'haml-rails', '~> 1.0'
+gem 'unobtrusive_flash'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
