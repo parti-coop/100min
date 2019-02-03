@@ -1,0 +1,77 @@
+!!!
+%html{lang: I18n.locale}
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{charset: "utf-8"}/
+    %title 100년 토론광장
+    = render 'application/favicons'
+    %meta{content: "initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, target-densitydpi=medium-dpi", name: "viewport"}/
+    = stylesheet_link_tag 'application', media: 'all'
+    %link{href: "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"}
+    %script{:src => "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"}
+    %script{:src => "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"}
+    = csrf_meta_tags
+
+  %body.index
+    #skipNav
+      %ul
+        %li
+          %a{href: "#snContent"} 본문바로가기
+        %li
+          %a{href: "#snMenu"} 주메뉴 바로가기
+    %header#snContent
+      %h1
+        %a{href: "#"} 100년 토론광장
+      %button.js-selectable-btn{type: "button"}
+        %span 메뉴 열림
+      .nav-wrap
+        %nav
+          %ul
+            %li
+              %a{href: "#"} 100년 토론광장
+            %li
+              %a{href: "#"} 그들이 꿈꾼 나라
+            %li
+              %a{href: "#"} 우리가 만들 세상
+            %li
+              %a{href: "#"} 시민 참여단
+            %li
+              %a{href: "#"} 소식과 공지
+        .join
+          %a{href: "#"} 로그인
+          %a{href: "#"} 회원가입
+          .after-login
+            %button.js-selectable-btn{type: "button"}
+              %span abcdefgh님
+            %div
+              %a{href: "#"} 로그아웃
+              %a{href: "#"} 탈퇴
+        %button.js-selectable-btn{type: "button"}
+          %span 메뉴 닫힘
+    %hr/
+    %main#snContent
+      = yield
+    %hr/
+    %footer
+      %ul
+        %li
+          %a{href: "#"} 이용약관
+        %li
+          %a{href: "#"} 개인정보취급방침
+      .finfo
+        .logo 100년 토론광장
+        %p
+          3‧1운동 및 대한민국 임시정부 수립
+          %br
+          100주년 기념사업추진위원회
+        %ul
+          %li TEL. 02-2100-1449
+          %li FAX. 02-2100-1446
+          %li
+            %a{href: "mailto:together100@korea.kr"} Mail. together100@korea.kr
+        .sns
+          %a.facebook{href: "#"}
+            %span 페이스북
+
+    = javascript_include_tag 'application'
+    = yield :script if content_for?(:script)

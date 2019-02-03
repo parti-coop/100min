@@ -12,6 +12,16 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+# model
+gem 'auto_strip_attributes', '~> 2.5'
+
+# auth
+gem 'devise', '~> 4.5'
+
+# view
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'haml-rails', '~> 1.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

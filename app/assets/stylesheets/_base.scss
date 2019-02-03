@@ -1,0 +1,297 @@
+@import "utils.scss";
+
+/* reset */
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	background: #fff;
+	color: $color-def;
+	font-size: 14px;
+	-webkit-text-size-adjust: none;
+	font-family: $font-def;
+}
+body, div, 
+dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, select, textarea, p, blockquote, th, td, legend, button {
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-str;
+	font-weight: normal;
+}
+article, section, nav, header, footer, main {
+	display: block;
+}
+table {
+	width: 100%;
+	border-spacing: 0;
+}
+form, fieldset, img {
+	border:0 none;
+}
+ul, ol, li{
+	list-style: none outside;
+}
+a {
+	text-decoration: none;
+	color: $color-def; 
+}
+i, em, address {
+	font-style: normal;
+}
+li, p, dt, dd, div, span{
+	word-break: break-all;
+}
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='search'] {
+	cursor: pointer;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border: none;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    font-size: 14px;
+    font-family: $font-def;
+}
+input[type=search]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+legend, caption {
+	@include hiddenText;
+}
+hr {
+	display: none;
+}
+input[type="text"],
+input[type="password"] {
+	border-radius: 0;
+	height: 40px;
+	padding: 0 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #000;
+    background: none;
+    color: $color-def;
+    font-size: 14px;
+    outline: 0 none;
+	box-sizing: border-box;
+	/* &:focus {
+		border-color: #000;
+	} */
+	@include respond-to(pc) {
+		height: 46px;
+		font-size: 16px;
+	}
+	
+}
+::placeholder {
+	color: rgba(43, 43, 43, .5);
+}
+label.err + input {
+	border-color: #f33;
+}
+label.confirm {
+	&:after {
+		content: '';
+		position: absolute;
+		top: 18px;
+		left: 430px;
+		width: 7px;
+		height: 15px;
+		border: {
+			width: 0 2px 2px 0;
+			style: solid;
+			color: #2dc49d;
+		}
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+}
+label.confirm + input {
+	border-color: #2dc49d;
+}
+input[type='checkbox'] {
+	position: absolute;
+	opacity: 0;
+	&:checked + label:after {
+		display: block;
+		content: '';
+		width: 9px;
+		height: 5px;
+		position: absolute;
+		top: 6px;
+		left: 4px;
+		border: 2px solid #000;
+		border-top: none;
+		border-right: none;
+		background: transparent;
+		//opacity: 0;
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		@include respond-to(pc) {
+			top: 6px;
+			left: 6px;
+			width: 11px;
+			height: 6px;
+			border-width: 3px;
+		}
+	}
+}
+input[type='checkbox'] + label {
+	display: inline-block;
+	position: relative;
+	padding: 0 0 0 30px;
+	cursor: pointer;
+	color: $color-def;
+	font-size: 15px;
+	&:before {
+		display: block;
+		position: absolute;
+		content: '';
+		width: 18px;
+		height: 18px;
+		border: 1px solid #000;
+		left: 0;
+		top: 2px;
+	}
+	@include respond-to(pc) {
+		padding-left: 35px;
+		font-size: 16px;
+		&:before {
+			top: 0;
+			width: 24px;
+			height: 24px;
+		}
+	}
+}
+input[type='radio'] {
+	//visibility: hidden;
+	position: absolute;
+	opacity: 0;
+	&:checked + label:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 6px;
+		left: 4px;
+		width: 10px;
+		height: 10px;
+		background: #000;
+		border-radius: 12px;
+		@include respond-to(pc) {
+			top: 7px;
+			left: 5px;
+			width: 14px;
+			height: 14px;
+		}
+	}
+}
+input[type='radio'] + label {
+	display: inline-block;
+	position: relative;
+	padding: 0 0 0 25px;
+	cursor: pointer;
+	color: $color-def;
+	font: {
+		size: 15px;
+	}
+	&:before {
+		display: block;
+		position: absolute;
+		top: 2px;
+		left: 0;
+		content: '';
+		width: 18px;
+		height: 18px;
+		border: 1px solid #000;
+		//opacity: 0.7;
+		border-radius: 14px;
+		box-sizing: border-box;
+	}
+	@include respond-to(pc) {
+		padding-left: 30px;
+		font-size: 20px;
+		&:before {
+			width: 24px;
+			height: 24px;
+		}
+	}
+}
+input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0;
+}
+.file-wrap {
+	position: relative;
+	padding-right: 90px;
+	label {
+		display: block;
+		position: absolute;
+		right: 0;
+		width: 80px;
+		height: 40px;
+		border: 1px solid #000;
+		color: $color-def;
+		font-size: 15px;
+		line-height: 38px;
+		box-sizing: border-box;
+		white-space: nowrap;
+		text-align: center;
+		@include respond-to(pc) {
+			height: 46px;
+			line-height: 46px;
+		}
+	}
+	input[type='text'] {
+		width: 100%;
+		font-size: 15px;
+		&:disabled {
+			background: #fff;
+			color: #313131;
+		}
+	}
+}
+select {
+	height: 40px;
+	background-color: #fff;
+	border: 1px solid #000;
+	color: $color-def;
+	padding: 0 35px 0 16px;
+	background: url('/images/select_arrow.png') no-repeat 100% 15px;
+	background-size: 24px auto;
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	//color: #2b2b2b;
+	font: {
+		family: $font-def;
+		size: 14px;
+	}
+	vertical-align: top;
+	box-sizing: border-box;
+	@include respond-to(pc) {
+		height: 46px;
+		font-size: 16px;
+		background-position: 100% 19px;
+	}
+}
+select::-ms-expand { 
+  display: none;
+}
