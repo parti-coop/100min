@@ -126,12 +126,12 @@ input[type='checkbox'] {
 	&:checked + label:after {
 		display: block;
 		content: '';
-		width: 9px;
+		width: 10px;
 		height: 5px;
 		position: absolute;
-		top: 6px;
-		left: 4px;
-		border: 2px solid #000;
+		top: 8px;
+		left: 5px;
+		border: 2px solid $color-point;
 		border-top: none;
 		border-right: none;
 		background: transparent;
@@ -139,11 +139,10 @@ input[type='checkbox'] {
 		-webkit-transform: rotate(-45deg);
 		transform: rotate(-45deg);
 		@include respond-to(pc) {
-			top: 6px;
-			left: 6px;
-			width: 11px;
+			top: 8px;
+			left: 5px;
+			width: 12px;
 			height: 6px;
-			border-width: 3px;
 		}
 	}
 }
@@ -153,22 +152,23 @@ input[type='checkbox'] + label {
 	padding: 0 0 0 30px;
 	cursor: pointer;
 	color: $color-def;
-	font-size: 15px;
+	font-size: 16px;
 	&:before {
 		display: block;
 		position: absolute;
 		content: '';
-		width: 18px;
-		height: 18px;
+		width: 22px;
+		height: 22px;
 		border: 1px solid #000;
 		left: 0;
 		top: 2px;
+		box-sizing: border-box;
 	}
 	@include respond-to(pc) {
 		padding-left: 35px;
-		font-size: 16px;
+		font-size: 18px;
 		&:before {
-			top: 0;
+			top: 2px;
 			width: 24px;
 			height: 24px;
 		}
@@ -295,8 +295,10 @@ select {
 select::-ms-expand {
   display: none;
 }
+
+// For Backend
 .no-outline {
-	outline:none;
+	outline: none;
 }
 .collapse {
 	display: none;

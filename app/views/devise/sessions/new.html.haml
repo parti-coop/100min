@@ -1,23 +1,18 @@
-%section
-  %h3 로그인
-  .join-buttons
-    = link_to user_facebook_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-facebook btn-block' do
-      %i.fa.fa-facebook.fa-fw
-      %span.hidden-xs 페이스북으로
-      로그인
-    = link_to user_twitter_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-twitter btn-block' do
-      %i.fa.fa-twitter.fa-fw
-      %span.hidden-xs 트위터로
-      로그인
-    = link_to user_google_oauth2_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-naver btn-block' do
-      %i.fa.fa-google.fa-fw
-      %span.hidden-xs 구글로
-      로그인
-    = link_to user_kakao_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-naver btn-block' do
-      %i.fa.fa-asterisk.fa-fw
-      %span.hidden-xs 카카오로
-      로그인
-    = link_to user_naver_omniauth_authorize_path(redirect_to: params[:redirect_to]), class: 'btn btn-join btn-join-naver btn-block' do
-      %i.fa.fa-snapchat-ghost.fa-fw
-      %span.hidden-xs 네이버로
-      로그인
+.sub-wrap
+  .join-wrap
+    %h2 로그인
+    %p 로그인할 소셜계정을 선택해 주시기 바랍니다
+    %ul
+      %li.facebook
+        = link_to '페이스북으로 로그인', user_facebook_omniauth_authorize_path
+      %li.twitter
+        = link_to '트위터로 로그인', user_twitter_omniauth_authorize_path
+      %li.google
+        = link_to '구글로 로그인', user_google_oauth2_omniauth_authorize_path
+      %li.naver
+        = link_to '네이버로 로그인', user_naver_omniauth_authorize_path
+      %li.kakao
+        = link_to '카카오로 로그인', user_kakao_omniauth_authorize_path
+    %p.desc 처음이신가요?
+    .btn
+      %a{href: new_user_registration_path} 회원가입
