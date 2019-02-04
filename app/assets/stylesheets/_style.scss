@@ -39,7 +39,7 @@ header {
 			display: block;
 			width: 252px;
 			height: 48px;
-			background: asset-url('logo.png');
+			background: asset_url('logo.png');
 		}
 	}
 	.join {
@@ -220,7 +220,7 @@ header {
 						width: 16px;
 						height: 16px;
 						margin-right: 10px;
-						background: asset-url('icon_profile.png') no-repeat 0 0;
+						background: asset_url('icon_profile.png') no-repeat 0 0;
 					}
 					&:after {
 						@include arrow(#3e6999);
@@ -340,7 +340,7 @@ footer {
 			display: inline-block;
 			width: 252px;
 			height: 50px;
-			background: asset-url('logo.png') no-repeat 0 100%;
+			background: asset_url('logo.png') no-repeat 0 100%;
 		}
 		> p {
 			padding-top: 20px;
@@ -396,7 +396,7 @@ footer {
 					width: 12px;
 					height: 26px;
 					margin: 0 auto;
-					background: asset-url('sns_facebook.png') no-repeat 0 0;
+					background: asset_url('sns_facebook.png') no-repeat 0 0;
 					opacity: 0.5;
 				}
 				&:hover {
@@ -505,7 +505,7 @@ main {
 					top: -17px;
 					width: 34px;
 					height: 26px;
-					background: asset-url('quot.png') no-repeat 0 0;
+					background: asset_url('quot.png') no-repeat 0 0;
 				}
 				&:before {
 					left: -45px;
@@ -525,7 +525,7 @@ main {
 					width: 22px;
 					height: 24px;
 					margin-right: 14px;
-					background: asset-url('icon_date.png') no-repeat 0 0;
+					background: asset_url('icon_date.png') no-repeat 0 0;
 					vertical-align: -3px;
 				}
 			}
@@ -556,7 +556,7 @@ main {
 			}
 		}
 		@include respond-to(pc) {
-			background: asset-url('billimg.png') no-repeat 50% 0;
+			background: asset_url('billimg.png') no-repeat 50% 0;
 			.cnts {
 				> p {
 					br {
@@ -567,7 +567,7 @@ main {
 		}
 		@include respond-to(wide) {
 			background: {
-				image: asset-url('billbg_left.png'), asset-url('billbg_right.png');
+				image: asset_url('billbg_left.png'), asset_url('billbg_right.png');
 				position: 0 0, 100% 32px;
 				repeat: no-repeat;
 			}
@@ -575,7 +575,7 @@ main {
 		@include respond-to(mobile) {
 			height: 474px;
 			background: {
-				image: asset-url('billbg_left_m.png'), asset-url('billbg_right_m.png');
+				image: asset_url('billbg_left_m.png'), asset_url('billbg_right_m.png');
 				position: 0 0, 100% 0;
 				size: 129px auto, 108px auto;
 				repeat: no-repeat;
@@ -670,7 +670,7 @@ main {
 				height: 24px;
 				font-size: 0;
 				vertical-align: middle;
-				background: #fff asset-url('play_stop.png') no-repeat 0 -1px;
+				background: #fff asset_url('play_stop.png') no-repeat 0 -1px;
 				border-radius: 50%;
 				//border: 1px solid #000;
 				&.stop {
@@ -1241,7 +1241,7 @@ main {
 							width: 16px;
 							height: 16px;
 							margin-right: 7px;
-							background: asset-url('icon_list.png') no-repeat 0 0;
+							background: asset_url('icon_list.png') no-repeat 0 0;
 							vertical-align: -2px;
 						}
 						&.date {
@@ -1294,7 +1294,7 @@ main {
 			bottom: -15px;
 			width: 318px;
 			height: 343px;
-			background: asset-url('news_bg_m.png') no-repeat 0 0;
+			background: asset_url('news_bg_m.png') no-repeat 0 0;
 			background-size: 100% auto;
 		}
 		.inner {
@@ -1369,7 +1369,7 @@ main {
 			right: 0;
 			width: 1068px;
 			height: 1065px;
-			background: asset-url('news_bg.png') no-repeat 0 0;
+			background: asset_url('news_bg.png') no-repeat 0 0;
 		}
 		.inner {
 			width: 1125px;

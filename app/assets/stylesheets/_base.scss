@@ -273,7 +273,7 @@ select {
 	border: 1px solid #000;
 	color: $color-def;
 	padding: 0 35px 0 16px;
-	background: url('/images/select_arrow.png') no-repeat 100% 15px;
+	background: asset_url('select_arrow.png') no-repeat 100% 15px;
 	background-size: 24px auto;
 	border-radius: 0;
 	-webkit-appearance: none;
