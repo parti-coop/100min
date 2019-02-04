@@ -3,10 +3,10 @@
 	a {
 		position: absolute;
 		left:-3000%;
-	}	
+	}
 	:focus {
 		display: block;
-		left:0; 
+		left:0;
 		top: 0;
 		z-index: 100;
 		width: 100%;
@@ -235,6 +235,8 @@ header {
 					border: 1px solid #d8d8d8;
 					border-radius: 10px;
 					box-sizing: border-box;
+					background-color: white;
+					z-index: 1;
 					a {
 						display: block;
 						border: none;
@@ -446,7 +448,7 @@ footer {
 				position: absolute;
 				right: 0;
 				bottom: 0;
-				
+
 			}
 		}
 	}
