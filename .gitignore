@@ -34,3 +34,5 @@
 .powenv
 /public/uploads/*
 !/public/uploads/.keep
+
+_DS_Store
