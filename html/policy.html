@@ -1,0 +1,100 @@
+<!Doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<title>로그인 : 100년 토론광장</title>
+		<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="/js/jquery.bxslider.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('header > button').click(function() {
+					$('header').addClass('selected');
+				});
+				$('.nav-wrap > button').click(function() {
+					$('header').removeClass('selected');
+				});
+			});
+		</script>
+	</head>
+	<body class="index">
+		<div id="skipNav">
+			<ul>
+				<li><a href="#snContent">본문바로가기</a></li>
+				<li><a href="#snMenu">주메뉴 바로가기</a></li>
+			</ul>
+		</div>
+		<header>
+			<h1><a href="#">100년 토론광장</a></h1>
+			<button type="button"><span>메뉴 열림</span></button>
+			<div class="nav-wrap">
+				<nav id="snMenu">
+					<ul>
+						<li><a href="#">100년 토론광장</a></li>
+						<li><a href="#">그들이 꿈꾼 나라</a></li>
+						<li><a href="#">우리가 만들 세상</a></li>
+						<li><a href="#">시민 참여단</a></li>
+						<li><a href="#">소식과 공지</a></li>
+					</ul>
+				</nav>
+				<div class="join">
+					<a href="#">로그인</a>
+					<a href="#">회원가입</a>
+					<div class="after-login">
+						<button type="button"><span>abcdefgh님</span></button>
+						<div>
+							<a href="#">로그아웃</a>
+							<a href="#">탈퇴</a>
+						</div>
+					</div>
+				</div>
+				<button type="button"><span>메뉴 닫힘</span></button>
+			</div>
+		</header>
+		<hr />
+		<main id="snContent">
+			<div class="sub-wrap">
+				<div class="policy-wrap">
+					<h2>약관 동의</h2>
+					<p>100년토론광장의 이용 약관에 <br />동의해주세요.</p>
+					<div class="service">
+						<p><input type="checkbox" id="service1" checked="checked"><label for="service1">이용약관(필수)</label></p>
+						<div class="info">
+							100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.
+						</div>
+						<p><input type="checkbox" id="service2" checked="checked"><label for="service2">개인정보 수집 및 이용에 대한 안내(필수)</label></p>
+						<div class="info">
+							100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.100년 토론광젱에 오신것을 환영합니다.
+						</div>
+						<p><input type="checkbox" id="service3"><label for="service3">이벤트 등 알림 메일 수신 (선택)</label></p>
+						<p><input type="checkbox" id="service4"><label for="service4">이용약관, 개인정보 수집 및 이용, 이벤트 등 메일 수신에 모두 동의합니다.</label></p>
+					</div>
+					<div class="btn">
+						<a href="#">비동의</a>
+						<a href="#" class="active">동의</a>
+					</div>
+				</div>
+			</div>
+		</main>
+		<hr />
+		<footer>
+			<ul>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">개인정보취급방침</a></li>
+			</ul>
+			<div class=finfo>
+				<div class="logo">100년 토론광장</div>
+				<p>3‧1운동 및 대한민국 임시정부 수립 <br />100주년 기념사업추진위원회</p>
+				<ul>
+					<li>TEL. 02-2100-1449</li>
+					<li>FAX. 02-2100-1446</li>
+					<li><a href="mailto:together100@korea.kr">Mail. together100@korea.kr</a></li>
+				</ul>
+				<div class="sns">
+					<a href="#" class="facebook"><span>페이스북</span></a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

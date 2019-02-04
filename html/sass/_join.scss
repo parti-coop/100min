@@ -1,0 +1,211 @@
+//JOIN
+.join-wrap {
+	> ul {
+		width: 280px;
+		margin: 30px auto 0;
+		li {
+			margin-top: 7px;
+			a {
+				display: block;
+				position: relative;
+				height: 56px;
+				padding-left: 87px;
+				background: #3c5b9b;
+				border-radius: 33px;
+				color: #fff;
+				font-size: 18px;
+				line-height: 54px;
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 15px;
+					left: 45px;
+					width: 30px;
+					height: 23px;
+					margin-right: 13px;
+					background: url('/images/icon_sns.png') no-repeat 0 0;
+					background-size: 100% auto;
+				}
+			}
+			&.twitter {
+				a {
+					background: #1da1f2;
+					&:before {
+						background-position: 0 -23px;
+					}
+				}
+			}
+			&.google {
+				a {
+					background: #ee4822;
+					&:before {
+						background-position: 0 -45px;
+					}
+				}
+			}
+			&.naver {
+				a {
+					background: #00c720;
+					&:before {
+						background-position: 0 -67px;
+					}
+				}
+			}
+			&.kakao {
+				a {
+					background: #fbeb06;
+					color: #3f1312;
+					&:before {
+						background-position: 0 100%;
+					}
+				}
+			}
+		}
+	}
+	.check {
+		padding-top: 30px;
+		text-align: center;
+	}
+	p.desc {
+		margin-top: 40px;
+		font-size: 18px;
+		text-align: center;
+	}
+	.btn {
+		padding-top: 5px;
+		text-align: center;
+		a {
+			font-size: 15px;
+			color: $color-point;
+			&:after {
+				@include arrow($color-point);
+				margin-left: 5px;
+			}
+		}
+	}
+	@include respond-to(pc) {
+		> ul {
+			width: 320px;
+			margin-top: 55px;
+			li {
+				margin-top: 10px;
+				a {
+					height: 66px;
+					font-size: 20px;
+					line-height: 66px;
+					&:before {
+						top: 19px;
+						width: 37px;
+						height: 28px;
+					}
+				}
+				&.twitter {
+					a {
+						&:before {
+							background-position: 0 -28px;
+						}
+					}
+				}
+				&.google {
+					a {
+						&:before {
+							background-position: 0 -56px;
+						}
+					}
+				}
+				&.naver {
+					a {
+						&:before {
+							background-position: 0 -83px;
+						}
+					}
+				}
+			}
+		}
+		p.desc {
+			margin-top: 50px;
+			font-size: 22px;
+		}
+		.btn {
+			a {
+				font-size: 18px;
+			}
+		}
+	}
+}
+.policy-wrap {
+	.service {
+		margin-top: 28px;
+		padding-bottom: 50px;
+		border: {
+			width: 2px 0;
+			color: #868686;
+			style: solid;
+		}
+		> p {
+			margin-top: 30px;
+			label {
+				font-size: 18px;
+			}
+		}
+		.info {
+			height: 250px;
+			margin-top: 13px;
+			padding: 30px;
+			border: 1px solid #cdcdcd;
+			font-size: 14px;
+			line-height: 1.7;
+			overflow: auto;
+		}
+	}
+	.btn {
+		margin-top: 40px;
+		text-align: center;
+		a {
+			display: inline-block;
+			width: 106px;
+			height: 54px;
+			margin: 0 1px;
+			border: 2px solid $color-point;
+			border-radius: 33px;
+			box-sizing: border-box;
+			color: $color-point;
+			font-size: 19px;
+			line-height: 48px;
+			&.active {
+				background: $color-point;
+				color: #fff;
+			}
+		}
+	}
+	@include respond-to(pc) {
+		.service {
+			width: 750px;
+			margin: 50px auto 0;
+			padding: 0 50px 80px;
+			box-sizing: border-box;
+			> p {
+				margin-top: 60px;
+				label {
+					font-size: 24px;
+					line-height: 1.2;
+				}
+			}
+			.info {
+				height: 250px;
+				margin-top: 25px;
+				font-size: 17px;
+			}
+		}
+		.btn {
+			a {
+				width: 146px;
+				height: 64px;
+				margin: 0 3px;
+				font-size: 22px;
+				line-height: 58px;
+			}
+		}
+	}
+}

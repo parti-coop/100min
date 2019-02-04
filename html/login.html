@@ -1,0 +1,98 @@
+<!Doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<title>로그인 : 100년 토론광장</title>
+		<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="/js/jquery.bxslider.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('header > button').click(function() {
+					$('header').addClass('selected');
+				});
+				$('.nav-wrap > button').click(function() {
+					$('header').removeClass('selected');
+				});
+			});
+		</script>
+	</head>
+	<body class="index">
+		<div id="skipNav">
+			<ul>
+				<li><a href="#snContent">본문바로가기</a></li>
+				<li><a href="#snMenu">주메뉴 바로가기</a></li>
+			</ul>
+		</div>
+		<header>
+			<h1><a href="#">100년 토론광장</a></h1>
+			<button type="button"><span>메뉴 열림</span></button>
+			<div class="nav-wrap">
+				<nav id="snMenu">
+					<ul>
+						<li><a href="#">100년 토론광장</a></li>
+						<li><a href="#">그들이 꿈꾼 나라</a></li>
+						<li><a href="#">우리가 만들 세상</a></li>
+						<li><a href="#">시민 참여단</a></li>
+						<li><a href="#">소식과 공지</a></li>
+					</ul>
+				</nav>
+				<div class="join">
+					<a href="#">로그인</a>
+					<a href="#">회원가입</a>
+					<div class="after-login">
+						<button type="button"><span>abcdefgh님</span></button>
+						<div>
+							<a href="#">로그아웃</a>
+							<a href="#">탈퇴</a>
+						</div>
+					</div>
+				</div>
+				<button type="button"><span>메뉴 닫힘</span></button>
+			</div>
+		</header>
+		<hr />
+		<main id="snContent">
+			<div class="sub-wrap">
+				<div class="join-wrap">
+					<h2>로그인</h2>
+					<p>회원가입시 선택한 소셜계정으로 <br />로그인해 주세요</p>
+					<ul>
+						<li class="facebook"><a href="#">페이스북으로 로그인</a></li>
+						<li class="twitter"><a href="#">트위터로 로그인</a></li>
+						<li class="google"><a href="#">구글플러스로 로그인</a></li>
+						<li class="naver"><a href="#">네이버로 로그인</a></li>
+						<li class="kakao"><a href="#">카카오로 로그인</a></li>
+					</ul>
+					<div class="check">
+						<input type="checkbox" id="login" /><label for="login">로그인 상태 유지</label>
+					</div>
+					<p class="desc">아직 회원이 아니신가요?</p>
+					<div class="btn">
+						<a href="#">회원가입</a>
+					</div>
+				</div>
+			</div>
+		</main>
+		<hr />
+		<footer>
+			<ul>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">개인정보취급방침</a></li>
+			</ul>
+			<div class=finfo>
+				<div class="logo">100년 토론광장</div>
+				<p>3‧1운동 및 대한민국 임시정부 수립 <br />100주년 기념사업추진위원회</p>
+				<ul>
+					<li>TEL. 02-2100-1449</li>
+					<li>FAX. 02-2100-1446</li>
+					<li><a href="mailto:together100@korea.kr">Mail. together100@korea.kr</a></li>
+				</ul>
+				<div class="sns">
+					<a href="#" class="facebook"><span>페이스북</span></a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
