@@ -43,22 +43,34 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def run_omniauth
-    parsed_data = User.parse_omniauth(request.env["omniauth.auth"])
-    remember_me = request.env["omniauth.params"].try(:fetch, "remember_me", false)
-    parsed_data[:remember_me] = remember_me
+    parsed_data = User.parse_omniauth(request.env["omniauth.auth"], request.env["omniauth.params"])
 
     @user = User.find_or_initialize_for_omniauth(parsed_data)
     if @user.new_record?
+      param_refer_from = request.env["omniauth.params"].try(:fetch, "refer_from", '')
+      if param_refer_from == 'sign_in'
+        flash[:notice] = '아직 회원으로 가입하지 않으셨네요. 회원가입을 진행하기 위해 약관에 동의하세요.'
+        redirect_to new_user_registration_path
+        return
+      end
       if @user.save
         set_flash_message(:notice, :success, kind: @user.provider) if is_navigational_format?
+        sign_in_and_redirect @user, :event => :authentication
+        return
       else
-        set_flash_message(:notice, :failure, kind: @user.provider, reason: @user.errors.full_messages.to_sentence) if is_navigational_format?
-        redirect_to root_path and return
+        if @user.errors.keys.include?(:confirmation)
+          flash[:notice] = '회원가입을 진행하기 전에 약관에 동의하세요.'
+          redirect_to new_user_registration_path
+        else
+          set_flash_message(:notice, :failure, kind: @user.provider, reason: @user.errors.full_messages.to_sentence)
+          redirect_to root_path
+        end
+        return
       end
     else
-      @user.remember_me = remember_me
-      set_flash_message(:notice, :success, kind: @user.provider) if is_navigational_format?
+      set_flash_message(:notice, :success, kind: @user.provider)
+      sign_in_and_redirect @user, :event => :authentication
+      return
     end
-    sign_in_and_redirect @user, :event => :authentication
   end
 end

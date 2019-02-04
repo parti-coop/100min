@@ -4,15 +4,15 @@
     %p 로그인할 소셜계정을 선택해 주시기 바랍니다
     %ul
       %li.facebook
-        = link_to '페이스북으로 로그인', user_facebook_omniauth_authorize_path
+        = link_to '페이스북으로 로그인', user_facebook_omniauth_authorize_path(refer_from: 'sign_in')
       %li.twitter
-        = link_to '트위터로 로그인', user_twitter_omniauth_authorize_path
+        = link_to '트위터로 로그인', user_twitter_omniauth_authorize_path(refer_from: 'sign_in')
       %li.google
-        = link_to '구글로 로그인', user_google_oauth2_omniauth_authorize_path
+        = link_to '구글로 로그인', user_google_oauth2_omniauth_authorize_path(refer_from: 'sign_in')
       %li.naver
-        = link_to '네이버로 로그인', user_naver_omniauth_authorize_path
+        = link_to '네이버로 로그인', user_naver_omniauth_authorize_path(refer_from: 'sign_in')
       %li.kakao
-        = link_to '카카오로 로그인', user_kakao_omniauth_authorize_path
+        = link_to '카카오로 로그인', user_kakao_omniauth_authorize_path(refer_from: 'sign_in')
     %p.desc 처음이신가요?
     .btn
       %a{href: new_user_registration_path} 회원가입

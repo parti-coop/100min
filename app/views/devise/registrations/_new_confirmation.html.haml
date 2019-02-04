@@ -1,0 +1,29 @@
+.sub-wrap
+  .policy-wrap
+    %h2 약관 동의
+    %p
+      100년토론광장의 이용 약관에
+      = succeed "동의해주세요." do
+        %br/
+    = form_tag new_user_registration_path, method: :get, id: 'new-terms-form', class: 'js-form-validation', 'data-form-validation-submit-control': '#new-terms-form .js-confirm-btn' do
+      = hidden_field_tag :confirmation, "y"
+      .service
+        %p
+          %input#all_confirmation.js-user-confirm-check-all{type: "checkbox"}/
+          %label{for: "all_confirmation"} 이용약관, 개인정보 수집 및 이용, 이벤트 등 메일 수신에 모두 동의합니다.
+        %p
+          %input#confirmation_terms.js-user-confirm-check-all-target{name: "confirmation_terms", checked: "checked", type: "checkbox", value: "y", "data-rule-required": "true"}/
+          %label{for: "confirmation_terms"} 이용약관(필수)
+        .info
+          100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.
+        %p
+          %input#confirmation_privacy.js-user-confirm-check-all-target{name: "confirmation_privacy", checked: "checked", type: "checkbox", value: "y", "data-rule-required": "true"}/
+          %label{for: "confirmation_privacy"} 개인정보 수집 및 이용에 대한 안내(필수)
+        .info
+          100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.100년 토론광장에 오신것을 환영합니다.
+        %p
+          %input#confirmation_mailing.js-user-confirm-check-all-target{name: "confirmation_mailing", type: "checkbox", value: "y"}/
+          %label{for: "confirmation_mailing"} 이벤트 등 알림 메일 수신 (선택)
+      .btn.js-user-confirm-check-all-scroll-to
+        %a{href: root_path} 비동의
+        %button.active.js-confirm-btn 동의

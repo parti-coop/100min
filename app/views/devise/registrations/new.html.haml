@@ -1,18 +1,4 @@
-.sub-wrap
-  .join-wrap
-    %h2 회원가입
-    %p 회원가입을 진행하시려면 아래의 소셜계정을 선택해 주시기 바랍니다
-    %ul
-      %li.facebook
-        = link_to '페이스북으로 가입하기', user_facebook_omniauth_authorize_path
-      %li.twitter
-        = link_to '트위터로 가입하기', user_twitter_omniauth_authorize_path
-      %li.google
-        = link_to '구글로 가입하기', user_google_oauth2_omniauth_authorize_path
-      %li.naver
-        = link_to '네이버로 가입하기', user_naver_omniauth_authorize_path
-      %li.kakao
-        = link_to '카카오로 가입하기', user_kakao_omniauth_authorize_path
-    %p.desc 이미 가입하셨나요?
-    .btn
-      %a{href: new_user_session_path} 로그인
+- if params[:confirmation] == 'y'
+  = render 'devise/registrations/new_choice'
+- else
+  = render 'devise/registrations/new_confirmation'

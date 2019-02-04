@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates_presence_of     :password, if: :password_required?
   validates_confirmation_of :password, if: :password_required?
   validates_length_of       :password, within: Devise.password_length, allow_blank: true
+  validate :valid_confirmation, on: :create
 
   mount_uploader :profile_image, DefaultImageUploader
 
@@ -15,12 +16,23 @@ class User < ApplicationRecord
     where(provider: provider, uid: uid).first
   end
 
-  def self.parse_omniauth(data)
-    { provider: data['provider'],
+  def self.parse_omniauth(data, params)
+    result = { provider: data['provider'],
       uid: data['uid'],
       email: data['info']['email'],
       image: data['info']['image'],
       name: data['info']['name'] || data['info']['nickname'] }
+
+    remember_me = params.try(:fetch, "remember_me", false)
+    result[:remember_me] = remember_me
+
+    if params.try(:any?)
+      %w(confirmation_mailing confirmation_privacy confirmation_terms).each do |confirmation_param|
+        result[confirmation_param.to_sym] = (params.try(:fetch, confirmation_param, false) == 'y')
+      end
+    end
+
+    result
   end
 
   def self.find_or_initialize_for_omniauth(parsed_data)
@@ -29,6 +41,9 @@ class User < ApplicationRecord
       user.name = parsed_data[:name] || user.email
       user.password = Devise.friendly_token[0,20]
       user.remote_profile_image_url = parsed_data[:image]
+      user.confirmation_mailing = parsed_data[:confirmation_mailing]
+      user.confirmation_privacy = parsed_data[:confirmation_privacy]
+      user.confirmation_terms = parsed_data[:confirmation_terms]
     end
     user.remember_me = parsed_data[:remember_me]
     user
@@ -42,5 +57,11 @@ class User < ApplicationRecord
 
   def password_required?
     !persisted? || !password.nil? || !password_confirmation.nil?
+  end
+
+  def valid_confirmation
+    if confirmation_terms != true or confirmation_privacy != true
+      errors.add(:confirmation, I18n.t('errors.messages.users.need_to_confirm'))
+    end
   end
 end

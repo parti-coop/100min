@@ -73,8 +73,8 @@ ko:
         subject: 잠금 해제 안내
     omniauth_callbacks:
       user:
-        failure: "%{reason}(으)로 인하여 %{kind}(으)로부터 인증받지 못했습니다."
-        success: "%{kind} 계정으로부터 인증되었습니다."
+        failure: "로그인에 실패했습니다. 잠시 후에 다시 시도해주세요. (%{reason})"
+        success: "로그인했습니다."
     passwords:
       edit:
         change_my_password: 내 비밀번호를 변경합니다

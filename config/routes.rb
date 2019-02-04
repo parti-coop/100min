@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   delete :cancel_current_user, to: 'users#cancel'
+  delete :confirm_user, to: 'users#confirm'
 end
