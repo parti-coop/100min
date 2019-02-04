@@ -22,8 +22,8 @@ gem 'devise', '~> 4.5'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2', '~> 0.6.0'
-gem 'omniauth-kakao', :git => 'git://github.com/johnnyshields/omniauth-kakao'
-gem 'omniauth-naver'
+gem 'omniauth-kakao', git: 'git://github.com/johnnyshields/omniauth-kakao'
+gem 'omniauth-naver', git: 'git://github.com/parti-coop/omniauth-naver'
 gem 'omniauth-twitter'
 
 # file

@@ -6,6 +6,13 @@ GIT
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.5.0)
 
+GIT
+  remote: git://github.com/parti-coop/omniauth-naver
+  revision: 7a9a131c210e64eb36cd1e6c357ec1639d886b24
+  specs:
+    omniauth-naver (0.2.0)
+      omniauth-oauth2 (~> 1.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -169,8 +176,6 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.5)
-    omniauth-naver (0.2.0)
-      omniauth-oauth2 (~> 1.2)
     omniauth-oauth (1.1.0)
       oauth
       omniauth (~> 1.0)
@@ -302,7 +307,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2 (~> 0.6.0)
   omniauth-kakao!
-  omniauth-naver
+  omniauth-naver!
   omniauth-twitter
   puma (~> 3.11)
   rails (~> 5.2.2)
