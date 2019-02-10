@@ -3,10 +3,10 @@
 	a {
 		position: absolute;
 		left:-3000%;
-	}
+	}	
 	:focus {
 		display: block;
-		left:0;
+		left:0; 
 		top: 0;
 		z-index: 100;
 		width: 100%;
@@ -235,8 +235,6 @@ header {
 					border: 1px solid #d8d8d8;
 					border-radius: 10px;
 					box-sizing: border-box;
-					background-color: white;
-					z-index: 1;
 					a {
 						display: block;
 						border: none;
@@ -448,7 +446,7 @@ footer {
 				position: absolute;
 				right: 0;
 				bottom: 0;
-
+				
 			}
 		}
 	}
@@ -476,6 +474,7 @@ main {
 		}
 	}
 	@include respond-to(pc) {
+		min-width: 1200px;
 		.sub-wrap {
 			h2 {
 				font-size: 55px;
@@ -486,6 +485,186 @@ main {
 					display: none;
 				}
 			}
+		}
+	}
+}
+//common 
+.info {
+	position: relative;
+	padding-top: 5px;
+	text-align: right;
+	span {
+		position: relative;
+		padding-left: 23px;
+		color: #666;
+		font-size: 16px;
+		i {
+			@include hiddenText;
+			display: block;
+			position: absolute;
+			top: 5px;
+			left: 0;
+			width: 16px;
+			height: 16px;
+			margin-right: 7px;
+			background: url('/images/icon_list.png') no-repeat 0 0;
+		}
+		&.date {
+			position: absolute;
+			left: 0;
+		}
+		&.like {
+			padding-right: 13px;
+			i {
+				background-position: -25px 0;
+			}
+		}
+		&.writer {
+			i {
+				background-position: -77px 0;
+			}
+		}
+		&.view {
+			i {
+				top: 3px;
+				height: 19px;
+				background-position: -103px 0;
+			}
+		}
+		&.comment {
+			padding-left: 35px;
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 5px;
+				left: 0;
+				width: 1px;
+				height: 16px;
+				background: #dfdfdf;
+			}
+			i {
+				margin-left: 13px;
+				background-position: -51px 0;
+			}
+		}
+	}
+	@include respond-to(mobile) {
+		padding-top: 15px;
+		text-align: left;
+		span {
+			&.date {
+				display: block;
+				position: relative;
+				padding-bottom: 3px;
+			}
+		}
+	}
+}
+.paging {
+	padding-top: 50px;
+	text-align: center;
+	a, strong {
+		display: inline-block;
+		width: 46px;
+		height: 46px;
+		margin: 0 2px;
+		font-size: 20px;
+		border: 1px solid #bcbcbc;
+		border-radius: 50%;
+		box-sizing: border-box;
+		line-height: 44px;
+		vertical-align: middle;
+	}
+	> a {
+		position: relative;
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 15px;
+			width: 11px;
+			height: 11px;
+			border: {
+				width: 2px 0 0 2px;
+				style: solid;
+				color: #a6a6a6;
+			}
+			transform: rotate(-45deg);
+		}
+		&.prev {
+			&:before {
+				left: 17px;
+			}
+		}
+		&.next {
+			&:before {
+				right: 17px;
+				transform: rotate(135deg);
+			}
+		}
+	}
+	> span {
+		padding: 0 12px;
+		strong,
+		a:hover {
+			color: #fff;
+			background: #006ebc;
+			border: 0;
+		}
+	}
+	@include respond-to(pc) {
+		> a {
+			@include hiddenText;
+		}
+	}
+	@include respond-to(mobile) {
+		padding-top: 40px;
+		> a {
+			width: 83px;
+			margin: 0 3px;
+			font-size: 15px;
+			border-radius: 23px;
+			&.prev {
+				padding-left: 33px;
+				text-align: left;
+			}
+			&.next {
+				padding-right: 33px;
+				text-align: right;
+			}
+		}
+		> span {
+			display: none;
+		}
+	}
+}
+.def-btn {
+	margin-top: 40px;
+	text-align: center;
+	a {
+		display: inline-block;
+		width: 106px;
+		height: 54px;
+		margin: 0 1px;
+		border: 2px solid $color-point;
+		border-radius: 33px;
+		box-sizing: border-box;
+		color: $color-point;
+		font-size: 19px;
+		line-height: 48px;
+		&.active {
+			background: $color-point;
+			color: #fff;
+		}
+	}
+	@include respond-to(pc) {
+		a {
+			width: 146px;
+			height: 64px;
+			margin: 0 3px;
+			font-size: 22px;
+			line-height: 58px;
 		}
 	}
 }
