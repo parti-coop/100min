@@ -36,7 +36,7 @@
             %li
               %a{href: "#"} 시민 참여단
             %li
-              %a{href: "#"} 소식과 공지
+              %a{href: stories_path} 소식과 공지
         .join
           - unless user_signed_in?
             %a{href: new_user_session_path} 로그인
