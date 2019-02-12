@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_194019) do
+ActiveRecord::Schema.define(version: 2019_02_11_235046) do
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body"
+    t.string "image"
+    t.integer "reads_count", default: 0
+    t.integer "likes_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "comments_count", default: 0
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: ""
@@ -25,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_02_04_194019) do
     t.boolean "confirmation_terms", default: false
     t.boolean "confirmation_privacy", default: false
     t.boolean "confirmation_mailing", default: false
+    t.boolean "admin", default: false
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 

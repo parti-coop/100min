@@ -644,7 +644,7 @@ main {
 .def-btn {
 	margin-top: 40px;
 	text-align: center;
-	a {
+	a, input[type='submit'], button {
 		display: inline-block;
 		width: 106px;
 		height: 54px;
@@ -661,7 +661,7 @@ main {
 		}
 	}
 	@include respond-to(pc) {
-		a {
+		a, input[type='submit'], button {
 			width: 146px;
 			height: 64px;
 			margin: 0 3px;

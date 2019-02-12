@@ -88,4 +88,5 @@
           %a{href: "#"} 5
         %a.next{href: "#"}
           %span 다음
-      %a.btn-write{href: new_notice_path} 글쓰기
+      - if can? Notice, :new
+        %a.btn-write{href: new_notice_path} 글쓰기

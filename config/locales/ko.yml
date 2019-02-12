@@ -1,1 +1,9 @@
 ko:
+  errors:
+    messages:
+      blank: ": 반드시 입력해야 합니다."
+  activerecord:
+    attributes:
+      story:
+        title: 제목
+        body: 내용

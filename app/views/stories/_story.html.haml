@@ -1,0 +1,20 @@
+%li
+  = link_to story do
+    - if story.image?
+      .img{ style: "background-image: url(#{story.image.lg.url});" }
+    - else
+      .img
+        %img.no-img{alt: "", src: asset_url("no-img.png")}/
+    %p= story.title
+    .info
+      %span.date
+        %i> 날짜
+        = static_day_f(story.created_at)
+      - if story.likes_count > 0
+        %span.like
+          %i> 좋아요
+          = story.likes_count
+      - if story.comments_count > 0
+        %span.comment
+          %i> 댓글
+          = story.comments_count

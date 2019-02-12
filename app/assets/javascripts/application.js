@@ -9,6 +9,7 @@
 //= require jquery.validate.additional-methods
 //= require jquery.validate.messages_ko
 //= require tippy
+//= require tinymce-jquery
 
 UnobtrusiveFlash.flashOptions['timeout'] = 200000;
 

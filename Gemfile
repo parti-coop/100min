@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 
 # model
 gem 'auto_strip_attributes', '~> 2.5'
+gem 'kaminari'
 
 # auth
 gem 'devise', '~> 4.5'
@@ -25,6 +26,7 @@ gem 'omniauth-google-oauth2', '~> 0.6.0'
 gem 'omniauth-kakao', git: 'git://github.com/johnnyshields/omniauth-kakao'
 gem 'omniauth-naver', git: 'git://github.com/parti-coop/omniauth-naver'
 gem 'omniauth-twitter'
+gem 'pundit'
 
 # file
 gem 'carrierwave'
@@ -35,6 +37,7 @@ gem 'file_validators'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'haml-rails', '~> 1.0'
 gem 'unobtrusive_flash'
+gem 'tinymce-rails', '~> 4.9', '>= 4.9.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
