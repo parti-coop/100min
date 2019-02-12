@@ -1,17 +1,17 @@
 class StoryPolicy < ApplicationPolicy
   def new?
-    user.admin? or true
+    admin_only
   end
 
   def create?
-    user.admin? or true
+    admin_only
   end
 
   def update?
-    user.admin? or true
+    admin_only
   end
 
   def destroy?
-    user.admin? or true
+    admin_only
   end
 end
