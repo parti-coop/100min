@@ -17,16 +17,23 @@ $(function(){
   $('.js-slides-container').bxSlider({
     speed: 300,
     auto: true,
-      autoStart: false,
-      autoControls: true,
-      startText: '재생',
-      stopText: '정지',
-      stopAutoOnClick: true,
-      pager: true
+    autoStart: false,
+    autoControls: true,
+    startText: '재생',
+    stopText: '정지',
+    stopAutoOnClick: true,
+    pager: true
   });
 
-  $('.js-selectable-btn').click(function(e) {
-    $(e.currentTarget).addClass('selected');
+  $('.js-menu-open').click(function(e) {
+    var $header = $(e.currentTarget).closest('.js-menu-open-header');
+    $header.addClass('selected');
+    $header.find('.js-menu-open-visible').show();
+  });
+  $('.js-menu-close').click(function(e) {
+    var $header = $(e.currentTarget).closest('.js-menu-open-header');
+    $header.removeClass('selected');
+    $header.find('.js-menu-open-visible').hide();
   });
 
   $('.js-dropdown-btn').click(function(e) {
