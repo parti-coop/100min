@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   delete :cancel_current_user, to: 'users#cancel'
   delete :confirm_user, to: 'users#confirm'
 
+  delete :likes, to: 'likes#destroy_by_current_user'
+  resources :likes do
+  end
   resources :stories
   resources :notices
 

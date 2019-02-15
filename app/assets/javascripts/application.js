@@ -8,8 +8,9 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.validate.messages_ko
-//= require tippy
+//= require tooltipster.bundle
 //= require tinymce-jquery
+//= require clipboard
 
 UnobtrusiveFlash.flashOptions['timeout'] = 200000;
 
@@ -79,9 +80,8 @@ $(function(){
             if($popover_target.length <= 0) {
               $popover_target = $(element);
             }
-            if($popover_target._tippy) {
-              $popover_target._tippy.hide();
-              $popover_target._tippy.destroy();
+            if($popover_target.hasClass('tooltipstered')) {
+              $popover_target.tooltipster('destroy');
             }
           });
 
@@ -100,18 +100,11 @@ $(function(){
               $popover_target = $(value.element);
             }
 
-            if($popover_target[0]._tippy) {
-              var tippy_instance = $popover_target[0]._tippy;
+            if($popover_target.hasClass('tooltipstered')) {
             } else {
-              var tippy_instance = tippy.one($popover_target[0], {
-                arrow: true
-              });
+              $popover_target.tooltipster({})
             }
-
-            if(tippy_instance) {
-              tippy_instance.setContent(value.message);
-              tippy_instance.show();
-            }
+            $popover_target.tooltipster('content', value.message).tooltipster('open');
           });
         }
       },
@@ -146,6 +139,24 @@ $(function(){
 
     $form.on('parti-need-to-validate', function(e) {
       form_callback();
+    });
+  });
+
+  //clipboard
+  $('.js-clipboard').each(function() {
+    var clipboard = new Clipboard(this);
+
+    var self = this;
+    clipboard.on('success', function(e) {
+      $(self)
+        .tooltipster({})
+        .tooltipster('content', '복사되었습니다')
+        .tooltipster('open')
+        .tooltipster('instance').on('off', function(e) {
+          if($(e.currentTarget).tooltipster('instance')) {
+            $(e.currentTarget).tooltipster('destroy');
+          }
+        });
     });
   });
 });
