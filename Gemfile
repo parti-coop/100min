@@ -38,6 +38,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'haml-rails', '~> 1.0'
 gem 'unobtrusive_flash'
 gem 'tinymce-rails', '~> 4.9', '>= 4.9.3'
+gem 'tinymce-rails-imageupload', '~> 4.0.17.beta.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

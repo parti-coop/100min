@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   resources :stories
   resources :notices
+
+  post '/tinymce_assets', to: 'tinymce_assets#create'
 end

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_235046) do
+ActiveRecord::Schema.define(version: 2019_02_15_025553) do
+
+  create_table "images", force: :cascade do |t|
+    t.string "alt"
+    t.string "hint"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "stories", force: :cascade do |t|
     t.string "title", null: false

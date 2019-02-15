@@ -76,5 +76,17 @@
             %span 페이스북
 
     = javascript_include_tag 'application'
-    = tinymce selector: 'textarea.tinymce-default'
+    = tinymce selector: 'textarea.--tinymce-dummy'
+    :javascript
+      $(function(){
+        $('textarea.js-tinymce').each(function() {
+          var $elm = $(this);
+
+          var params =  {
+            target: this
+          }
+          TinyMCERails.initialize('default', params);
+        });
+      });
+
     = yield :script if content_for?(:script)

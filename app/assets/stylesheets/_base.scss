@@ -227,7 +227,7 @@ input[type='radio'] + label {
 		}
 	}
 }
-input[type="file"] {
+input.input-decorated[type="file"] {
 	position: absolute;
 	width: 1px;
 	height: 1px;

@@ -8,6 +8,7 @@ class StoriesController < ApplicationController
   end
 
   def new
+    authorize
   end
 
   def create
@@ -15,11 +16,43 @@ class StoriesController < ApplicationController
     authorize @story
 
     if @story.save
-      redirect_to stories_path
+      redirect_to @story
     else
+      errors_to_flash(@story)
       render :new
     end
-    errors_to_flash(@story)
+  end
+
+  def edit
+    @story = Story.find(params[:id])
+    authorize @story
+  end
+
+  def update
+    @story = Story.find(params[:id])
+    authorize @story
+
+    @story.assign_attributes(story_params)
+    if @story.save
+      flash[:success] = '저장되었습니다'
+      redirect_to @story
+    else
+      errors_to_flash(@story)
+      render :new
+    end
+  end
+
+  def destroy
+    @story = Story.find(params[:id])
+    authorize @story
+
+    if @story.destroy
+      flash[:success] = '삭제되었습니다'
+      redirect_to stories_path
+    else
+      errors_to_flash(@story)
+      render :new
+    end
   end
 
   private

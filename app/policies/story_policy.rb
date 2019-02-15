@@ -7,6 +7,14 @@ class StoryPolicy < ApplicationPolicy
     admin_only
   end
 
+  def edit?
+    admin_only
+  end
+
+  def update?
+    admin_only
+  end
+
   def update?
     admin_only
   end
