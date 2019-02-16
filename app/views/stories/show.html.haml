@@ -36,19 +36,7 @@
           .img-wrap
             = image_tag @story.image.url
       .sns-wrap
-
-        - like_btn_label = '공감해요'
-        - if @story.likes_count > 0
-          - like_btn_label = @story.likes_count
-
-        - like_btn_path = likes_path(likable_type: 'Story', likable_id: @story.id)
-        - if user_signed_in?
-          - if @story.like?(current_user)
-            = link_to like_btn_label, like_btn_path, method: :delete, class: 'like active'
-          - else
-            = link_to like_btn_label, like_btn_path, method: :post, class: 'like'
-        - else
-          = link_to like_btn_label, new_user_session_path, class: 'like'
+        = render 'likes/button', likable: @story
 
         %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{polymorphic_url(@story)}", target: '_blank', title: '공유하기'} 공유하기
         .btn.copy-url.cursor-pointer.js-clipboard{'data-clipboard-text': polymorphic_url(@story)} 주소복사

@@ -1,0 +1,16 @@
+- like_btn_label = '공감해요'
+- if likable.likes_count > 0
+  - like_btn_label = likable.likes_count
+
+- button_dom_id = "rnd-#{SecureRandom.uuid}"
+- like_btn_path = likes_path(likable_type: likable.class.to_s, likable_id: likable.id, dom_id: button_dom_id)
+
+%span{ id: button_dom_id }
+  - if user_signed_in?
+    - if likable.like?(current_user)
+      = link_to like_btn_label, like_btn_path, method: :delete, remote: true, class: 'like active'
+    - else
+      = link_to like_btn_label, like_btn_path, method: :post, remote: true, class: 'like'
+  - else
+    = link_to like_btn_label, new_user_session_path, class: 'like'
+
