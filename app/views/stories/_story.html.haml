@@ -10,11 +10,9 @@
       %span.date
         %i> 날짜
         = static_day_f(story.created_at)
-      - if story.likes_count > 0
-        %span.like
-          %i> 좋아요
-          = story.likes_count
-      - if story.comments_count > 0
-        %span.comment
-          %i> 댓글
-          = story.comments_count
+      %span.like
+        %i> 좋아요
+        = story.likes_count
+      %span.comment
+        %i> 댓글
+        = story.comments_count

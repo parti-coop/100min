@@ -8,7 +8,7 @@ class StoriesController < ApplicationController
   end
 
   def new
-    authorize
+    authorize Story.new
   end
 
   def create

@@ -32,8 +32,9 @@
           = @story.reads_count
       .cnts
         %p!= @story.body
-        .img-wrap
-          %img{alt: "", src: "/images/@thumb_news.jpg"}/
+        - if @story.image?
+          .img-wrap
+            = image_tag @story.image.url
       .sns-wrap
 
         - like_btn_label = '공감해요'

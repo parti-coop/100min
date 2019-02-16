@@ -159,4 +159,20 @@ $(function(){
         });
     });
   });
+
+  $('.js-upload-file-title').each(function() {
+    var $name_input = $(this);
+    var $form = $name_input.closest('form');
+    var target_name = $name_input.data('upload-file-titie-target-name');
+    var $file_input = $form.find('input[type="file"][name="' + target_name + '"]');
+
+    $file_input.on('change', function(e) {
+      var file_name = e.currentTarget.files[0].name;
+      $name_input.val(file_name);
+    });
+
+    $name_input.on('click', function(e) {
+      $file_input.trigger('click');
+    });
+  });
 });
