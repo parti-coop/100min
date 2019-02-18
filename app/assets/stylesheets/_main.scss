@@ -42,7 +42,7 @@
 					top: -17px;
 					width: 34px;
 					height: 26px;
-					background: asset_url('quot.png') no-repeat 0 0;
+					background: url('/images/quot.png') no-repeat 0 0;
 				}
 				&:before {
 					left: -45px;
@@ -92,8 +92,9 @@
 				}
 			}
 		}
-		@include respond-to(pc) {
-			background: asset_url('billimg.png') no-repeat 50% 0;
+		@include respond-to(mPc) {
+			background: url('/images/billimg.png') no-repeat 50% 0;
+			background-size: cover;
 			.cnts {
 				> p {
 					br {
@@ -104,20 +105,66 @@
 		}
 		@include respond-to(wide) {
 			background: {
-				image: asset_url('billbg_left.png'), asset_url('billbg_right.png');
+				image: url('/images/billbg_left.png'), url('/images/billbg_right.png');
 				position: 0 0, 100% 32px;
 				repeat: no-repeat;
 			}
 		}
-		@include respond-to(mobile) {
+		@include respond-to(tablet) {
 			height: 474px;
 			background: {
-				image: asset_url('billbg_left_m.png'), asset_url('billbg_right_m.png');
+				image: url('/images/billbg_left_t.png'), url('/images/billbg_right_t.png');
 				position: 0 0, 100% 0;
-				size: 129px auto, 108px auto;
 				repeat: no-repeat;
 			}
 			.cnts {
+				> strong {
+					img {
+						height: 130px;
+					}
+				}
+				> p {
+					font-size: 20px;
+					line-height: 1.3;
+					&:before,
+					&:after {
+						top: -5px;
+						width: 18px;
+						height: 14px;
+						background-size: 100% auto;
+					}
+					&:before {
+						left: -30px;
+					}
+					&:after {
+						right: -20px;
+					}
+				}
+				> div {
+					padding-top: 25px;
+					font-size: 14px;
+					span {
+						width: 17px;
+						height: 19px;
+						margin-right: 7px;
+						background-size: 100% auto;
+						vertical-align: -4px;
+					}
+				}
+				> a {
+					height: 45px;
+					margin-top: 25px;
+					font-size: 16px;
+					line-height: 40px;
+				}
+			}
+		}
+		@include respond-to(mMobile) {
+			background: {
+				image: url('/images/billbg_left_m.png'), url('/images/billbg_right_m.png');
+				size: 129px auto, 108px auto;
+			}
+			/* .cnts {
 				> strong {
 					img {
 						width: 274px;
@@ -157,7 +204,7 @@
 					font-size: 16px;
 					line-height: 40px;
 				}
-			}
+			} */
 		}
 	}
 	.controller {
@@ -184,7 +231,7 @@
 					width: 38px;
 					background-color: $color-point;
 				}
-				@include respond-to(mobile) {
+				@include respond-to(mMobile) {
 					width: 14px;
 					height: 14px;
 				}
@@ -207,7 +254,7 @@
 				height: 24px;
 				font-size: 0;
 				vertical-align: middle;
-				background: #fff asset_url('play_stop.png') no-repeat 0 -1px;
+				background: #fff url('/images/play_stop.png') no-repeat 0 -1px;
 				border-radius: 50%;
 				//border: 1px solid #000;
 				&.stop {
@@ -223,7 +270,7 @@
 				}
 			}
 		}
-		@include respond-to(mobile) {
+		@include respond-to(tablet) {
 			bottom: 44px;
 		}
 	}
@@ -310,6 +357,7 @@
 				@include arrowBtn;
 			}
 			> p {
+				color: #666;
 				&:before {
 					@include bult(4px, 4px, #ababab);
 					margin-right: 10px;
@@ -318,59 +366,9 @@
 			}
 		}
 	}
-	@include respond-to(mobile) {
-		padding: 35px 20px 20px;
-		h1 {
-			font-size: 30px;
-			line-height: 1.2;
-		}
-		> div {
-			h2 {
-				font-size: 22px;
-				&:after,
-				&:before {
-					width: 64px;
-				}
-			}
-			ul {
-				li {
-					font-size: 16px;
-					> a {
-						margin: {
-							top: 5px;
-							left: 0;
-						}
-					}
-				}
-			}
-		}
-		> ul {
-			margin-top: 20px;
-			li {
-				padding: 17px 0 15px;
-				border-top: 2px solid #afc2d4;
-				strong {
-					padding-bottom: 6px;
-					font-size: 20px;
-				}
-				> span {
-					display: none;
-				}
-				> p {
-					margin-top: 1px;
-					&:before {
-						margin-right: 6px;
-					}
-				}
-				> a {
-					margin-top: 15px;
-				}
-			}
-		}
-	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		z-index: 5;
-		width: 1340px;
+		max-width: 1340px;
 		margin: -123px auto 0;
 		padding: 74px 0 67px;
 		border-radius: 5px;
@@ -393,7 +391,8 @@
 		}
 		> ul {
 			@include clearfix;
-			margin: 50px 70px 0;
+			width: 1200px;
+			margin: 50px auto 0;
 			li {
 				float: left;
 				width: 239px;
@@ -423,6 +422,117 @@
 				}
 				&:first-child {
 					border: none;
+				}
+			}
+		}
+	}
+	@include respond-to(tablet) {
+		padding: 50px 49px 58px;
+		h1 {
+			font-size: 30px;
+		}
+		> div {
+			h2 {
+				margin-top: 20px;
+				font-size: 22px;
+				&:before,
+				&:after {
+					width: 230px;
+				}
+			}
+			ul {
+				width: 470px;
+				margin: 0 auto;
+				li {
+					font-size: 16px;
+				}
+			}
+		}
+		> ul {
+			@include clearfix;
+			overflow: hidden;
+			width: 915px;
+			margin: 35px auto 0;
+			background: none;
+			border-radius: 10px;
+			li {
+				float: left;
+				width: 182px;
+				margin-left: 1px;
+				padding: 35px 0;
+				background: #fff;
+				> strong {
+					padding-bottom: 10px;
+					font-size: 20px;
+				}
+				> span {
+					display: none;
+				}
+				> a {
+					height: 39px;
+					margin-top: 35px;
+					font-size: 15px;
+					line-height: 39px;
+					&:after {
+						width: 10px;
+						height: 10px;
+					}
+				}
+			}
+		}
+	}
+	@include respond-to(mMobile) {
+		padding: 35px 20px 20px;
+		h1 {
+			line-height: 1.2;
+		}
+		> div {
+			h2 {
+				font-size: 22px;
+				&:after,
+				&:before {
+					width: 64px;
+				}
+			}
+			ul {
+				width: auto;
+				li {
+					font-size: 16px;
+					> a {
+						margin: {
+							top: 5px;
+							left: 0;
+						}
+					}
+				}
+			}
+		}
+		> ul {
+			width: auto;
+			margin-top: 20px;
+			li {
+				float: none;
+				width: auto;
+				padding: 17px 0 15px;
+				border-top: 2px solid #afc2d4;
+				strong {
+					padding-bottom: 6px;
+					font-size: 20px;
+				}
+				> span {
+					display: none;
+				}
+				> p {
+					margin-top: 1px;
+					&:before {
+						margin-right: 6px;
+					}
+				}
+				> a {
+					margin-top: 15px;
+				}
+				&:first-child {
+					border-top: none;
 				}
 			}
 		}
@@ -470,19 +580,6 @@
 				background-size: 100% 100%;
 				opacity: 0.4;
 				transform: rotate(180deg);
-			}
-			.cate {
-				span {
-					display: inline-block;
-					height: 31px;
-					margin-right: 2px;
-					padding: 0 15px;
-					border: 1px solid #9ebdd3;
-					border-radius: 15px;
-					box-sizing: border-box;
-					color: #3084be;
-					line-height: 29px;
-				}
 			}
 			> p {
 				overflow: hidden;
@@ -532,25 +629,7 @@
 			display: block;
 		}
 	}
-	@include respond-to(mobile) {
-		padding: 75px 20px 20px;
-		h1 {
-			font-size: 30px;
-		}
-		> p {
-			padding-top: 15px;
-			color: #666;
-			font: {
-				size: 17px;
-				family: $font-thin;
-			}
-			line-height: 1.4;
-		}
-		.part-wrap {
-			display: none;
-		}
-	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		position: relative;
 		z-index: 2;
 		width: 1193px;
@@ -620,7 +699,7 @@
 						width: 140px;
 						height: 206px;
 						margin: 20px auto 0;
-						background: asset_url('map.png') no-repeat 10px 0;
+						background: url('/images/map.png') no-repeat 10px 0;
 					}
 					&:first-child {
 						em {
@@ -682,6 +761,54 @@
 			}
 		}
 	}
+	@include respond-to(tablet) {
+		padding: 75px 20px 20px;
+		h1 {
+			font-size: 30px;
+		}
+		> p {
+			padding-top: 15px;
+			color: #666;
+			font: {
+				size: 17px;
+				family: $font-thin;
+			}
+			line-height: 1.4;
+		}
+		.part-wrap {
+			display: none;
+		}
+		> ul {
+			margin-top: 20px;
+			text-align: center;
+			li {
+				display: inline-block;
+				width: 280px;
+				height: 280px;
+				padding: 40px 15px 0 30px;
+				text-align: left;
+				> p {
+					height: 45px;
+					font-size: 18px;
+				}
+				.info {
+					text-align: left;
+				}
+				> a {
+					left: 30px;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+	@include respond-to(mMobile) {
+		> ul {
+			li {
+				display: block;
+				margin: 5px auto 0;
+			}
+		}
+	}
 }
 .dream {
 	position: relative;
@@ -717,8 +844,8 @@
 				text-align: center;
 			}
 			> ul {
-				background: #fff;
 				li {
+					background: #fff;
 					text-align: center;
 					.img {
 						img {
@@ -731,64 +858,15 @@
 						box-sizing: border-box;
 						white-space: nowrap;
 					}
-					&:first-child {
-						border: none;
-					}
 				}
 			}
 		}
 	}
-	@include respond-to(mobile) {
-		&:after {
-			width: 120px;
-			height: 140px;
-			top: -140px;
-			right: 0;
-		}
-		.inner {
-			> div {
-				padding: 70px 20px 20px;
-				&:before {
-					top: 0;
-				}
-				h1 {
-					font-size: 30px;
-				}
-				> p {
-					padding: 15px 50px 0;
-					font-size: 17px;
-				}
-				> ul {
-					margin-top: 40px;
-					border: 2px solid #000;
-					li {
-						padding-bottom: 43px;
-						border-top: 2px solid #000;
-						.img {
-							border-bottom: 2px solid #000;
-							img {
-								width: 100%;
-							}
-						}
-						> p {
-							padding: 25px 25px 0;
-							font-size: 18px;
-							line-height: 1.5;
-						}
-						> a {
-							margin-top: 25px;
-						}
-					}
-				}
-			}
-		}
-	}
-	@include respond-to(pc) {
-		// overflow: hidden;
+	@include respond-to(mPc) {
+		//overflow: hidden;
 		width: 100%;
 		margin-top: -215px;
 		padding-top: 307px;
-
 		&:after {
 			top: 0;
 			right: 0;
@@ -798,7 +876,7 @@
 			height: 1060px;
 		}
 		.inner {
-			width: 1360px;
+			max-width: 1360px;
 			height: 1060px;
 			margin: 0 auto;
 			&:before {
@@ -838,9 +916,11 @@
 						height: 540px;
 						border-left: 2px solid #27479a;
 						.img {
+							width: 100%;
 							height: 271px;
 							border-bottom: 2px solid #27479a;
 							img {
+								width: 100%;
 								height: 100%;
 							}
 						}
@@ -853,6 +933,78 @@
 						> a {
 							margin-top: 45px;
 						}
+						&:first-child {
+							border: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	@include respond-to(tablet) {
+		&:after {
+			width: 260px;
+			height: 480px;
+			top: -140px;
+			right: 0;
+		}
+		.inner {
+			margin-right: 30px;
+			> div {
+				padding: 70px 20px 75px;
+				&:before {
+					top: 0;
+				}
+				h1 {
+					font-size: 30px;
+				}
+				> p {
+					padding: 15px 50px 0;
+					font-size: 17px;
+				}
+				> ul {
+					margin-top: 40px;
+					border: none;
+					text-align: center;
+					li {
+						display: inline-block;
+						width: 280px;
+						margin: 0 8px;
+						padding-bottom: 43px;
+						border: 2px solid #000;
+						.img {
+							border-bottom: 2px solid #000;
+							img {
+								width: 100%;
+							}
+						}
+						> p {
+							padding: 25px 25px 0;
+							font-size: 18px;
+							line-height: 1.5;
+						}
+						> a {
+							margin-top: 25px;
+						}
+					}
+				}
+			}
+		}
+	}
+	@include respond-to(mMobile) {
+		&:after {
+			width: 120px;
+			height: 140px;
+			top: -140px;
+			right: 0;
+		}
+		.inner {
+			margin: 0;
+			> div {
+				> ul {
+					li {
+						display: block;
+						margin: -2px auto 0;
 					}
 				}
 			}
@@ -877,31 +1029,7 @@
 			}
 		}
 	}
-	@include respond-to(mobile) {
-		padding: 0 20px 40px;
-		> div {
-			padding-top: 50px;
-			h2 {
-				font-size: 26px;
-			}
-			> p {
-				font-size: 16px;
-			}
-			ul {
-				margin-top: 10px;
-				padding-top: 5px;
-				li {
-					padding-top: 15px;
-					font-size: 16px;
-					line-height: 1.4;
-					span {
-						display: block;
-					}
-				}
-			}
-		}
-	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		@include clearfix;
 		width: 1200px;
 		margin: 0 auto;
@@ -939,6 +1067,62 @@
 			}
 			&:last-child {
 				float: right;
+			}
+		}
+	}
+	@include respond-to(tablet) {
+		@include clearfix;
+		width: 865px;
+		margin: 0 auto;
+		padding: 0 20px 40px;
+		text-align: center;
+		> div {
+			display: inline-block;
+			width: 397px;
+			padding-top: 50px;
+			vertical-align: top;
+			text-align: left;
+			h2 {
+				font-size: 26px;
+			}
+			> p {
+				font-size: 16px;
+			}
+			ul {
+				margin-top: 10px;
+				padding-top: 5px;
+				li {
+					position: relative;
+					padding-top: 15px;
+					font-size: 16px;
+					line-height: 1.4;
+					span {
+						position: absolute;
+						right: 0;
+					}
+				}
+			}
+			&:last-child {
+				float: right;
+			}
+		}
+	}
+	@include respond-to(mMobile) {
+		width: auto;
+		> div {
+			display: block;
+			width: auto;
+			margin: 0;
+			ul {
+				li {
+					span {
+						position: static;
+						display: block;
+					}
+				}
+			}
+			&:last-child {
+				float: none;
 			}
 		}
 	}
@@ -993,68 +1177,7 @@
 			}
 		}
 	}
-	@include respond-to(mobile) {
-		&:before {
-			content: '';
-			display: block;
-			position: absolute;
-			right: 0;
-			bottom: -15px;
-			width: 318px;
-			height: 343px;
-			background: asset_url('news_bg_m.png') no-repeat 0 0;
-			background-size: 100% auto;
-		}
-		.inner {
-			padding: 107px 20px 60px;
-			&:before {
-				top: 30px;
-			}
-			h1 {
-				font-size: 30px;
-			}
-			> p {
-				padding-top: 5px;
-				font-size: 17px;
-				line-height: 1.4;
-			}
-			> ul {
-				margin-top: 40px;
-				li {
-					margin-top: 3px;
-					padding: 30px;
-					.img {
-						img {
-							width: 100%;
-						}
-					}
-					> p {
-						font-size: 18px;
-					}
-					> a {
-						font-size: 15px;
-					}
-					&:first-child {
-						padding: 0 0 30px;
-						.info {
-							padding-top: 0;
-							margin: 30px 30px 0;
-						}
-						> p {
-							padding: 15px 30px 0;
-						}
-						> a {
-							margin-left: 30px;
-						}
-					}
-					&:last-child {
-						display: none;
-					}
-				}
-			}
-		}
-	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		height: 1140px;
 		padding-top: 85px;
 		box-sizing: border-box;
@@ -1066,7 +1189,7 @@
 			right: 0;
 			width: 1068px;
 			height: 1065px;
-			background: asset_url('news_bg.png') no-repeat 0 0;
+			background: url('/images/news_bg.png') no-repeat 0 0;
 		}
 		.inner {
 			width: 1125px;
@@ -1116,6 +1239,103 @@
 			}
 		}
 	}
+	@include respond-to(tablet) {
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			right: 0;
+			bottom: -15px;
+			width: 318px;
+			height: 343px;
+			background: url('/images/news_bg_m.png') no-repeat 0 0;
+			background-size: 100% auto;
+		}
+		.inner {
+			padding: 107px 20px 60px;
+			&:before {
+				top: 30px;
+			}
+			h1 {
+				font-size: 30px;
+			}
+			> p {
+				padding-top: 5px;
+				font-size: 17px;
+				line-height: 1.4;
+			}
+			> ul {
+				position: relative;
+				width: 620px;
+				margin: 40px auto 0;
+				padding-left: 340px;
+				box-sizing: border-box;
+				li {
+					width: 280px;
+					height: 226px;
+					margin-top: 3px;
+					padding: 30px;
+					box-sizing: border-box;
+					.img {
+						img {
+							width: 100%;
+						}
+					}
+					> p {
+						font-size: 18px;
+					}
+					.info {
+						text-align: left;
+						.date {
+							display: block;
+							position: relative;
+						}
+					}
+					> a {
+						position: absolute;
+						left: 30px;
+						bottom: 30px;
+						font-size: 15px;
+					}
+					&:first-child {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 330px;
+						height: 455px;
+						margin-top: 0;
+						padding: 0;
+						//padding: 0 0 30px;
+						.info {
+							padding-top: 0;
+							margin: 30px 30px 0;
+						}
+						> p {
+							padding: 15px 30px 0;
+						}
+					}
+					&:last-child {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	@include respond-to(mMobile) {
+		.inner {
+			> ul {
+				width: auto;
+				padding: 0;
+				li {
+					margin: 3px auto 0;
+					&:first-child {
+						position: relative;
+						width: 280px;
+					}
+				}
+			}
+		}
+	}
 }
 .partner {
 	h2 {
@@ -1129,25 +1349,7 @@
 			}
 		}
 	}
-	@include respond-to(mobile) {
-		padding: 50px 20px 0;
-		> div {
-			ul {
-				li {
-					margin-right: 15px;
-					img {
-						height: 45px;
-					}
-				}
-			}
-			&:last-child {
-				margin-top: 30px;
-				padding-top: 25px;
-				border-top: 1px solid rgba(0,0,0, .15);
-			}
-		}
-	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		@include clearfix;
 		width: 1200px;
 		margin: 0 auto;
@@ -1168,6 +1370,54 @@
 				float: right;
 				padding-left: 45px;
 				border-left: 1px solid rgba(0,0,0, .15);
+			}
+		}
+	}
+	@include respond-to(tablet) {
+		@include clearfix;
+		width: 850px;
+		margin: 0 auto;
+		padding: 50px 20px 0;
+		> div {
+			width: 425px;
+			box-sizing: border-box;
+			ul {
+				li {
+					margin-right: 15px;
+					img {
+						height: 45px;
+					}
+				}
+			}
+			&:first-child {
+				float: left;
+			}
+			&:last-child {
+				float: right;
+				padding-left: 70px;
+				border-left: 1px solid rgba(0,0,0, .15);
+			}
+		}
+	}
+	@include respond-to(mMobile) {
+		width: auto;
+		> div {
+			width: auto;
+			flex: none;
+			&:first-child {
+				float: none;
+			}
+			&:last-child {
+				float: none;
+				margin-top: 30px;
+				padding: {
+					top: 25px;
+					left: 0;
+				}
+				border: {
+					top: 1px solid rgba(0,0,0, .15);
+					left: none;
+				}
 			}
 		}
 	}

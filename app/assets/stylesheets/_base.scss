@@ -227,7 +227,7 @@ input[type='radio'] + label {
 		}
 	}
 }
-input.input-decorated[type="file"] {
+input[type="file"] {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -239,7 +239,6 @@ input.input-decorated[type="file"] {
 }
 .file-wrap {
 	position: relative;
-	padding-right: 90px;
 	label {
 		display: block;
 		position: absolute;
@@ -282,18 +281,17 @@ input.input-decorated[type="file"] {
 	}
 }
 select {
-	height: 40px;
+	height: 43px;
 	background-color: #fff;
-	border: 1px solid #000;
+	border: 1px solid #ccc;
 	color: $color-def;
-	padding: 0 35px 0 16px;
-	background: asset_url('select_arrow.png') no-repeat 100% 15px;
-	background-size: 24px auto;
-	border-radius: 0;
+	padding: 0 50px 0 30px;
+	background: asset_url('select_arrow.png') no-repeat 100% 19px;
+	border-radius: 10px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	//color: #2b2b2b;
+	color: #666;
 	font: {
 		family: $font-def;
 		size: 14px;
@@ -308,15 +306,4 @@ select {
 }
 select::-ms-expand {
   display: none;
-}
-
-// For Backend
-.no-outline {
-	outline: none;
-}
-.collapse {
-	display: none;
-}
-.cursor-pointer {
-	cursor: pointer;
 }

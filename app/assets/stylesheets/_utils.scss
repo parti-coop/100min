@@ -1,5 +1,8 @@
 // MOBILE //
 $breakpoints: (
+  'mMobile': (max-width: 768px),
+  'tablet': (max-width: 1197px),
+  'mPc': (min-width: 1198px),
   'mobile': (max-width: 1000px),
   'pc': (min-width: 1001px),
   'sPc': (max-width: 1440px),
@@ -34,20 +37,20 @@ $font-thin: 'NotoSans-Thin','Roboto','Droid Sans','Malgun Gothic','Helvetica','A
 
 /* mixin */
 @mixin hiddenText {
-	overflow: hidden;
-	font-size: 1px;
-	line-height: 0;
-	text: {
-		indent: -9999px;
-		align: left;
-	}
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    text: {
+        indent: -9999px;
+        align: left;
+    }
 }
 @mixin clearfix {
-	&:after {
-		display: block;
-		content:'';
-		clear: both;
-	}
+    &:after {
+        display: block;
+        content:'';
+        clear: both;
+    }
 }
 //contents
 @mixin btndef($height, $l-height ) {
@@ -65,7 +68,7 @@ $font-thin: 'NotoSans-Thin','Roboto','Droid Sans','Malgun Gothic','Helvetica','A
     &:hover {
         background: $color-point;
         color: #fff;
-        border-color: transparent;
+        border: none;
     }
 }
 @mixin arrow($b-color) {
@@ -118,5 +121,21 @@ $font-thin: 'NotoSans-Thin','Roboto','Droid Sans','Malgun Gothic','Helvetica','A
             width: 9px;
             height: 9px;
         }
+    }
+}
+div.cate {
+    position: relative;
+    z-index: 2;
+    span {
+        display: inline-block;
+        height: 31px;
+        margin-right: 2px;
+        padding: 0 15px;
+        background: #fff;
+        border: 1px solid #9ebdd3;
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: #3084be;
+        line-height: 29px;
     }
 }
