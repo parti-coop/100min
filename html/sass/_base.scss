@@ -12,7 +12,7 @@ body {
 	-webkit-text-size-adjust: none;
 	font-family: $font-def;
 }
-body, div,
+body, div, 
 dl, dt, dd, ul, ol, li,
 h1, h2, h3, h4, h5, h6,
 pre, form, fieldset, input, select, textarea, p, blockquote, th, td, legend, button {
@@ -38,7 +38,7 @@ ul, ol, li{
 }
 a {
 	text-decoration: none;
-	color: $color-def;
+	color: $color-def; 
 }
 i, em, address {
 	font-style: normal;
@@ -92,7 +92,7 @@ input[type="password"] {
 		height: 53px;
 		font-size: 16px;
 	}
-
+	
 }
 ::placeholder {
 	color: rgba(43, 43, 43, .5);
@@ -227,7 +227,7 @@ input[type='radio'] + label {
 		}
 	}
 }
-input.input-decorated[type="file"] {
+input[type="file"] {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -281,18 +281,17 @@ input.input-decorated[type="file"] {
 	}
 }
 select {
-	height: 40px;
+	height: 43px;
 	background-color: #fff;
-	border: 1px solid #000;
+	border: 1px solid #ccc;
 	color: $color-def;
-	padding: 0 35px 0 16px;
-	background: url('/images/select_arrow.png') no-repeat 100% 15px;
-	background-size: 24px auto;
-	border-radius: 0;
+	padding: 0 50px 0 30px;
+	background: url('/images/select_arrow.png') no-repeat 100% 19px;
+	border-radius: 10px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	//color: #2b2b2b;
+	color: #666;
 	font: {
 		family: $font-def;
 		size: 14px;
@@ -305,6 +304,6 @@ select {
 		background-position: 100% 19px;
 	}
 }
-select::-ms-expand {
+select::-ms-expand { 
   display: none;
 }

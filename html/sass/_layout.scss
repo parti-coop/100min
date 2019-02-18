@@ -3,10 +3,10 @@
 	a {
 		position: absolute;
 		left:-3000%;
-	}
+	}	
 	:focus {
 		display: block;
-		left:0;
+		left:0; 
 		top: 0;
 		z-index: 100;
 		width: 100%;
@@ -16,7 +16,7 @@
 		color: $color-def;
 		text-align: center;
 	}
-	@include respond-to(mobile) {
+	@include respond-to(mMobile) {
 		display: none;
 	}
 }
@@ -42,7 +42,7 @@ header {
 			@include btndef(36px, 34px);
 		}
 	}
-	@include respond-to(mobile) {
+	@include respond-to(tablet) {
 		min-height: 74px;
 		h1 {
 			z-index: 15;
@@ -134,7 +134,7 @@ header {
 			}
 		}
 		.join {
-			padding: 50px 0 0 40px;
+			padding: 50px 0 0 20px;
 			.after-login {
 				button {
 					display: none;
@@ -150,7 +150,7 @@ header {
 			}
 		}
 	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		button {
 			display: none;
 		}
@@ -235,8 +235,6 @@ header {
 					border: 1px solid #d8d8d8;
 					border-radius: 10px;
 					box-sizing: border-box;
-					background-color: white;
-					z-index: 1;
 					a {
 						display: block;
 						border: none;
@@ -314,8 +312,7 @@ footer {
 			}
 		}
 	}
-
-	@include respond-to(mobile) {
+	@include respond-to(tablet) {
 		padding-bottom: 20px;
 		> ul {
 			height: 50px;
@@ -333,8 +330,8 @@ footer {
 		.logo {
 			@include hiddenText;
 			display: inline-block;
-			width: 252px;
-			height: 50px;
+			width: 78px;
+			height: 58px;
 			background: url('/images/logo.png') no-repeat 0 100%;
 		}
 		> p {
@@ -402,15 +399,33 @@ footer {
 				}
 			}
 		}
-		@include respond-to(mobile) {
+		@include respond-to(mPc) {
+			position: relative;
+			width: 1200px;
+			margin: 0 auto;
+			> p {
+				br {
+					display: none;
+				}
+			}
+			.sns {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				
+			}
+		}
+		@include respond-to(tablet) {
 			.logo {
-				width: 202px;
-				height: 40px;
-				background-size: 100% auto;
+				width: 78px;
+				height: 58px;
 			}
 			> p {
 				padding-top: 7px;
 				font-size: 14px;
+				br {
+					display: none;
+				}
 			}
 			ul {
 				li {
@@ -435,20 +450,16 @@ footer {
 				}
 			}
 		}
-		@include respond-to(pc) {
-			position: relative;
-			width: 1200px;
-			margin: 0 auto;
+		@include respond-to(mMobile) {
+			.logo {
+				width: 53px;
+				height: 40px;
+				background-size: auto 80px;
+			}
 			> p {
 				br {
-					display: none;
+					display: inline;
 				}
-			}
-			.sns {
-				position: absolute;
-				right: 0;
-				bottom: 0;
-
 			}
 		}
 	}
@@ -475,7 +486,7 @@ main {
 			line-height: 1.3;
 		}
 	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		min-width: 1200px;
 		.sub-wrap {
 			h2 {
@@ -490,7 +501,7 @@ main {
 		}
 	}
 }
-//common
+//common 
 .info {
 	position: relative;
 	padding-top: 5px;
@@ -551,7 +562,7 @@ main {
 			}
 		}
 	}
-	@include respond-to(mobile) {
+	@include respond-to(mMobile) {
 		padding-top: 15px;
 		text-align: left;
 		span {
@@ -615,12 +626,12 @@ main {
 			border: 0;
 		}
 	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		> a {
 			@include hiddenText;
 		}
 	}
-	@include respond-to(mobile) {
+	@include respond-to(mMobile) {
 		padding-top: 40px;
 		> a {
 			width: 83px;
@@ -644,7 +655,7 @@ main {
 .def-btn {
 	margin-top: 40px;
 	text-align: center;
-	a, input[type='submit'], button {
+	a {
 		display: inline-block;
 		width: 106px;
 		height: 54px;
@@ -660,8 +671,8 @@ main {
 			color: #fff;
 		}
 	}
-	@include respond-to(pc) {
-		a, input[type='submit'], button {
+	@include respond-to(mPc) {
+		a {
 			width: 146px;
 			height: 64px;
 			margin: 0 3px;

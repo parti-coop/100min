@@ -1,0 +1,114 @@
+<!Doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<title>국민제안(우리가 만들 세상) : 100년 토론광장</title>
+		<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="/js/jquery.bxslider.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('header > button').click(function() {
+					$('header').addClass('selected');
+				});
+				$('.nav-wrap > button').click(function() {
+					$('header').removeClass('selected');
+				});
+			});
+		</script>
+	</head>
+	<body class="index">
+		<div id="skipNav">
+			<ul>
+				<li><a href="#snContent">본문바로가기</a></li>
+				<li><a href="#snMenu">주메뉴 바로가기</a></li>
+			</ul>
+		</div>
+		<header>
+			<h1><a href="#">100년 토론광장</a></h1>
+			<button type="button"><span>메뉴 열림</span></button>
+			<div class="nav-wrap">
+				<nav id="snMenu">
+					<ul>
+						<li><a href="#">100년 토론광장</a></li>
+						<li><a href="#">그들이 꿈꾼 나라</a></li>
+						<li><a href="#">우리가 만들 세상</a></li>
+						<li><a href="#">시민 참여단</a></li>
+						<li><a href="#">소식과 공지</a></li>
+					</ul>
+				</nav>
+				<div class="join">
+					<a href="#">로그인</a>
+					<a href="#">회원가입</a>
+				</div>
+				<button type="button"><span>메뉴 닫힘</span></button>
+			</div>
+		</header>
+		<hr />
+		<main id="snContent">
+			<div class="header we-made">
+				<h2>우리가 만들 세상</h2>
+				<p>“100년 전, 선조들이 꿈꾸었던 나라를 현실로 만들려면, 지금 우리는 무엇을 해야 할까요? <br />어떤 문제를 어떻게 해결해야 할까요? 100년 전의 꿈을 현실로 만들 실천과제를 토론해 봅시다.”</p>
+			</div>
+			<div class="notice-view">
+				<div class="suggest-box">
+					<strong>100년을 이끌 우리 사회에 필요한 해결 과제는?</strong>
+					<p>국민 여러분의 생각과 의견을 자유롭게 공유해 주세요.</p>
+					<a href="#">제안하기</a>
+				</div>
+				<div class="c-inner">
+					<h3>국민 제안</h3>
+					<p>100년 토론광장의 국민들이 제안주신 의견입니다 </p>
+					<div class="write-box">
+						<ul>
+							<li>
+								<label for="area">지역 <span>*</span></label>
+								<select id="area" aria-required=“true”>
+									<option>지역을 선택해주세요</option>
+								</select>
+							</li>
+							<li>
+								<label for="cate">제안 분야 <span>*</span></label>
+								<select id="cate" aria-required=“true”>
+									<option>제안 분야를  선택해주세요</option>
+								</select>
+							</li>
+							<li>
+								<label for="subject">제목 <span>*</span></label>
+								<input type="text" id="subject" aria-required=“true” />
+							</li>
+							<li>
+								<label for="conts">내용 <span>*</span></label>
+								<textarea id="conts"  aria-required=“true”></textarea>
+							</li>
+						</ul>
+					</div>
+					<div class="def-btn">
+						<a href="#">목록</a>
+						<a href="#" class="active">수정</a>
+					</div>
+				</div>
+			</div>
+		</main>
+		<hr />
+		<footer>
+			<ul>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">개인정보취급방침</a></li>
+			</ul>
+			<div class=finfo>
+				<div class="logo">100년 토론광장</div>
+				<p>3‧1운동 및 대한민국 임시정부 수립 <br />100주년 기념사업추진위원회</p>
+				<ul>
+					<li>TEL. 02-2100-1449</li>
+					<li>FAX. 02-2100-1446</li>
+					<li><a href="mailto:together100@korea.kr">Mail. together100@korea.kr</a></li>
+				</ul>
+				<div class="sns">
+					<a href="#" class="facebook"><span>페이스북</span></a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
