@@ -68,7 +68,7 @@ $font-thin: 'NotoSans-Thin','Roboto','Droid Sans','Malgun Gothic','Helvetica','A
     &:hover {
         background: $color-point;
         color: #fff;
-        border: none;
+        border-color: transparent;
     }
 }
 @mixin arrow($b-color) {

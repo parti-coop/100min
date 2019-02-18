@@ -42,7 +42,7 @@
 					top: -17px;
 					width: 34px;
 					height: 26px;
-					background: url('/images/quot.png') no-repeat 0 0;
+					background: asset_url('quot.png') no-repeat 0 0;
 				}
 				&:before {
 					left: -45px;
@@ -93,7 +93,7 @@
 			}
 		}
 		@include respond-to(mPc) {
-			background: url('/images/billimg.png') no-repeat 50% 0;
+			background: asset_url('billimg.png') no-repeat 50% 0;
 			background-size: cover;
 			.cnts {
 				> p {
@@ -105,7 +105,7 @@
 		}
 		@include respond-to(wide) {
 			background: {
-				image: url('/images/billbg_left.png'), url('/images/billbg_right.png');
+				image: asset_url('billbg_left.png'), asset_url('billbg_right.png');
 				position: 0 0, 100% 32px;
 				repeat: no-repeat;
 			}
@@ -113,7 +113,7 @@
 		@include respond-to(tablet) {
 			height: 474px;
 			background: {
-				image: url('/images/billbg_left_t.png'), url('/images/billbg_right_t.png');
+				image: asset_url('billbg_left_t.png'), asset_url('billbg_right_t.png');
 				position: 0 0, 100% 0;
 				repeat: no-repeat;
 			}
@@ -161,7 +161,7 @@
 		}
 		@include respond-to(mMobile) {
 			background: {
-				image: url('/images/billbg_left_m.png'), url('/images/billbg_right_m.png');
+				image: asset_url('billbg_left_m.png'), asset_url('billbg_right_m.png');
 				size: 129px auto, 108px auto;
 			}
 			/* .cnts {
@@ -254,7 +254,7 @@
 				height: 24px;
 				font-size: 0;
 				vertical-align: middle;
-				background: #fff url('/images/play_stop.png') no-repeat 0 -1px;
+				background: #fff asset_url('play_stop.png') no-repeat 0 -1px;
 				border-radius: 50%;
 				//border: 1px solid #000;
 				&.stop {
@@ -576,7 +576,7 @@
 				right: 22px;
 				width: 38px;
 				height: 28px;
-				background: url('/images/quot.png') no-repeat 0 0;
+				background: asset_url('quot.png') no-repeat 0 0;
 				background-size: 100% 100%;
 				opacity: 0.4;
 				transform: rotate(180deg);
@@ -699,7 +699,7 @@
 						width: 140px;
 						height: 206px;
 						margin: 20px auto 0;
-						background: url('/images/map.png') no-repeat 10px 0;
+						background: asset_url('map.png') no-repeat 10px 0;
 					}
 					&:first-child {
 						em {
@@ -1189,7 +1189,7 @@
 			right: 0;
 			width: 1068px;
 			height: 1065px;
-			background: url('/images/news_bg.png') no-repeat 0 0;
+			background: asset_url('news_bg.png') no-repeat 0 0;
 		}
 		.inner {
 			width: 1125px;
@@ -1248,7 +1248,7 @@
 			bottom: -15px;
 			width: 318px;
 			height: 343px;
-			background: url('/images/news_bg_m.png') no-repeat 0 0;
+			background: asset_url('news_bg_m.png') no-repeat 0 0;
 			background-size: 100% auto;
 		}
 		.inner {

@@ -227,7 +227,7 @@ input[type='radio'] + label {
 		}
 	}
 }
-input[type="file"] {
+input.input-decorated[type="file"] {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -306,4 +306,14 @@ select {
 }
 select::-ms-expand {
   display: none;
+}
+
+.no-outline {
+	outline:none;
+}
+.collapse {
+	display: none;
+}
+.cursor-pointer {
+	cursor: pointer;
 }

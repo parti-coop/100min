@@ -75,7 +75,8 @@
 	.btn {
 		padding-top: 5px;
 		text-align: center;
-		a {
+		a,
+		button {
 			font-size: 15px;
 			color: $color-point;
 			&:after {
@@ -128,7 +129,8 @@
 			font-size: 22px;
 		}
 		.btn {
-			a {
+			a,
+			button {
 				font-size: 18px;
 			}
 		}

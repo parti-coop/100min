@@ -34,7 +34,7 @@ header {
 			display: block;
 			width: 252px;
 			height: 48px;
-			background: url('/images/logo.png');
+			background: asset_url('logo.png');
 		}
 	}
 	.join {
@@ -235,6 +235,8 @@ header {
 					border: 1px solid #d8d8d8;
 					border-radius: 10px;
 					box-sizing: border-box;
+					background-color: white;
+					z-index: 1;
 					a {
 						display: block;
 						border: none;
@@ -332,7 +334,7 @@ footer {
 			display: inline-block;
 			width: 78px;
 			height: 58px;
-			background: url('/images/logo.png') no-repeat 0 100%;
+			background: asset_url('logo.png') no-repeat 0 100%;
 		}
 		> p {
 			padding-top: 20px;
@@ -388,7 +390,7 @@ footer {
 					width: 12px;
 					height: 26px;
 					margin: 0 auto;
-					background: url('/images/sns_facebook.png') no-repeat 0 0;
+					background: asset_url('sns_facebook.png') no-repeat 0 0;
 					opacity: 0.5;
 				}
 				&:hover {
@@ -655,7 +657,7 @@ main {
 .def-btn {
 	margin-top: 40px;
 	text-align: center;
-	a {
+	a, input[type='submit'], button {
 		display: inline-block;
 		width: 106px;
 		height: 54px;
@@ -672,7 +674,7 @@ main {
 		}
 	}
 	@include respond-to(mPc) {
-		a {
+		a, input[type='submit'], button {
 			width: 146px;
 			height: 64px;
 			margin: 0 3px;
