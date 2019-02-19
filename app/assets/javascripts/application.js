@@ -12,7 +12,7 @@
 //= require tinymce-jquery
 //= require clipboard
 
-UnobtrusiveFlash.flashOptions['timeout'] = 200000;
+UnobtrusiveFlash.flashOptions['timeout'] = 5000;
 
 $(function(){
   $('.js-slides-container').bxSlider({
