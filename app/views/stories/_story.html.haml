@@ -1,5 +1,5 @@
 %li
-  = link_to story do
+  = link_to story_path(story, page: params[:page]) do
     - if story.image?
       .img{ style: "background-image: url(#{story.image.lg.url});" }
     - else

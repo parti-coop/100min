@@ -1,1 +1,3 @@
-= render 'stories/form', story: @story
+- content = capture do
+  = render 'stories/form', story: @story
+= render 'stories/template', content: content

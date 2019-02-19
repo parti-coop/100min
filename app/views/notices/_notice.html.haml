@@ -1,0 +1,9 @@
+%li
+  = link_to notice.title, notice_path(notice, page: params[:page])
+  .info
+    %span.date
+      %i> 날짜
+      = static_day_f(notice.created_at)
+    %span.view
+      %i> 조회
+      = notice.reads_count

@@ -1,0 +1,13 @@
+- notice ||= Notice.new
+= form_with model: notice do |f|
+  .write-box
+    %ul
+      %li
+        = f.label :title, '제목'
+        = f.text_field :title
+      %li
+        = f.label :body, '내용'
+        = f.text_area :body, class: 'tinymce js-tinymce'
+  .def-btn
+    %a{href: notices_path} 목록
+    = f.submit (f.object.persisted? ? "수정" : "저장"), class: 'active'

@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   delete :confirm_user, to: 'users#confirm'
 
   delete :likes, to: 'likes#destroy'
-  resources :likes do
-  end
-  resources :stories do
+  resources :likes
+
+  concern :commentable do
     resources :comments, shallow: true
   end
-  resources :notices
+  resources :stories, concerns: :commentable
+  resources :notices, concerns: :commentable
   resources :comments, only: :index
 
   post '/tinymce_assets', to: 'tinymce_assets#create'

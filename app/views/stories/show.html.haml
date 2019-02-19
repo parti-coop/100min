@@ -19,7 +19,7 @@
       %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{polymorphic_url(@story)}", target: '_blank', title: '공유하기'} 공유하기
       .btn.copy-url.cursor-pointer.js-clipboard{'data-clipboard-text': polymorphic_url(@story)} 주소복사
   .b-btn
-    %a.list{href: stories_path} 목록
+    %a.list{href: stories_path(page: params[:page])} 목록
     - if policy(@story).edit?
       = link_to '수정', [:edit, @story], class: 'modify'
     - if policy(@story).destroy?
