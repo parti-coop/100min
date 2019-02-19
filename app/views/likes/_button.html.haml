@@ -1,16 +1,21 @@
-- like_btn_label = '공감해요'
-- if likable.likes_count > 0
+- like_btn_label = case likable
+- when Comment
+  - '추천'
+- else
+  - '공감해요'
+- if likable.likes_count > 0 and !likable.is_a?(Comment)
   - like_btn_label = likable.likes_count
 
 - button_dom_id = "rnd-#{SecureRandom.uuid}"
-- like_btn_path = likes_path(likable_type: likable.class.to_s, likable_id: likable.id, dom_id: button_dom_id)
+- like_btn_path = likes_path(likable_type: likable.class.to_s, likable_id: likable.id, dom_id: button_dom_id, class_name: local_assigns[:class_name], counter_dom_id: local_assigns[:counter_dom_id])
 
-%span{ id: button_dom_id }
-  - if user_signed_in?
-    - if likable.like?(current_user)
-      = link_to like_btn_label, like_btn_path, method: :delete, remote: true, class: 'like active'
+- if policy(likable).like? or !user_signed_in?
+  %span{ id: button_dom_id }
+    - if user_signed_in?
+      - if likable.like_by?(current_user)
+        = link_to like_btn_label, like_btn_path, method: :delete, remote: true, class: "like active link-btn #{local_assigns[:class_name]}"
+      - else
+        = link_to like_btn_label, like_btn_path, method: :post, remote: true, class: "like link-btn #{local_assigns[:class_name]}"
     - else
-      = link_to like_btn_label, like_btn_path, method: :post, remote: true, class: 'like'
-  - else
-    = link_to like_btn_label, new_user_session_path, class: 'like'
+      = link_to like_btn_label, new_user_session_path, class: "like link-btn #{local_assigns[:class_name]}"
 

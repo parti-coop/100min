@@ -12,4 +12,4 @@
 - if page.current?
   %strong= page
 - else
-  %a{href: url}= page
+  = link_to page, url, remote: remote

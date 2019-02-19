@@ -25,9 +25,12 @@ class ApplicationController < ActionController::Base
     end
   end
   rescue_from Pundit::NotAuthorizedError do |exception|
+    policy_name = exception.policy.class.to_s.underscore
+    flash[:alert] = t("#{policy_name}.#{exception.query}", scope: "pundit", default: :default)
+
     self.response_body = nil
     if request.format.html?
-      redirect_to root_url, :alert => exception.message
+      redirect_to root_url
     else
       render_403
     end

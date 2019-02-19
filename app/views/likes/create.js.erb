@@ -1,1 +1,4 @@
-$('#<%= params[:dom_id] %>').replaceWith('<%= j(render 'likes/button', likable: @likable) %>');
+$('#<%= params[:dom_id] %>').replaceWith('<%= j(render 'likes/button', likable: @likable, class_name: params[:class_name], counter_dom_id: params[:counter_dom_id]) %>');
+<% if params[:counter_dom_id].present? %>
+  $('#<%= params[:counter_dom_id] %>').replaceWith('<%= j(render 'likes/counter', likable: @likable, dom_id: params[:counter_dom_id]) %>');
+<% end %>

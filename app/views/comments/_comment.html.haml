@@ -1,0 +1,24 @@
+- comment_dom_id = "rnd-#{SecureRandom.uuid}"
+%li{ id: comment_dom_id }
+  .info
+    %span.writer
+      %i> 작성자
+      = comment.user.name
+    %span.date
+      %i> 날짜
+      = static_day_f comment.created_at
+    - counter_dom_id = "rnd-#{SecureRandom.uuid}"
+    = render 'likes/counter', likable: comment, dom_id: counter_dom_id
+  - if local_assigns[:show_form]
+    = render 'comments/form', comment: comment, class_name: 'write-box', dom_id: comment_dom_id, list_dom_id: list_dom_id
+  - else
+    = render 'comments/body', comment: comment
+
+  - unless local_assigns[:show_form]
+    .btn
+      - if policy(comment).edit?
+        = link_to '수정', edit_comment_path(comment, dom_id: comment_dom_id, list_dom_id: list_dom_id), remote: true, class: 'link-btn modify'
+      - if policy(comment).destroy?
+        = link_to '삭제', comment_path(comment, list_dom_id: list_dom_id, page: params[:page]), method: :delete, remote: true, 'data-confirm': '정말 삭제하시겠습니까?', class: 'link-btn delete'
+      - if policy(comment).like? or !user_signed_in?
+        = render 'likes/button', likable: comment, class_name: 'recomd', counter_dom_id: counter_dom_id

@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   delete :likes, to: 'likes#destroy'
   resources :likes do
   end
-  resources :stories
+  resources :stories do
+    resources :comments, shallow: true
+  end
   resources :notices
+  resources :comments, only: :index
 
   post '/tinymce_assets', to: 'tinymce_assets#create'
 end

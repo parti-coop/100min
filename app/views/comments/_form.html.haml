@@ -1,0 +1,7 @@
+- commentable = local_assigns[:commentable] || comment.commentable
+= form_with model: (comment.persisted? ? comment : [commentable, comment]), local: !comment.persisted?, id: local_assigns[:dom_id], class: local_assigns[:class_name] do |f|
+  = hidden_field_tag :dom_id, local_assigns[:dom_id]
+  = hidden_field_tag :list_dom_id, list_dom_id
+  = f.text_area :body, value: session[:error_comment_body] || comment.body, title: "댓글입력"
+  - session[:error_comment_body] = nil
+  = f.submit '등록'

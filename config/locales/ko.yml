@@ -7,3 +7,5 @@ ko:
       story:
         title: 제목
         body: 내용
+  pundit:
+   default: '권한이 없습니다'

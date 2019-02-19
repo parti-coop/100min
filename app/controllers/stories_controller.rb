@@ -5,6 +5,8 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @story.reads_count += 1
+    @story.save
   end
 
   def new
@@ -51,7 +53,7 @@ class StoriesController < ApplicationController
       redirect_to stories_path
     else
       errors_to_flash(@story)
-      render :new
+      redirect_to @story
     end
   end
 

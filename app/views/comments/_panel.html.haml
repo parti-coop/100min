@@ -1,0 +1,6 @@
+.comment-wrap
+  - comment_list_dom_id = "rnd-#{SecureRandom.uuid}"
+  = render 'comments/form', commentable: commentable, comment: Comment.new, class_name: 'cmt-write', list_dom_id: comment_list_dom_id
+  - if commentable.comments_count > 0
+    - comments = commentable.comments.order_recent.page(1)
+    = render 'comments/list', commentable: commentable, comments: comments, dom_id: comment_list_dom_id

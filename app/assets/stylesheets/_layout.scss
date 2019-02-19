@@ -628,7 +628,7 @@ main {
 			border: 0;
 		}
 	}
-	@include respond-to(mPc) {
+	@include respond-to(xMobile) {
 		> a {
 			@include hiddenText;
 		}

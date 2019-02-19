@@ -7,5 +7,5 @@
 -#    remote:        data-remote
 -# %span.prev
 -#  = link_to_unless current_page.first?, t('views.pagination.previous').html_safe, url, rel: 'prev', remote: remote
-%a.prev{href: url}
+= link_to url, remote: remote, class: 'prev' do
   %span 이전

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :omniauthable
 
-  has_many :likes, as: :likable, dependent: :destroy
+  has_many :comment, as: :commentable, dependent: :destroy
 
   validates_format_of       :email, with: Devise.email_regexp, allow_blank: true, if: :will_save_change_to_email?
   validates_presence_of     :password, if: :password_required?

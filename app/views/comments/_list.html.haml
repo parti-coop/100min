@@ -1,0 +1,6 @@
+%div{ id: dom_id }
+  .cmt-list
+    %ul
+      - comments.each do |comment|
+        = render 'comments/comment', comment: comment, list_dom_id: dom_id
+  = paginate comments, params: { controller: 'comments', action: 'index', commentable_type: commentable.class.to_s, commentable_id: commentable.id, dom_id: dom_id }, remote: true

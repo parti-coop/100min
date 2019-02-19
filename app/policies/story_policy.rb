@@ -15,11 +15,11 @@ class StoryPolicy < ApplicationPolicy
     admin_only
   end
 
-  def update?
+  def destroy?
     admin_only
   end
 
-  def destroy?
-    admin_only
+  def like?
+    user.present?
   end
 end
