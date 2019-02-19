@@ -14,6 +14,7 @@ class Suggestion < ApplicationRecord
   mount_uploader :image, DefaultImageUploader
 
   scope :order_recent, -> { order(created_at: :desc) }
+  scoped_search on: [:title, :body]
 
   before_save :process_hashtags
 
@@ -51,14 +52,14 @@ class Suggestion < ApplicationRecord
   end
 
   HASHTAG_REGEX = /(?:\s|^)(#(?!(?:\d+|[ㄱ-ㅎ가-힣a-z0-9_]+?_|_[ㄱ-ㅎ가-힣a-z0-9_]+?)(?:\s|$))([ㄱ-ㅎ가-힣a-z0-9\-_]+))/i
-  def parse_hastags
-    return if self.raw_hashtags.blank?
-    self.raw_hashtags.scan(HASHTAG_REGEX).map { |match| match[1].to_s.strip }.uniq.compact
+  def self.parse_hastags(hashtags_str)
+    return if hashtags_str.blank?
+    hashtags_str.scan(HASHTAG_REGEX).map { |match| match[1].to_s.strip }.uniq.compact
   end
 
   def process_hashtags
     self.hashtags.destroy_all
-    parse_hastags.each do |name|
+    Suggestion.parse_hastags(self.raw_hashtags).each do |name|
       self.hashtags.build(name: name)
     end
   end

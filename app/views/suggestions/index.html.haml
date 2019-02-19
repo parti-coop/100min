@@ -3,174 +3,29 @@
     .list-search
       .sch-box
         %span
-          %select{title: "지역선택"}
-            %option 지역별
+          %select.js-select-link{title: "지역선택"}
+            %option{ selected: params[:area].blank?, 'data-url': suggestions_path(area: nil, category: params[:category], q: params[:q]) } 지역별
+            = Suggestion::AREA_CODE.each do |code, name|
+              %option{ selected: (code.to_s == params[:area]), 'data-url': suggestions_path(area: code, category: params[:category], q: params[:q]) }= name
         %span
-          %select{title: "분야선택"}
-            %option 분야별
+          %select.js-select-link{title: "분야선택"}
+            %option{ selected: params[:category].blank?, 'data-url': suggestions_path(area: params[:area], category: nil, q: params[:q]) } 분야별
+            = Suggestion::CATEGORY_CODE.each do |code, name|
+              %option{ selected: (code.to_s == params[:category]), 'data-url': suggestions_path(area: params[:area], category: code, q: params[:q]) }= name
+
         %div
-          %input{title: "검색어를 입력해주세요", type: "search"}/
-          %button{type: "submit"}
-            %span 게시물 검색
+          = form_with url: suggestions_path(area: params[:area], category: params[:category]), method: :get do |f|
+            %input{name: :q, value: params[:q], title: "검색어를 입력해주세요", type: "search"}/
+            %button{type: "submit"}
+              %span 게시물 검색
       %p
-        전체 제안
-        = succeed "건" do
-          %em= Suggestion.count
+        = link_to suggestions_path do
+          전체 제안
+          = succeed "건" do
+            %em= Suggestion.count
     %ul
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-      %li
-        .cate
-          %span 강원‧인천‧수도권
-          %span 과학/기술
-        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
-        .info
-          %span.writer
-            %i> 작성자
-            홍길동님 제안
-          %span.like
-            %i> 좋아요
-            12
-          %span.comment
-            %i> 코멘트
-            12
-        %a{href: "#"} 더보기
-    .paging
-      %a.prev{href: "#"}
-        %span 이전
-      %span
-        %strong 1
-        %a{href: "#"} 2
-        %a{href: "#"} 3
-        %a{href: "#"} 4
-        %a{href: "#"} 5
-      %a.next{href: "#"}
-        %span 다음
+      - @suggestions.each do |suggestion|
+        = render suggestion
+    = paginate @suggestions
 
 = render 'suggestions/template', content: content

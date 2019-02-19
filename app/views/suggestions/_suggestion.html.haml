@@ -1,0 +1,16 @@
+%li.cursor-pointer.js-link{ 'data-url': suggestion_path(suggestion, page: params[:page], q: params[:q], area: params[:area], category: params[:category]) }
+  .cate
+    %span= suggestion.area_name
+    %span= suggestion.category_name
+  %p= suggestion.title
+  .info
+    %span.writer
+      %i> 작성자
+      = suggestion.user.name
+    %span.like
+      %i> 좋아요
+      = suggestion.likes_count
+    %span.comment
+      %i> 코멘트
+      = suggestion.comments_count
+  %a{href: suggestion_path(suggestion, page: params[:page], q: params[:q], area: params[:area], category: params[:category])} 더보기

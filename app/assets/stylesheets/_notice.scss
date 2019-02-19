@@ -251,7 +251,7 @@
 			vertical-align: 2px;
 		}
 	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		width: 1199px;
 		height: 139px;
 		margin-top: -70px;
@@ -321,6 +321,7 @@
 					height: 43px;
 					border: 1px solid #ccc;
 					border-radius: 22px;
+					padding: 0 20px;
 				}
 				button {
 					position: absolute;
@@ -347,6 +348,7 @@
 			color: #868686;
 		}
 		text-align: center;
+		@include clearfix;
 		li {
 			display: inline-block;
 			position: relative;
@@ -357,10 +359,19 @@
 			border: 1px solid #ccc;
 			box-sizing: border-box;
 			text-align: left;
+			float: left;
 			> p {
 				padding-top: 10px;
 				font-size: 22px;
-				line-height: 1.3;
+				line-height: 1.5;
+		    max-height: 66px;
+		    overflow: hidden;
+		    height: 66px;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    display: -webkit-box;
+		    -webkit-line-clamp: 2;
+		    -webkit-box-orient: vertical;
 			}
 			.info {
 				padding-top: 20px;
@@ -387,7 +398,7 @@
 				right: 22px;
 				width: 38px;
 				height: 28px;
-				background: url(/images/quot.png) no-repeat 0 0;
+				background: asset_url('quot.png') no-repeat 0 0;
 				background-size: 100% 100%;
 				opacity: 0.4;
 				transform: rotate(180deg);
@@ -445,6 +456,7 @@
 			li {
 				width: 280px;
 				padding: 40px 10px 40px 30px;
+				float: none;
 				> p {
 					padding-top: 15px;
 					font-size: 18px;
@@ -862,7 +874,7 @@
 						top: -5px;
 						width: 38px;
 						height: 28px;
-						background: url(/images/quot.png) no-repeat 0 0;
+						background: asset_url('quot.png') no-repeat 0 0;
 						background-size: 100% 100%;
 						opacity: 0.4;
 					}

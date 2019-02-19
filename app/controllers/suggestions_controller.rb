@@ -1,6 +1,28 @@
 class SuggestionsController < ApplicationController
   def index
-    @suggestions = Suggestion.order_recent.page(params[:page]).per(6)
+    @suggestions = Suggestion.order_recent.page(params[:page]).per(3)
+    if params[:q].present?
+      query = params[:q]
+
+      hashtags = Suggestion.parse_hastags(query)
+      hashtags.each do |hashtag|
+        query = query.gsub(/##{hashtag}/, '')
+      end
+
+      if hashtags.any?
+        @suggestions = @suggestions.joins(:hashtags).where(hashtags: { name: hashtags })
+      end
+
+      if query.present?
+        @suggestions = @suggestions.search_for(query)
+      end
+    end
+    if params[:area].present?
+      @suggestions = @suggestions.where(area: params[:area])
+    end
+    if params[:category].present?
+      @suggestions = @suggestions.where(category: params[:category])
+    end
   end
 
   def show

@@ -191,4 +191,46 @@ $(function(){
       $file_input.trigger('click');
     });
   });
+
+  $('.js-select-link').on('change', function(e) {
+    var $selected_option = $(e.currentTarget).find('option:selected');
+    var url = $selected_option.data('url');
+    if(url) {
+      location.href = url;
+    }
+  });
+
+  $(document).on('click', '.js-link', function(e) {
+    var href = $(e.target).closest('a').attr('href')
+    if (href && href != "#") {
+      return true;
+    }
+
+    e.preventDefault();
+    var url = $(e.currentTarget).data("url");
+    if(!url) {
+      var $url_source = $($(e.currentTarget).data("url-source"));
+      if($url_source.length > 0) {
+        url = $url_source.data("url");
+      }
+    }
+
+    if(!url) {
+      return;
+    }
+
+    var type = $(e.currentTarget).data("type");
+    if("remote" == type) {
+      $.ajax({
+        url: url,
+        type: "get"
+      });
+    } else if($(this).data('link-target')) {
+      window.open(url, $(this).data('link-target'));
+    } else if (e.shiftKey || e.ctrlKey || e.metaKey) {
+      window.open(url, '_blank');
+    } else {
+      window.location.href  = url;
+    }
+  });
 });
