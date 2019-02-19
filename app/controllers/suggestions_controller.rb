@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
   def index
-    @suggestions = Suggestion.order_recent.page(params[:page]).per(3)
+    @suggestions = Suggestion.order_recent.page(params[:page]).per(6)
     if params[:q].present?
       query = params[:q]
 

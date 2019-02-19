@@ -270,7 +270,7 @@
 			right: 90px;
 		}
 	}
-	@include respond-to(mobile) {
+	@include respond-to(tablet) {
 		height: 204px;
 		padding: 0 35px 0 85px;
 		background: {
@@ -1048,8 +1048,8 @@
 			}
 		}
 	}
-	@include respond-to(pc) {
-		width: 1200px;
+	@include respond-to(mPc) {
+		width: 1198px;
 		margin: 0 auto;
 		.tab {
 			button {
