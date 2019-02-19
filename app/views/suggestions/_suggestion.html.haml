@@ -1,4 +1,7 @@
 %li.cursor-pointer.js-link{ 'data-url': suggestion_path(suggestion, page: params[:page], q: params[:q], area: params[:area], category: params[:category]) }
+  - if local_assigns[:show_new_badge]
+    .new
+      %span 신규
   .cate
     %span= suggestion.area_name
     %span= suggestion.category_name

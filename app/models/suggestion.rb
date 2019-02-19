@@ -14,6 +14,7 @@ class Suggestion < ApplicationRecord
   mount_uploader :image, DefaultImageUploader
 
   scope :order_recent, -> { order(created_at: :desc) }
+  scope :order_hot, -> { order(Arel.sql('suggestions.reads_count + suggestions.comments_count * 20 + suggestions.likes_count * 10 desc')) }
   scoped_search on: [:title, :body]
 
   before_save :process_hashtags

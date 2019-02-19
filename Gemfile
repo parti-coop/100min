@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'auto_strip_attributes', '~> 2.5'
 gem 'kaminari'
 gem 'scoped_search', '~> 4.1', '>= 4.1.6'
+gem 'by_star'
 
 # auth
 gem 'devise', '~> 4.5'
