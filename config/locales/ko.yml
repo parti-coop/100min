@@ -1,11 +1,17 @@
 ko:
   errors:
     messages:
-      blank: ": 반드시 입력해야 합니다."
+      blank: "을(를) 반드시 입력해야 합니다."
   activerecord:
     attributes:
       story:
         title: 제목
         body: 내용
+      suggestion:
+        title: 제목
+        body: 내용
+        area: 지역
+        category: 분류
+        raw_hashtags: 해시태그
   pundit:
    default: '권한이 없습니다'

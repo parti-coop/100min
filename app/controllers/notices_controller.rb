@@ -17,6 +17,7 @@ class NoticesController < ApplicationController
     @notice = Notice.new notice_params
     authorize @notice
 
+    @notice.user = current_user
     if @notice.save
       redirect_to @notice
     else

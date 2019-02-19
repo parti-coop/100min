@@ -1,0 +1,66 @@
+class SuggestionsController < ApplicationController
+  def index
+    @suggestions = Suggestion.order_recent.page(params[:page]).per(6)
+  end
+
+  def show
+    @suggestion = Suggestion.find(params[:id])
+    @suggestion.reads_count += 1
+    @suggestion.save
+  end
+
+  def new
+    authorize Suggestion.new
+  end
+
+  def create
+    @suggestion = Suggestion.new suggestion_params
+    authorize @suggestion
+
+    @suggestion.user = current_user
+    if @suggestion.save
+      redirect_to @suggestion
+    else
+      errors_to_flash(@suggestion)
+      render :new
+    end
+  end
+
+  def edit
+    @suggestion = Suggestion.find(params[:id])
+    authorize @suggestion
+  end
+
+  def update
+    @suggestion = Suggestion.find(params[:id])
+    authorize @suggestion
+
+    @suggestion.assign_attributes(suggestion_params)
+    if @suggestion.save
+      flash[:success] = '저장되었습니다'
+      redirect_to @suggestion
+    else
+      errors_to_flash(@suggestion)
+      render :new
+    end
+  end
+
+  def destroy
+    @suggestion = Suggestion.find(params[:id])
+    authorize @suggestion
+
+    if @suggestion.destroy
+      flash[:success] = '삭제되었습니다'
+      redirect_to suggestions_path
+    else
+      errors_to_flash(@suggestion)
+      redirect_to @suggestion
+    end
+  end
+
+  private
+
+  def suggestion_params
+    params.require(:suggestion).permit(:title, :body, :image, :raw_hashtags, :area, :category)
+  end
+end

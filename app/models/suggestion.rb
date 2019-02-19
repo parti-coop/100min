@@ -1,0 +1,65 @@
+class Suggestion < ApplicationRecord
+  include Likable
+
+  belongs_to :user
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :hashtags, dependent: :destroy
+
+  validates :title, presence: true
+  validates :body, presence: true
+  validates :area, presence: true
+  validates :category, presence: true
+  validates :raw_hashtags, presence: true
+
+  mount_uploader :image, DefaultImageUploader
+
+  scope :order_recent, -> { order(created_at: :desc) }
+
+  before_save :process_hashtags
+
+  AREA_CODE = {
+    'KS': '강원‧인천‧수도권',
+    'CH': '충청권',
+    'HJ': '호남‧제주권',
+    'BT': '영남권',
+    'FU': '미래세대'
+  }
+
+  CATEGORY_CODE = {
+    'PO': '정치',
+    'EC': '경제',
+    'SO': '사회',
+    'CU': '문화/예술',
+    'TE': '과학/기술',
+    'ET': '기타'
+  }
+
+  def self.area_options
+    AREA_CODE.map{ |code, name| [name, code]}
+  end
+
+  def self.category_options
+    CATEGORY_CODE.map{ |code, name| [name, code]}
+  end
+
+  def area_name
+    AREA_CODE[self.area.to_sym]
+  end
+
+  def category_name
+    CATEGORY_CODE[self.category.to_sym]
+  end
+
+  HASHTAG_REGEX = /(?:\s|^)(#(?!(?:\d+|[ㄱ-ㅎ가-힣a-z0-9_]+?_|_[ㄱ-ㅎ가-힣a-z0-9_]+?)(?:\s|$))([ㄱ-ㅎ가-힣a-z0-9\-_]+))/i
+  def parse_hastags
+    return if self.raw_hashtags.blank?
+    self.raw_hashtags.scan(HASHTAG_REGEX).map { |match| match[1].to_s.strip }.uniq.compact
+  end
+
+  def process_hashtags
+    self.hashtags.destroy_all
+    parse_hastags.each do |name|
+      self.hashtags.build(name: name)
+    end
+  end
+end

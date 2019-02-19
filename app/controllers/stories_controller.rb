@@ -17,6 +17,7 @@ class StoriesController < ApplicationController
     @story = Story.new story_params
     authorize @story
 
+    @story.user = current_user
     if @story.save
       redirect_to @story
     else

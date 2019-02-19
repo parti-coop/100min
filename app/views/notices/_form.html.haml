@@ -1,4 +1,4 @@
-- notice ||= Notice.new
+- notice ||= (@notice || Notice.new)
 = form_with model: notice do |f|
   .write-box
     %ul

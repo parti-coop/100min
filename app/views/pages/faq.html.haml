@@ -5,9 +5,9 @@
     = succeed "어떤 문제를 어떻게 해결해야 할까요?”" do
       %br/
 .notice-view
-  .tab
+  .tab.js-menu-open-header
     / 하위메뉴 열림 "selected" class 추가
-    %button{type: "button"} FAQ
+    %button.js-menu-toggle{type: "button"} FAQ
     %ul
       %li
         %a{href: stories_path} 소식

@@ -36,6 +36,22 @@ $(function(){
     $header.removeClass('selected');
     $header.find('.js-menu-open-visible').hide();
   });
+  $('.js-menu-toggle').click(function(e) {
+    var $header = $(e.currentTarget).closest('.js-menu-open-header');
+    if($header.hasClass('selected')) {
+      $header.removeClass('selected');
+      $header.find('.js-menu-open-visible').hide();
+    } else {
+      $header.addClass('selected');
+      $header.find('.js-menu-open-visible').show();
+    }
+  });
+  $('.js-menu-close').click(function(e) {
+    var $header = $(e.currentTarget).closest('.js-menu-open-header');
+    $header.removeClass('selected');
+    $header.find('.js-menu-open-visible').hide();
+  });
+
 
   $('.js-dropdown-btn').click(function(e) {
     e.preventDefault();

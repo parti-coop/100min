@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_024023) do
+ActiveRecord::Schema.define(version: 2019_02_19_053921) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2019_02_19_024023) do
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.integer "suggestion_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["suggestion_id", "name"], name: "index_hashtags_on_suggestion_id_and_name", unique: true
+    t.index ["suggestion_id"], name: "index_hashtags_on_suggestion_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -50,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_02_19_024023) do
     t.integer "likes_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_notices_on_user_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -61,6 +72,24 @@ ActiveRecord::Schema.define(version: 2019_02_19_024023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "comments_count", default: 0
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_stories_on_user_id"
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body"
+    t.string "image"
+    t.string "area"
+    t.string "category"
+    t.text "raw_hashtags"
+    t.integer "comments_count", default: 0
+    t.integer "reads_count", default: 0
+    t.integer "likes_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

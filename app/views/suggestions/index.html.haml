@@ -1,0 +1,176 @@
+- content = capture do
+  .suggest-list
+    .list-search
+      .sch-box
+        %span
+          %select{title: "지역선택"}
+            %option 지역별
+        %span
+          %select{title: "분야선택"}
+            %option 분야별
+        %div
+          %input{title: "검색어를 입력해주세요", type: "search"}/
+          %button{type: "submit"}
+            %span 게시물 검색
+      %p
+        전체 제안
+        = succeed "건" do
+          %em= Suggestion.count
+    %ul
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+      %li
+        .cate
+          %span 강원‧인천‧수도권
+          %span 과학/기술
+        %p 범죄 없는 안전한 대한민국을 만들어요 믿을 수 있는 사회 ...
+        .info
+          %span.writer
+            %i> 작성자
+            홍길동님 제안
+          %span.like
+            %i> 좋아요
+            12
+          %span.comment
+            %i> 코멘트
+            12
+        %a{href: "#"} 더보기
+    .paging
+      %a.prev{href: "#"}
+        %span 이전
+      %span
+        %strong 1
+        %a{href: "#"} 2
+        %a{href: "#"} 3
+        %a{href: "#"} 4
+        %a{href: "#"} 5
+      %a.next{href: "#"}
+        %span 다음
+
+= render 'suggestions/template', content: content

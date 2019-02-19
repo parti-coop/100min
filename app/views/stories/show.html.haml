@@ -15,7 +15,6 @@
           = image_tag @story.image.url
     .sns-wrap
       = render 'likes/button', likable: @story
-
       %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{polymorphic_url(@story)}", target: '_blank', title: '공유하기'} 공유하기
       .btn.copy-url.cursor-pointer.js-clipboard{'data-clipboard-text': polymorphic_url(@story)} 주소복사
   .b-btn

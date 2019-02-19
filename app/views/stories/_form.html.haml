@@ -1,4 +1,4 @@
-- story ||= Story.new
+- story ||= (@story || Story.new)
 = form_with model: story do |f|
   .write-box
     %ul
