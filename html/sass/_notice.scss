@@ -19,11 +19,17 @@
 	}
 	background: {
 		color: #032b5b;
-		position: 0 0, 100% 0;
+		position: 0 0, 100% 100%;
 		repeat: no-repeat;
 	}
 	&.notice {
 		background-image: url('/images/notice_titlebg.png'), url('/images/notice_titlebg_r.png');
+	}
+	&.dream-wrap {
+		background-image: url('/images/dream_titlebg.png'), url('/images/dream_titlebg_r.png');
+	}
+	&.we-made {
+		background-image: url('/images/wemade_titlebg.png'), url('/images/wemade_titlebg_r.png');
 	}
 	@include respond-to(pc) {
 		height: 365px;
@@ -67,6 +73,10 @@
 		}
 		&.dream-wrap {
 			padding: 0 10px;
+			background: {
+				size: 89px auto, 75px auto;
+				image: url('/images/dream_titlebg_m.png'), url('/images/dream_titlebg_mr.png');
+			}
 			h2 {
 				padding-top: 40px;
 			}
@@ -75,11 +85,90 @@
 			}
 		}
 		&.we-made {
+			background: {
+				size: 146px auto, 83px auto;
+				image: url('/images/wemade_titlebg_m.png'), url('/images/wemade_titlebg_mr.png');
+			}
 			h2 {
 				padding-top: 40px;
 			}
 			p {
 				line-height: 1.4;
+			}
+		}
+	}
+}
+.dimd-wrap {
+	display: none;
+	&:before {
+		content: '';
+		display: block;
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0, .7);	
+	}
+	.dimd-inner {
+		position: fixed;
+		z-index: 200;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		> button {
+			position: absolute;
+			right: -7px;
+			top: -70px;
+			width: 40px;
+			height: 40px;
+			background: none;
+			span {
+				@include hiddenText;
+				display: block;
+			}
+			&:before,
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 2px;
+				left: 50%;
+				width: 1px;
+				height: 33px;
+				background: #fff;
+				transform: rotate(45deg);
+			}
+			&:after {
+				transform: rotate(-45deg);
+			}
+		}
+		.video-layer {
+			background: #cfcfcf;
+		}
+	}
+	@include respond-to(pc) {
+		.dimd-inner {
+			.video-layer {
+				width: 1100px;
+				height: 643px;
+			}
+		}
+	}
+	@include respond-to(mobile) {
+		.dimd-inner {
+			width: 100%;
+			padding: 0 20px;
+			box-sizing: border-box;
+			> button {
+				top: -45px;
+				right: 15px;
+			}
+			.video-layer {
+				width: 100%;
+				min-height: 170px;
 			}
 		}
 	}
@@ -147,9 +236,35 @@
 			display: inline-block;
 			margin: 0 9px;
 			.video {
+				position: relative;
 				width: 360px;
 				height: 204px;
 				background: rgba(0,0,0, .1);
+				> button {
+					display: block;
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					width: 65px;
+					height: 65px;
+					border-radius: 50%;
+					background: rgba(0,0,0, .5);
+					transform: translate(-50%, -50%);
+					-webkit-transform: translate(-50%, -50%);
+					&:before {
+						content:'';
+						display: block;
+						width: 15px;
+						height: 16px;
+						margin: 0 0 0 27px;
+						background: url('/images/icon_play.png') no-repeat 0 0;
+						background-size: 100% 100%;
+					}
+					span {
+						@include hiddenText;
+						display: block;
+					}
+				}
 			}
 		}
 	}
@@ -251,7 +366,7 @@
 			vertical-align: 2px;
 		}
 	}
-	@include respond-to(pc) {
+	@include respond-to(mPc) {
 		width: 1199px;
 		height: 139px;
 		margin-top: -70px;
@@ -321,6 +436,7 @@
 					height: 43px;
 					border: 1px solid #ccc;
 					border-radius: 22px;
+					padding: 0 20px;
 				}
 				button {
 					position: absolute;
@@ -339,6 +455,7 @@
 		}
 	}
 	> ul {
+		@include clearfix; //
 		margin-top: 30px;
 		padding: 55px 0 70px;
 		border: {
@@ -357,10 +474,19 @@
 			border: 1px solid #ccc;
 			box-sizing: border-box;
 			text-align: left;
+			float: left; //
 			> p {
 				padding-top: 10px;
 				font-size: 22px;
-				line-height: 1.3;
+				line-height: 1.5;
+				max-height: 66px; //
+				overflow: hidden;
+				height: 66px; //
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
 			}
 			.info {
 				padding-top: 20px;
@@ -387,7 +513,7 @@
 				right: 22px;
 				width: 38px;
 				height: 28px;
-				background: url(/images/quot.png) no-repeat 0 0;
+				background: url('/images/quot.png') no-repeat 0 0;
 				background-size: 100% 100%;
 				opacity: 0.4;
 				transform: rotate(180deg);
@@ -854,7 +980,7 @@
 						top: -5px;
 						width: 38px;
 						height: 28px;
-						background: url(/images/quot.png) no-repeat 0 0;
+						background: url('/images/quot.png') no-repeat 0 0;
 						background-size: 100% 100%;
 						opacity: 0.4;
 					}
