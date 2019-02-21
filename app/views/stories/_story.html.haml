@@ -4,7 +4,7 @@
       .img{ style: "background-image: url(#{story.image.lg.url});" }
     - else
       .img
-        %img.no-img{alt: "", src: fallback_image_url || asset_url("no-img.png")}/
+        %img.no-img{alt: "", src: local_assigns[:fallback_image_url] || asset_url("no-img.png")}/
     %p= story.title
     .info
       %span.date
