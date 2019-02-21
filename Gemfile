@@ -48,7 +48,7 @@ gem 'tinymce-rails-imageupload', '~> 4.0.17.beta.3'
 gem 'meta-tags', '~> 2.11', '>= 2.11.1'
 
 # ssl
-gem 'letsencrypt_plugin'
+gem 'acme_plugin'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

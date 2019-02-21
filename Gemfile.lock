@@ -18,6 +18,9 @@ GEM
   specs:
     acme-client (0.6.3)
       faraday (~> 0.9, >= 0.9.1)
+    acme_plugin (0.0.13)
+      acme-client (~> 0.6.2)
+      rails (>= 4.2)
     actioncable (5.2.2)
       actionpack (= 5.2.2)
       nio4r (~> 2.0)
@@ -149,9 +152,6 @@ GEM
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
     kgio (2.11.2)
-    letsencrypt_plugin (0.0.12)
-      acme-client (~> 0.6.2)
-      rails (>= 4.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -320,6 +320,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acme_plugin
   auto_strip_attributes (~> 2.5)
   bootsnap (>= 1.1.0)
   bundler (>= 2.0.1)
@@ -334,7 +335,6 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.3)
   kaminari
-  letsencrypt_plugin
   listen (>= 3.0.5, < 3.2)
   meta-tags (~> 2.11, >= 2.11.1)
   mini_magick
