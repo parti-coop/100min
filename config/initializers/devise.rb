@@ -257,7 +257,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"]
+  config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], scope: "email", info_fields: 'email,name', secure_image_url: true, image_size: 'large'
   config.omniauth :google_oauth2, ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"], { scope: "email,profile,offline", prompt: "consent", skip_jwt: true, redirect_uri: ('https://100min.dev/users/auth/google_oauth2/callback' if Rails.env.development?)}
   config.omniauth :kakao, ENV["KAKAO_KEY"], :redirect_path => "/users/auth/kakao/callback"
   config.omniauth :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
