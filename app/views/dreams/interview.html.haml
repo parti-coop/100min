@@ -16,11 +16,26 @@
     .list-video
       %ul
         %li
-          .video #video
+          .video
+            %button.js-dimd-open{type: "button"}
+              %span 동영상 열기
         %li
-          .video #video
+          .video
+            %button.js-dimd-open{type: "button"}
+              %span 동영상 열기
         %li
-          .video #video
+          .video
+            %button.js-dimd-open{type: "button"}
+              %span 동영상 열기
+      / [02.18] 딤드레이어 추가
+      .dimd-wrap.js-dimd-wrap
+        .dimd-inner
+          .video-layer
+            \#video
+          %button.js-dimd-close{:type => "button"}
+            %span 동영상 레이어 닫기
+      / //[02.18] 딤드레이어 추가
+
     .comment-wrap
       .com-desc
         %p 3.1운동 핵심 가치에 대한 여러분의 생각과 의견을 공유해주세요.

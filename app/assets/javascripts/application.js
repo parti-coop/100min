@@ -233,4 +233,12 @@ $(function(){
       window.location.href  = url;
     }
   });
+
+  $('.js-dimd-open').on('click', function(e) {
+    $('.js-dimd-wrap').css('display', 'block');
+  });
+
+  $('.js-dimd-close').on('click', function(e) {
+    $('.js-dimd-wrap').css('display', 'none');
+  });
 });
