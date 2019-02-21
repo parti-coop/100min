@@ -653,6 +653,8 @@
 							min-height: 194px;
 							background: #e1e1e1;
 							text-align: center;
+							background-position: center;
+							background-size: cover;
 							.no-img {
 								position: absolute;
 								top: 50%;
@@ -882,7 +884,8 @@
 				}
 			}
 		}
-		> .write-box {
+		> .write-box,
+		> form > .write-box {
 			margin-top: 80px;
 			padding-bottom: 20px;
 			border: {
@@ -1238,7 +1241,8 @@
 					}
 				}
 			}
-			> .write-box {
+			> .write-box,
+			> form > .write-box {
 				padding: 55px;
 				ul {
 					li {
@@ -1380,7 +1384,8 @@
 					}
 				}
 				.sns-wrap {
-					a {
+					a,
+					.btn {
 						width: 80px;
 						height: 80px;
 						margin: 0 3px;
@@ -1404,7 +1409,8 @@
 					}
 				}
 			}
-			> .write-box {
+			> .write-box,
+			> form > .write-box {
 				margin-top: 40px;
 			}
 			.b-btn {
