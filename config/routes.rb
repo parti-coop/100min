@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount LetsencryptPlugin::Engine, at: '/'
+
   devise_for :users, controllers: { omniauth_callbacks: 'user/omniauth_callbacks' }
   root 'pages#home'
   get :faq, to: 'pages#faq'

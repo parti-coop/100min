@@ -10,6 +10,8 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'bundler', '>= 2.0.1'
+gem 'mysql2', '>= 0.3.13', '< 0.5'
+
 
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -44,6 +46,9 @@ gem 'tinymce-rails-imageupload', '~> 4.0.17.beta.3'
 
 # seo
 gem 'meta-tags', '~> 2.11', '>= 2.11.1'
+
+# ssl
+gem 'letsencrypt_plugin'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
