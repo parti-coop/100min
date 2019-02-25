@@ -95,17 +95,21 @@
         %strong= number_with_delimiter(Suggestion.where(area: 'FU').count)
     %ul
       %li
-        강원‧인천‧수도권
-        %em= number_with_delimiter(Suggestion.where(area: 'KS').count)
+        = link_to suggestions_path(area: 'KS') do
+          강원‧인천‧수도권
+          %em= number_with_delimiter(Suggestion.where(area: 'KS').count)
       %li
-        충청권
-        %em= number_with_delimiter(Suggestion.where(area: 'CH').count)
+        = link_to suggestions_path(area: 'CH') do
+          충청권
+          %em= number_with_delimiter(Suggestion.where(area: 'CH').count)
       %li
-        호남‧제주권
-        %em= number_with_delimiter(Suggestion.where(area: 'HJ').count)
+        = link_to suggestions_path(area: 'HJ') do
+          호남‧제주권
+          %em= number_with_delimiter(Suggestion.where(area: 'HJ').count)
       %li
-        영남권
-        %em= number_with_delimiter(Suggestion.where(area: 'BT').count)
+        = link_to suggestions_path(area: 'BT') do
+          영남권
+          %em= number_with_delimiter(Suggestion.where(area: 'BT').count)
   - if @suggestion_new.present? and @suggestions.any?
     %ul
       = render @suggestion_new, show_new_badge: true
