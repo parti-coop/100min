@@ -10,9 +10,6 @@
         = @story.reads_count
     .cnts.js-fit-vids
       %p!= @story.body
-      - if @story.image?
-        .img-wrap
-          = image_tag @story.image.url
     .sns-wrap
       = render 'likes/button', likable: @story
       %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{polymorphic_url(@story)}", target: '_blank', title: '공유하기'} 공유하기

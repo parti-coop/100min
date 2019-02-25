@@ -18,13 +18,6 @@
         = @suggestion.reads_count
     .cnts.js-fit-vids
       %p!= @suggestion.body
-      - if @suggestion.image?
-        .img-wrap
-          = image_tag @suggestion.image.url
-      - if @suggestion.hashtags.any?
-        .tag-box
-          - @suggestion.hashtags.each do |hashtag|
-            = link_to "##{hashtag.name}", suggestions_path(q: "##{hashtag.name}")
     .sns-wrap
       = render 'likes/button', likable: @suggestion
       %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{polymorphic_url(@suggestion)}", target: '_blank', title: '공유하기'} 공유하기
