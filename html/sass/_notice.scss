@@ -173,6 +173,62 @@
 		}
 	}
 }
+.sns-wrap {
+	text-align: center;
+	a,
+	.btn {
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		margin: 0 10px;
+		border: 1px solid #d5d5d5;
+		border-radius: 50%;
+		font-size: 15px;
+		text-align: center;
+		&:before {
+			content: '';
+			display: block;
+			width: 32px;
+			height: 32px;
+			margin: 23px auto 3px;
+			background: url('/images/icon_b_sns.png') no-repeat 0 0;
+		}
+		&.facebook {
+			&:before {
+				background-position: -120px 0;
+			}
+		}
+		&.copy-url {
+			&:before {
+				background-position: -240px 0;
+			}
+		}
+	}
+	@include respond-to(mobile) {
+		a {
+			width: 80px;
+			height: 80px;
+			margin: 0 3px;
+			font-size: 14px;
+			&:before {
+				margin-top: 15px;
+				width: 26px;
+				height: 26px;
+				background-size: auto 100%;
+			}
+			&.facebook {
+				&:before {
+					background-position: -98px 0;
+				}
+			}
+			&.copy-url {
+				&:before {
+					background-position: -195px 0;
+				}
+			}
+		}
+	}
+}
 .video-wrap {
 	margin-top: 55px;
 	padding-bottom: 143px;
@@ -593,7 +649,8 @@
 		}
 	}
 }
-.notice-view {
+.notice-view,
+.contents-w {
 	.c-inner {
 		padding-top: 95px;
 		> h3 {
@@ -808,6 +865,9 @@
 				style: solid;
 				color: #868686;
 			}
+			img {
+				max-width: 100%;
+			}
 			.cate {
 				margin: 0 0 25px 80px;
 			}
@@ -845,38 +905,6 @@
 						font: {
 							size: 16px;
 							family: $font-thin;
-						}
-					}
-				}
-			}
-			.sns-wrap {
-				text-align: center;
-				a,
-				.btn {
-					display: inline-block;
-					width: 100px;
-					height: 100px;
-					margin: 0 10px;
-					border: 1px solid #d5d5d5;
-					border-radius: 50%;
-					font-size: 15px;
-					text-align: center;
-					&:before {
-						content: '';
-						display: block;
-						width: 32px;
-						height: 32px;
-						margin: 23px auto 3px;
-						background: url('/images/icon_b_sns.png') no-repeat 0 0;
-					}
-					&.facebook {
-						&:before {
-							background-position: -120px 0;
-						}
-					}
-					&.copy-url {
-						&:before {
-							background-position: -240px 0;
 						}
 					}
 				}
@@ -1377,30 +1405,6 @@
 					font-size: 15px;
 					.img-wrap {
 						margin-top: 25px;
-					}
-				}
-				.sns-wrap {
-					a {
-						width: 80px;
-						height: 80px;
-						margin: 0 3px;
-						font-size: 14px;
-						&:before {
-							margin-top: 15px;
-							width: 26px;
-							height: 26px;
-							background-size: auto 100%;
-						}
-						&.facebook {
-							&:before {
-								background-position: -98px 0;
-							}
-						}
-						&.copy-url {
-							&:before {
-								background-position: -195px 0;
-							}
-						}
 					}
 				}
 			}

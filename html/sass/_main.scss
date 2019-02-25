@@ -427,7 +427,7 @@
 		}
 	}
 	@include respond-to(tablet) {
-		padding: 50px 49px 58px;
+		padding: 50px 20px 58px;
 		h1 {
 			font-size: 30px;
 		}
@@ -451,16 +451,19 @@
 		> ul {
 			@include clearfix;
 			overflow: hidden;
-			width: 915px;
+			max-width: 915px;
 			margin: 35px auto 0;
 			background: none;
 			border-radius: 10px;
+			background: #fff;
 			li {
 				float: left;
-				width: 182px;
-				margin-left: 1px;
+				width: 20%;
+				margin-left: 0;
 				padding: 35px 0;
 				background: #fff;
+				box-sizing: border-box;
+				border-left: 1px solid #b3c8dc;
 				> strong {
 					padding-bottom: 10px;
 					font-size: 20px;
@@ -477,6 +480,9 @@
 						width: 10px;
 						height: 10px;
 					}
+				}
+				&:first-child {
+					border-left: non0;
 				}
 			}
 		}
@@ -963,13 +969,13 @@
 					font-size: 17px;
 				}
 				> ul {
-					margin-top: 40px;
+					margin-top: 10px;
 					border: none;
 					text-align: center;
 					li {
 						display: inline-block;
 						width: 280px;
-						margin: 0 8px;
+						margin: 10px 8px 0;
 						padding-bottom: 43px;
 						border: 2px solid #000;
 						.img {
@@ -1240,6 +1246,7 @@
 		}
 	}
 	@include respond-to(tablet) {
+		min-height: 735px;
 		&:before {
 			content: '';
 			display: block;
