@@ -21,6 +21,10 @@
             = f.check_box :remove_image
             = f.label :remove_image do
               삭제하기
+      %li
+        = f.check_box :pin
+        = f.label :pin, '홈에 썸네일 소식으로 고정합니다'
+
   .def-btn
     %a{href: stories_path} 목록
     = f.submit (f.object.persisted? ? "수정" : "저장"), class: 'active'

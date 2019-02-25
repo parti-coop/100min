@@ -14,7 +14,10 @@ class PagesController < ApplicationController
 
     @faqs = Faq::DATA[0..2]
 
-    @stories = Story.order_recent.limit(4)
+    @pin_story = Story.order_recent.where(pin: true).first
+    @stories = ([@pin_story] << Story.order_recent.where.not(id: @pin_story).limit(4).to_a).flatten
+    @stories.compact!
+    @stories = @stories[0..3]
   end
 
   def faq

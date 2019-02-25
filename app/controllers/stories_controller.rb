@@ -18,11 +18,18 @@ class StoriesController < ApplicationController
     authorize @story
 
     @story.user = current_user
-    if @story.save
-      redirect_to @story
-    else
-      errors_to_flash(@story)
-      render :new
+
+    ActiveRecord::Base.transaction do
+      if @story.pin?
+        Story.update_all(pin: false)
+      end
+
+      if @story.save
+        redirect_to @story
+      else
+        errors_to_flash(@story)
+        render :new
+      end
     end
   end
 
@@ -36,12 +43,19 @@ class StoriesController < ApplicationController
     authorize @story
 
     @story.assign_attributes(story_params)
-    if @story.save
-      flash[:success] = '저장되었습니다'
-      redirect_to @story
-    else
-      errors_to_flash(@story)
-      render :new
+
+    ActiveRecord::Base.transaction do
+      if @story.pin?
+        Story.update_all(pin: false)
+      end
+
+      if @story.save
+        flash[:success] = '저장되었습니다'
+        redirect_to @story
+      else
+        errors_to_flash(@story)
+        render :new
+      end
     end
   end
 
@@ -61,6 +75,6 @@ class StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:title, :body, :image)
+    params.require(:story).permit(:title, :body, :image, :pin)
   end
 end

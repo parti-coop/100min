@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_053921) do
+ActiveRecord::Schema.define(version: 2019_02_25_125320) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_053921) do
     t.datetime "updated_at", null: false
     t.integer "comments_count", default: 0
     t.integer "user_id", null: false
+    t.boolean "pin", default: false
     t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
