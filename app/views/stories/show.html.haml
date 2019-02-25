@@ -8,7 +8,7 @@
       %span.view
         %i> 조회
         = @story.reads_count
-    .cnts
+    .cnts.js-fit-vids
       %p!= @story.body
       - if @story.image?
         .img-wrap

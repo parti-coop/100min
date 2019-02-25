@@ -5,8 +5,7 @@
       100년토론광장의 이용 약관에
       = succeed "동의해주세요." do
         %br/
-    = form_tag new_user_registration_path, method: :get, id: 'new-terms-form', class: 'js-form-validation', 'data-form-validation-submit-control': '#new-terms-form .js-confirm-btn' do
-      = hidden_field_tag :confirmation, "y"
+    = form_with url: users_confirm_path, id: 'new-terms-form', class: 'js-form-validation', 'data-form-validation-submit-control': '#new-terms-form .js-confirm-btn' do
       .service
         %p
           %input#all_confirmation.js-user-confirm-check-all{type: "checkbox"}/
@@ -41,5 +40,5 @@
           %input#confirmation_mailing.js-user-confirm-check-all-target{name: "confirmation_mailing", type: "checkbox", value: "y"}/
           %label{for: "confirmation_mailing"} 이벤트 등 알림 메일 수신 (선택)
       .def-btn.js-user-confirm-check-all-scroll-to
-        %a{href: root_path} 비동의
+        = link_to '비동의', destroy_user_session_path, method: :delete
         %button.active.js-confirm-btn 동의

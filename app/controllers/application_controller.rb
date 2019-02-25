@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :store_user_location!, if: :storable_location?
   before_action :prepare_meta_tags, if: -> { request.get? and !Rails.env.test? }
+  before_action :check_confirmed_user
   after_action :prepare_unobtrusive_flash
 
   include Pundit
@@ -108,5 +109,17 @@ class ApplicationController < ActionController::Base
 
   def store_user_location!
     store_location_for(:user, request.fullpath)
+  end
+
+  def check_confirmed_user
+    return unless user_signed_in?
+
+    if !current_user.confirmation?
+      if !devise_controller? and !(controller_name == 'users' and action_name == 'confirm') and
+      !(controller_name == 'users' and action_name == 'confirm_form')
+        flash[:notice] = '더 진행하기 위해 약관에 동의하세요.'
+        redirect_to users_confirm_form_path and return
+      end
+    end
   end
 end

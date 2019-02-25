@@ -8,7 +8,7 @@
       %span.view
         %i> 조회
         = @notice.reads_count
-    .cnts
+    .cnts.js-fit-vids
       %p!= @notice.body
     .sns-wrap
       = render 'likes/button', likable: @notice

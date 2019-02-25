@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   resources :comments, only: :index
 
   post '/tinymce_assets', to: 'tinymce_assets#create'
+
+  post 'users/confirm', to: 'users#confirm'
+  get 'users/confirm_form', to: 'users#confirm_form'
 end

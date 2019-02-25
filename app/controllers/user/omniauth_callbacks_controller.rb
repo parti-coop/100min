@@ -47,30 +47,23 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = User.find_or_initialize_for_omniauth(parsed_data)
     if @user.new_record?
-      param_refer_from = request.env["omniauth.params"].try(:fetch, "refer_from", '')
-      if param_refer_from == 'sign_in'
-        flash[:notice] = '아직 회원으로 가입하지 않으셨네요. 회원가입을 진행하기 위해 약관에 동의하세요.'
-        redirect_to new_user_registration_path
-        return
-      end
       if @user.save
-        set_flash_message(:notice, :success, kind: @user.provider) if is_navigational_format?
-        sign_in_and_redirect @user, :event => :authentication
-        return
       else
-        if @user.errors.keys.include?(:confirmation)
-          flash[:notice] = '회원가입을 진행하기 전에 약관에 동의하세요.'
-          redirect_to new_user_registration_path
-        else
-          set_flash_message(:notice, :failure, kind: @user.provider, reason: @user.errors.full_messages.to_sentence)
-          redirect_to root_path
-        end
+        set_flash_message(:notice, :failure, kind: @user.provider, reason: @user.errors.full_messages.to_sentence)
+        redirect_to root_path
         return
       end
-    else
+    end
+
+    if @user.confirmation?
       set_flash_message(:notice, :success, kind: @user.provider)
       sign_in_and_redirect @user, :event => :authentication
-      return
+    else
+      flash[:notice] = '더 진행하기 위해 약관에 동의하세요.'
+
+      scope = Devise::Mapping.find_scope!(@user)
+      sign_in(scope, @user)
+      redirect_to users_confirm_form_path
     end
   end
 end

@@ -11,6 +11,7 @@
 //= require tooltipster.bundle
 //= require tinymce-jquery
 //= require clipboard
+//= require jquery.fitvids
 
 UnobtrusiveFlash.flashOptions['timeout'] = 5000;
 
@@ -182,6 +183,7 @@ $(function(){
             $(e.currentTarget).tooltipster('destroy');
           }
         });
+      e.clearSelection();
     });
   });
 
@@ -250,4 +252,6 @@ $(function(){
   $('.js-dimd-close').on('click', function(e) {
     $('.js-dimd-wrap').css('display', 'none');
   });
+
+  $('.js-fit-vids').fitVids();
 });

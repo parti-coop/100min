@@ -11,4 +11,19 @@ class UsersController < ApplicationController
 
     redirect_to root_path
   end
+
+  def confirm_form
+  end
+
+  def confirm
+    render_404 and return unless user_signed_in?
+
+    current_user.confirmation_terms = (params[:confirmation_terms] == "y")
+    current_user.confirmation_privacy = (params[:confirmation_privacy] == "y")
+    current_user.confirmation_mailing = (params[:confirmation_mailing] == "y")
+    current_user.save
+
+    flash[:success] = '가입이 완료되었습니다.'
+    redirect_to root_path
+  end
 end

@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates_presence_of     :password, if: :password_required?
   validates_confirmation_of :password, if: :password_required?
   validates_length_of       :password, within: Devise.password_length, allow_blank: true
-  validate :valid_confirmation, on: :create
+  # validate :valid_confirmation, on: :create
 
   mount_uploader :profile_image, DefaultImageUploader
 
@@ -31,11 +31,11 @@ class User < ApplicationRecord
     remember_me = params.try(:fetch, "remember_me", false)
     result[:remember_me] = remember_me
 
-    if params.try(:any?)
-      %w(confirmation_mailing confirmation_privacy confirmation_terms).each do |confirmation_param|
-        result[confirmation_param.to_sym] = (params.try(:fetch, confirmation_param, false) == 'y')
-      end
-    end
+    # if params.try(:any?)
+    #   %w(confirmation_mailing confirmation_privacy confirmation_terms).each do |confirmation_param|
+    #     result[confirmation_param.to_sym] = (params.try(:fetch, confirmation_param, false) == 'y')
+    #   end
+    # end
 
     result
   end
@@ -46,9 +46,9 @@ class User < ApplicationRecord
       user.name = parsed_data[:name] || user.email
       user.password = Devise.friendly_token[0,20]
       user.remote_profile_image_url = parsed_data[:image]
-      user.confirmation_mailing = parsed_data[:confirmation_mailing]
-      user.confirmation_privacy = parsed_data[:confirmation_privacy]
-      user.confirmation_terms = parsed_data[:confirmation_terms]
+      # user.confirmation_mailing = parsed_data[:confirmation_mailing]
+      # user.confirmation_privacy = parsed_data[:confirmation_privacy]
+      # user.confirmation_terms = parsed_data[:confirmation_terms]
     end
     user.remember_me = parsed_data[:remember_me]
     user
@@ -58,15 +58,19 @@ class User < ApplicationRecord
     false
   end
 
+  def confirmation?
+    confirmation_terms == true and confirmation_privacy == true
+  end
+
   private
 
   def password_required?
     !persisted? || !password.nil? || !password_confirmation.nil?
   end
 
-  def valid_confirmation
-    if confirmation_terms != true or confirmation_privacy != true
-      errors.add(:confirmation, I18n.t('errors.messages.users.need_to_confirm'))
-    end
-  end
+  # def valid_confirmation
+  #   if confirmation_terms != true or confirmation_privacy != true
+  #     errors.add(:confirmation, I18n.t('errors.messages.users.need_to_confirm'))
+  #   end
+  # end
 end
