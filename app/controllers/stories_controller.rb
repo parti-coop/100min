@@ -25,6 +25,7 @@ class StoriesController < ApplicationController
       end
 
       if @story.save
+        flash[:success] = '게시되었습니다'
         redirect_to @story
       else
         errors_to_flash(@story)

@@ -41,6 +41,7 @@ class SuggestionsController < ApplicationController
 
     @suggestion.user = current_user
     if @suggestion.save
+      flash[:success] = '게시되었습니다'
       redirect_to @suggestion
     else
       errors_to_flash(@suggestion)

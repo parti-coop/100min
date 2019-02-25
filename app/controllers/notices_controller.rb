@@ -19,6 +19,7 @@ class NoticesController < ApplicationController
 
     @notice.user = current_user
     if @notice.save
+      flash[:success] = '게시되었습니다'
       redirect_to @notice
     else
       errors_to_flash(@notice)

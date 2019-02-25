@@ -23,19 +23,6 @@
           %span *
         = f.text_area :body, class: 'tinymce js-tinymce', 'aria-required': 'true'
       %li
-        %em 썸네일
-        .file-wrap
-          = f.file_field :image, class: 'input-decorated'
-          = f.label :image, '파일첨부'
-          = f.text_field :image_title, title: "첨부파일명", readonly: true, class: 'js-upload-file-title', 'data-upload-file-titie-target-name': 'suggestion[image]'
-        %p 권장 사이즈 000 X 000
-        - if suggestion.read_attribute(:image).present?
-          .help-block
-            = image_tag suggestion.image.lg.url, style: 'max-width: 100px; vertical-align: bottom'
-            = f.check_box :remove_image
-            = f.label :remove_image do
-              삭제하기
-      %li
         = f.label :raw_hashtags do
           해시태그
           %span *
