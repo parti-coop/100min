@@ -29,26 +29,36 @@
 			<h1><a href="#">100년 토론광장</a></h1>
 			<button type="button"><span>메뉴 열림</span></button>
 			<div class="nav-wrap">
-				<nav id="snMenu">
-					<ul>
-						<li><a href="#">100년 토론광장</a></li>
-						<li><a href="#">그들이 꿈꾼 나라</a></li>
-						<li><a href="#">우리가 만들 세상</a></li>
-						<li><a href="#">시민 참여단</a></li>
-						<li><a href="#">소식과 공지</a></li>
-					</ul>
-				</nav>
-				<div class="join">
-					<a href="#">로그인</a>
-					<a href="#">회원가입</a>
-					<div class="after-login">
-						<button type="button"><span>abcdefgh님</span></button>
-						<div>
-							<a href="#">로그아웃</a>
-							<a href="#">탈퇴</a>
+				<div class="nav-inner"><!-- [02.28] div추가 -->
+					<nav id="snMenu"><!-- [02.04] id추가 -->
+						<ul>
+							<li><a href="#">100년 토론광장</a></li>
+							<li class="selected"><a href="#">그들이 꿈꾼 나라</a><!-- [02.18] 하위메뉴 열림 selected class 추가 -->
+								<!-- [02.18] menu 추가 -->
+								<ul>
+									<li><a href="#">핵심가치</a></li>
+									<li><a href="#">인터뷰 영상</a></li>
+									<li><a href="#">지역별 자료집</a></li>
+								</ul>
+								<!-- //[02.18] menu 추가 -->
+							</li>
+							<li><a href="#">우리가 만들 세상</a></li>
+							<li><a href="#">국민 참여단</a></li>
+							<li><a href="#">소식과 공지</a></li>
+						</ul>
+					</nav>
+					<div class="join">
+						<a href="#">로그인</a>
+						<a href="#">회원가입</a>
+						<div class="after-login">
+							<button type="button"><span>abcdefgh님</span></button>
+							<div>
+								<a href="#">로그아웃</a>
+								<a href="#">탈퇴</a>
+							</div>
 						</div>
 					</div>
-				</div>
+				</div><!-- //[02.28] div추가 -->
 				<button type="button"><span>메뉴 닫힘</span></button>
 			</div>
 		</header>

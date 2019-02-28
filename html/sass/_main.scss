@@ -53,24 +53,29 @@
 				}
 			}
 			> div {
-				padding-top: 30px;
+				display: inline-block;
+				position: relative;
+				//margin-top: 30px;
+				padding-left: 35px;
 				color: #666;
 				font-size: 22px;
 				span {
 					@include hiddenText;
-					display: inline-block;
+					display: block;
+					position: absolute;
+					left: 0;
 					width: 22px;
 					height: 24px;
-					margin-right: 14px;
 					background: url('/images/icon_date.png') no-repeat 0 0;
 					vertical-align: -3px;
 				}
 			}
 			> a {
-				display: inline-block;
+				display: block;
+				width: 200px;
 				height: 64px;
-				margin-top: 55px;
-				padding: 0 35px;
+				margin: 55px auto 0;
+				//padding: 0 35px;
 				border-radius: 32px;
 				border: 2px solid $color-point;
 				box-sizing: border-box;
@@ -78,6 +83,7 @@
 				color: $color-point;
 				font-size: 22px;
 				line-height: 58px;
+				text-align: center;
 				&:after {
 					@include arrow($color-point);
 					margin-left: 10px;
@@ -103,13 +109,13 @@
 				}
 			}
 		}
-		@include respond-to(wide) {
+		/* @include respond-to(wide) {
 			background: {
 				image: url('/images/billbg_left.png'), url('/images/billbg_right.png');
 				position: 0 0, 100% 32px;
 				repeat: no-repeat;
 			}
-		}
+		} */
 		@include respond-to(tablet) {
 			height: 474px;
 			background: {
@@ -790,11 +796,12 @@
 			li {
 				display: inline-block;
 				width: 280px;
-				height: 280px;
+				height: auto;
+				min-height: 280px;
 				padding: 40px 15px 0 30px;
 				text-align: left;
 				> p {
-					height: 45px;
+					height: auto;
 					font-size: 18px;
 				}
 				.info {

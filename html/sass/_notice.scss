@@ -32,6 +32,7 @@
 		background-image: url('/images/wemade_titlebg.png'), url('/images/wemade_titlebg_r.png');
 	}
 	@include respond-to(pc) {
+		min-width: 1200px;
 		height: 365px;
 		&.notice {
 			min-width: 1200px;
@@ -146,14 +147,20 @@
 			}
 		}
 		.video-layer {
-			background: #cfcfcf;
+			position: relative;
+			width: 100%;
+			iframe {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 	@include respond-to(pc) {
 		.dimd-inner {
 			.video-layer {
-				width: 1100px;
-				height: 643px;
+				min-width: 940px;
+				min-height: 528px;
 			}
 		}
 	}
@@ -167,8 +174,7 @@
 				right: 15px;
 			}
 			.video-layer {
-				width: 100%;
-				min-height: 170px;
+        		padding-bottom: 56.25%;
 			}
 		}
 	}
@@ -422,7 +428,7 @@
 			vertical-align: 2px;
 		}
 	}
-	@include respond-to(mPc) {
+	@include respond-to(pc) {
 		width: 1199px;
 		height: 139px;
 		margin-top: -70px;
@@ -482,7 +488,7 @@
 				min-width: 160px;
 				height: 43px;
 				padding: 0 35px 0 25px;
-				background-position: 110% 19px;
+				background-position: 100% 19px;
 				border-radius: 22px;
 			}
 			> div {
@@ -511,7 +517,6 @@
 		}
 	}
 	> ul {
-		@include clearfix; //
 		margin-top: 30px;
 		padding: 55px 0 70px;
 		border: {
@@ -530,7 +535,6 @@
 			border: 1px solid #ccc;
 			box-sizing: border-box;
 			text-align: left;
-			float: left; //
 			> p {
 				padding-top: 10px;
 				font-size: 22px;
@@ -595,6 +599,14 @@
 				}
 			}
 		}
+		//개발추가영역
+		> ul {
+			@include clearfix;
+			li {
+				float: left;
+			}
+		}
+		//
 	}
 	@include respond-to(mobile) {
 		margin-top: 32px;
