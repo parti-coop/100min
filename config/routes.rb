@@ -4,7 +4,18 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'user/omniauth_callbacks' }
   root 'pages#home'
   get :faq, to: 'pages#faq'
+
   get :about, to: 'pages#about'
+  get :caution, to: 'pages#caution'
+  get :map, to: 'pages#map'
+  get :schedule, to: 'pages#schedule'
+  get :application, to: 'pages#application'
+
+  get :group, to: 'pages#group'
+
+  get :privacy, to: 'pages#privacy'
+  get :terms, to: 'pages#terms'
+
   get 'dreams/value', to: 'dreams#value'
   get 'dreams/interview', to: 'dreams#interview'
   get 'dreams/data', to: 'dreams#data'

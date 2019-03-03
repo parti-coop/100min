@@ -23,24 +23,23 @@
           %h4 신청 지역
           %div
             %ul
-              %li 강원‧인천‧수도권 (장소 / 2018년 02월 19일)
-              %li 호남‧제주권 (장소 / 2018년 02월 19일)
-              %li 충청권 (장소 / 2018년 02월 19일)
-              %li 영남권 (장소 / 2018년 02월 19일)
-              %li 미래세대 (장소 / 2018년 02월 19일)
+              %li 강원‧인천‧수도권 (장소&middot;일시 미정)
+              %li 호남‧제주권 (장소&middot;일시 미정)
+              %li 충청권 (장소&middot;일시 미정)
+              %li 영남권 (장소&middot;일시 미정)
+              %li 미래세대 (장소&middot;일시 미정)
         %div
           %h4 신청방법
           %div
             %ul
               %li 우리가 만들 세상에 글을 1개 이상 등록합니다.
               %li 신청서 항목을 빠짐없이 작성합니다.
-            %a{href: "#"} 글 등록하기
+            %a{href: suggestions_path} 글 등록하기
       .tip
         %h5 작성 팁
         %p 우리가 만들 세상에 글을 등록하신 후 주소 복사 버튼을 누르시면 간편하게 내 글 주소를 입력할 수 있습니다.
       .sns-wrap
-        %a.like{href: "#"} 공감해요
-        %a.facebook{href: "#"} 공유하기
-        %a.copy-url{href: "#"} 주소복사
+        %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{group_url}", target: '_blank', title: '공유하기'} 공유하기
+        .btn.copy-url.cursor-pointer.js-clipboard{'data-clipboard-text': group_url} 주소복사
       .c-btn
-        %a{href: "#"} 신청서 작성
+        %a{href: application_path, target: '_blank'} 신청서 작성

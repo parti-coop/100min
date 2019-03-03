@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-
-
   def home
     @suggestion_new = Suggestion.order_recent.first
     if Suggestion.past_week.count > 10
@@ -22,5 +20,27 @@ class PagesController < ApplicationController
 
   def faq
     @faqs = Faq::DATA
+  end
+
+  def about
+  end
+
+  def caution
+  end
+
+  def map
+  end
+
+  def group
+  end
+
+  def privacy
+  end
+
+  def terms
+  end
+
+  def application
+    redirect_to 'https://www.google.com/intl/ko_kr/forms/about/'
   end
 end
