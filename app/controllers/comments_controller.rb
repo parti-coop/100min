@@ -5,6 +5,10 @@ class CommentsController < ApplicationController
     @comments = @commentable.comments.order_recent.page(params[:page])
   end
 
+  def show
+    @comment = Comment.find(params[:id])
+  end
+
   def create
     load_commentable
 

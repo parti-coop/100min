@@ -4,4 +4,7 @@
   = hidden_field_tag :list_dom_id, list_dom_id
   = f.text_area :body, value: session[:error_comment_body] || comment.body, title: "댓글입력"
   - session[:error_comment_body] = nil
+
   = f.submit '등록'
+  - if comment.persisted?
+    = link_to '취소', comment_path(comment, dom_id: local_assigns[:dom_id], list_dom_id: list_dom_id), remote: true, class: 'link-btn', style: '    top: 50px; background: white; color: #006ebc; border: 2px solid;'
