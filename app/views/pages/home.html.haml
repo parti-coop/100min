@@ -86,11 +86,13 @@
   .part-wrap
     %div
       %p
-        전체 참여자수
-        %strong= number_with_delimiter(Suggestion.count)
+        = link_to suggestions_path(area: 'FU') do
+          전체 참여자수
+          %strong= number_with_delimiter(Suggestion.count)
       %p
-        미래세대 참여자수
-        %strong= number_with_delimiter(Suggestion.where(area: 'FU').count)
+        = link_to suggestions_path(area: 'FU') do
+          미래세대 참여자수
+          %strong= number_with_delimiter(Suggestion.where(area: 'FU').count)
     %ul
       %li
         = link_to suggestions_path(area: 'KS') do

@@ -73,10 +73,10 @@
                 = link_to '탈퇴', cancel_current_user_path, method: :delete, 'data-confirm': '탈퇴하면 작성한 모든 글이 사라집니다. 이 동작은 되돌릴 수 없습니다. 정말 탈퇴하시겠습니까?'
         %button.js-hamburger-close.js-subhamburger-toggle-indicator{type: "button"}
           %span 메뉴 닫힘
-    %hr/
+    %hr.js-hamburger-open-invisible.js-hamburger-close-visible/
     %main#snContent.js-hamburger-open-invisible.js-hamburger-close-visible
       = yield
-    %hr/
+    %hr.js-hamburger-open-invisible.js-hamburger-close-visible/
     %footer.js-hamburger-open-invisible.js-hamburger-close-visible
       %ul
         %li
