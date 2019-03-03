@@ -1295,6 +1295,8 @@
 			> ul {
 				position: relative;
 				width: 620px;
+				// 백엔드보정
+				min-height: 455px;
 				margin: 40px auto 0;
 				padding-left: 340px;
 				box-sizing: border-box;
@@ -1342,7 +1344,9 @@
 							padding: 15px 30px 0;
 						}
 					}
-					&:last-child {
+					// 벡엔드보정
+					// &:last-child {
+					&.index-3 {
 						display: none;
 					}
 				}

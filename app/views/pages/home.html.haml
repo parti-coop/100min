@@ -165,7 +165,7 @@
     - if @stories.any?
       %ul
         - @stories.each_with_index do |story, index|
-          %li.cursor-pointer.js-link{ 'data-url': story_path(story) }
+          %li.cursor-pointer.js-link{ class: "index-#{index}", 'data-url': story_path(story) }
             - if index == 0
               %span.new
                 %span 신규
