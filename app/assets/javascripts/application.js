@@ -17,14 +17,15 @@ UnobtrusiveFlash.flashOptions['timeout'] = 5000;
 
 $(function(){
   $('.js-slides-container').bxSlider({
-    speed: 300,
+    speed: 500,
     auto: true,
-    autoStart: false,
+    autoStart: true,
     autoControls: true,
     startText: '재생',
     stopText: '정지',
     stopAutoOnClick: true,
-    pager: true
+    pager: true,
+    touchEnabled: false
   });
 
   $('.js-hamburger-open').click(function(e) {

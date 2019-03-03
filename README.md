@@ -1,16 +1,21 @@
 # ToDo
 
-* SEO
-* 개인정보보호정책
-* Facebook App 
- * App Image
- * Project Memeber 권한 추가
+# 개발
 * 실서버 설정
  * omniauth env
  * 프로필 이미지 디렉토리
-* 행사소식 글쓰기 권장 사이즈 000 X 000
+
+# 기획
+* SEO
+* 약관 / 개인보호정책 확
+* 운영자
+
+# 디자인
 * 파비콘
 * API 이미지
+  * Facebook App 등
+* Facebook App Project Memeber 권한 추가
+* 행사소식 글쓰기 권장 사이즈 000 X 000
 
 # 스타일
 * 홈 - 제안하기 .btn 스타일
