@@ -19,15 +19,15 @@
           %a{href: "#snContent"} 본문바로가기
         %li
           %a{href: "#snMenu"} 주메뉴 바로가기
-    %header.js-menu-header
+    %header.js-hamburger-header
       %h1
         %a{href: root_path} 100년 토론광장
-      %button.js-menu-open{type: "button"}
+      %button.js-hamburger-open.js-hamburger-open-invisible.js-hamburger-close-visible{type: "button"}
         %span 메뉴 열림
       .nav-wrap
         %nav#snContent
           %ul
-            %li.has-submenu.js-submenu-toggle
+            %li.has-submenu.js-subhamburger-toggle
               %a{href: about_path} 100년 토론광장
               %ul.js-submenu
                 %li
@@ -38,7 +38,7 @@
                   %a{href: caution_path} 유의사항
                 %li
                   %a{href: map_path} 오시는 길
-            %li.has-submenu.js-submenu-toggle
+            %li.has-submenu.js-subhamburger-toggle
               %a{href: dreams_value_path} 그들이 꿈꾼 나라
               %ul.js-submenu
                 %li
@@ -51,7 +51,7 @@
               %a{href: suggestions_path} 우리가 만들 세상
             %li
               %a{href: group_path} 국민 참여단
-            %li.has-submenu.js-submenu-toggle
+            %li.has-submenu.js-subhamburger-toggle
               %a{href: stories_path} 소식과 공지
               %ul.js-submenu
                 %li
@@ -68,16 +68,16 @@
             .after-login.js-dropdown
               %button.js-dropdown-btn.no-outline{type: "button"}
                 %span #{current_user.name} 님
-              .js-dropdown-menu.js-menu-open-visible.collapse
+              .js-dropdown-menu.js-hamburger-open-visible.js-hamburger-close-invisible.collapse
                 = link_to '로그아웃', destroy_user_session_path, method: :delete
                 = link_to '탈퇴', cancel_current_user_path, method: :delete, 'data-confirm': '탈퇴하면 작성한 모든 글이 사라집니다. 이 동작은 되돌릴 수 없습니다. 정말 탈퇴하시겠습니까?'
-        %button.js-menu-close.js-submenu-toggle-indicator{type: "button"}
+        %button.js-hamburger-close.js-subhamburger-toggle-indicator{type: "button"}
           %span 메뉴 닫힘
     %hr/
-    %main#snContent
+    %main#snContent.js-hamburger-open-invisible.js-hamburger-close-visible
       = yield
     %hr/
-    %footer
+    %footer.js-hamburger-open-invisible.js-hamburger-close-visible
       %ul
         %li
           %a{href: terms_path} 이용약관

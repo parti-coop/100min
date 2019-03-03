@@ -91,8 +91,14 @@ header {
 			height: 100%;
 			background: #fff;
 			z-index: 10;
-			padding: 95px 30px 30px;
+			// 백엔드보정
+			// padding: 95px 30px 30px;
 			box-sizing: border-box;
+			// 백엔드보정 *-
+			overflow: scroll;
+			top: 74px;
+			padding: 21px 30px 30px;
+			// 백엔드보정 -*
 			.nav-inner {
 				overflow: hidden;
 				overflow-y: auto;
@@ -189,11 +195,13 @@ header {
 			}
 		}
 		&.selected {
+			height: 100vh;
 			h1 {
 				position: fixed;
 			}
 			.nav-wrap {
 				display: block;
+				height: calc(100vh - 74px);
 			}
 		}
 	}

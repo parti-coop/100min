@@ -27,39 +27,39 @@ $(function(){
     pager: true
   });
 
-  $('.js-menu-open').click(function(e) {
-    var $header = $(e.currentTarget).closest('.js-menu-header');
+  $('.js-hamburger-open').click(function(e) {
+    var $header = $(e.currentTarget).closest('.js-hamburger-header');
     $header.addClass('selected');
-    $header.find('.js-menu-open-visible').show();
+    $('.js-hamburger-open-visible').show();
+    $('.js-hamburger-open-invisible').hide();
   });
-  $('.js-menu-close').click(function(e) {
-    var $header = $(e.currentTarget).closest('.js-menu-header');
+  $('.js-hamburger-close').click(function(e) {
+    var $header = $(e.currentTarget).closest('.js-hamburger-header');
     $header.removeClass('selected');
-    $header.find('.js-menu-open-visible').hide();
+    $('.js-hamburger-close-visible').show();
+    $('.js-hamburger-close-invisible').hide();
+  });
+  $('.js-subhamburger-toggle').click(function(e) {
+    var $elm = $(e.currentTarget);
+    var $clicked = $(e.target);
+    if($('.js-subhamburger-toggle-indicator').is(':visible')) {
+      if(! $elm.find('.js-submenu').is($clicked.closest('.js-submenu'))) {
+        e.preventDefault();
+        if($elm.hasClass('selected')) {
+          $('.js-subhamburger-toggle').removeClass('selected');
+        } else {
+          $('.js-subhamburger-toggle').removeClass('selected');
+          $elm.addClass('selected');
+        }
+      }
+    }
   });
   $('.js-menu-toggle').click(function(e) {
     var $header = $(e.currentTarget).closest('.js-menu-header');
     if($header.hasClass('selected')) {
       $header.removeClass('selected');
-      $header.find('.js-menu-open-visible').hide();
     } else {
       $header.addClass('selected');
-      $header.find('.js-menu-open-visible').show();
-    }
-  });
-  $('.js-submenu-toggle').click(function(e) {
-    var $elm = $(e.currentTarget);
-    var $clicked = $(e.target);
-    if($('.js-submenu-toggle-indicator').is(':visible')) {
-      if(! $elm.find('.js-submenu').is($clicked.closest('.js-submenu'))) {
-        e.preventDefault();
-        if($elm.hasClass('selected')) {
-          $('.js-submenu-toggle').removeClass('selected');
-        } else {
-          $('.js-submenu-toggle').removeClass('selected');
-          $elm.addClass('selected');
-        }
-      }
     }
   });
 
