@@ -4,6 +4,7 @@
 * 실서버 설정
  * omniauth env
  * 프로필 이미지 디렉토리
+* Facebook App Project Memeber 권한 추가
 
 # 기획
 * SEO
@@ -14,7 +15,6 @@
 * 파비콘
 * API 이미지
   * Facebook App 등
-* Facebook App Project Memeber 권한 추가
 * 행사소식 글쓰기 권장 사이즈 000 X 000
 * 내가 공감한 경우 게시글+댓글 공감버튼 스타일 
 
