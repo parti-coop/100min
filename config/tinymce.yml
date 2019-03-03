@@ -8,6 +8,7 @@ plugins:
   - media
 language: ko_KR
 statusbar: false
+relative_urls: false
 media_alt_source: false
 media_poster: false
 media_live_embeds: true
