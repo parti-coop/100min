@@ -86,7 +86,7 @@
   .part-wrap
     %div
       %p
-        = link_to suggestions_path(area: 'FU') do
+        = link_to suggestions_path do
           전체 참여자수
           %strong= number_with_delimiter(Suggestion.count)
       %p
