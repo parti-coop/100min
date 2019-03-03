@@ -9,7 +9,6 @@ class Suggestion < ApplicationRecord
   validates :body, presence: true
   validates :area, presence: true
   validates :category, presence: true
-  validates :raw_hashtags, presence: true
 
   mount_uploader :image, DefaultImageUploader
 
@@ -54,7 +53,7 @@ class Suggestion < ApplicationRecord
 
   HASHTAG_REGEX = /(?:\s|^)(#(?!(?:\d+|[ㄱ-ㅎ가-힣a-z0-9_]+?_|_[ㄱ-ㅎ가-힣a-z0-9_]+?)(?:\s|$))([ㄱ-ㅎ가-힣a-z0-9\-_]+))/i
   def self.parse_hastags(hashtags_str)
-    return if hashtags_str.blank?
+    return [] if hashtags_str.blank?
     hashtags_str.scan(HASHTAG_REGEX).map { |match| match[1].to_s.strip }.uniq.compact
   end
 
