@@ -9,5 +9,5 @@
         = f.label :body, '내용'
         = f.text_area :body, class: 'tinymce js-tinymce'
   .def-btn
-    %a{href: notices_path} 목록
+    %a{href: notices_path} 취소
     = f.submit (f.object.persisted? ? "수정" : "등록"), class: 'active'

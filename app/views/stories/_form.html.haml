@@ -26,5 +26,5 @@
         = f.label :pin, '홈에 썸네일 소식으로 고정합니다'
 
   .def-btn
-    %a{href: stories_path} 목록
+    %a{href: stories_path} 취소
     = f.submit (f.object.persisted? ? "수정" : "등록"), class: 'active'
