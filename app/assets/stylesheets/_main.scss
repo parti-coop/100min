@@ -582,12 +582,18 @@
 				transform: rotate(180deg);
 			}
 			> p {
-				overflow: hidden;
-				height: 53px;
 				padding-top: 10px;
 				color: #000;
 				font-size: 22px;
 				line-height: 1.27;
+				// 백엔드보정 *-
+				height: (1.27 * 2em);
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				// 백엔드보정 -*
 			}
 			.info {
 				padding-top: 25px;
@@ -806,6 +812,7 @@
 			li {
 				display: block;
 				margin: 5px auto 0;
+				width: 100%;
 			}
 		}
 	}
@@ -1005,6 +1012,7 @@
 					li {
 						display: block;
 						margin: -2px auto 0;
+						width: 100%;
 					}
 				}
 			}
@@ -1172,7 +1180,10 @@
 				}
 				> p {
 					color: #000;
-					height: 66px;
+					// 백엔드보정 *-
+					line-height: 1.5em;
+					height: 3em;
+					// 백엔드보정 -*
 					overflow: hidden;
 					text-overflow: ellipsis;
 					display: -webkit-box;
@@ -1342,9 +1353,10 @@
 				padding: 0;
 				li {
 					margin: 3px auto 0;
+					width: 100%;
 					&:first-child {
 						position: relative;
-						width: 280px;
+						width: 100%;
 					}
 				}
 			}
