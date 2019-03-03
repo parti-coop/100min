@@ -3,10 +3,10 @@
 	a {
 		position: absolute;
 		left:-3000%;
-	}	
+	}
 	:focus {
 		display: block;
-		left:0; 
+		left:0;
 		top: 0;
 		z-index: 100;
 		width: 100%;
@@ -462,7 +462,7 @@ footer {
 				position: absolute;
 				right: 0;
 				bottom: 0;
-				
+
 			}
 		}
 		@include respond-to(tablet) {
@@ -551,7 +551,7 @@ main {
 		}
 	}
 }
-//common 
+//common
 .info {
 	position: relative;
 	padding-top: 5px;
@@ -722,7 +722,7 @@ main {
 		}
 	}
 	@include respond-to(mPc) {
-		a {
+    a {
 			width: 146px;
 			height: 64px;
 			margin: 0 3px;

@@ -34,7 +34,7 @@ header {
 			display: block;
 			width: 252px;
 			height: 48px;
-			background: url('/images/logo.png');
+			background: asset_url('logo.png');
 		}
 	}
 	.join {
@@ -105,7 +105,8 @@ header {
 						padding: 15px 0 20px;
 						font-size: 22px;
 						border-bottom: 1px solid #e8e8e8;
-						&:after {
+						// 백엔드보정
+						&.has-submenu:after {
 							content: '';
 							position: absolute;
 							display: block;
@@ -264,7 +265,7 @@ header {
 						width: 16px;
 						height: 16px;
 						margin-right: 10px;
-						background: url('/images/icon_profile.png') no-repeat 0 0;
+						background: asset_url('icon_profile.png') no-repeat 0 0;
 					}
 					&:after {
 						@include arrow(#3e6999);
@@ -285,6 +286,10 @@ header {
 					border: 1px solid #d8d8d8;
 					border-radius: 10px;
 					box-sizing: border-box;
+					// 백엔드보정 *-
+					background-color: white;
+					z-index: 1;
+					// 백엔드보정 -*
 					a {
 						display: block;
 						border: none;
@@ -382,7 +387,7 @@ footer {
 			display: inline-block;
 			width: 78px;
 			height: 58px;
-			background: url('/images/logo.png') no-repeat 0 100%;
+			background: asset_url('logo.png') no-repeat 0 100%;
 		}
 		> p {
 			padding-top: 20px;
@@ -438,7 +443,7 @@ footer {
 					width: 12px;
 					height: 26px;
 					margin: 0 auto;
-					background: url('/images/sns_facebook.png') no-repeat 0 0;
+					background: asset_url('sns_facebook.png') no-repeat 0 0;
 					opacity: 0.5;
 				}
 				&:hover {
@@ -570,7 +575,7 @@ main {
 			width: 16px;
 			height: 16px;
 			margin-right: 7px;
-			background: url('/images/icon_list.png') no-repeat 0 0;
+			background: asset_url('icon_list.png') no-repeat 0 0;
 		}
 		&.date {
 			position: absolute;
@@ -705,7 +710,8 @@ main {
 .def-btn {
 	margin-top: 40px;
 	text-align: center;
-	a {
+	// 백엔드보정
+	a, input[type='submit'], button {
 		display: inline-block;
 		width: 106px;
 		height: 54px;
@@ -722,7 +728,8 @@ main {
 		}
 	}
 	@include respond-to(mPc) {
-		a {
+		// 백엔드보정
+    a, input[type='submit'], button {
 			width: 146px;
 			height: 64px;
 			margin: 0 3px;
