@@ -8,7 +8,7 @@
       %span.view
         %i> 조회
         = @story.reads_count
-    .cnts.js-fit-vids
+    .cnts.cnts-img.js-fit-vids
       %p!= @story.body
     .sns-wrap
       = render 'likes/button', likable: @story
