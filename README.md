@@ -16,6 +16,7 @@
   * Facebook App 등
 * Facebook App Project Memeber 권한 추가
 * 행사소식 글쓰기 권장 사이즈 000 X 000
+* 내가 공감한 경우 게시글+댓글 공감버튼 스타일 
 
 # 스타일
 * 홈 - 제안하기 .btn 스타일

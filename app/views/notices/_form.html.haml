@@ -10,4 +10,4 @@
         = f.text_area :body, class: 'tinymce js-tinymce'
   .def-btn
     %a{href: notices_path} 목록
-    = f.submit (f.object.persisted? ? "수정" : "저장"), class: 'active'
+    = f.submit (f.object.persisted? ? "수정" : "등록"), class: 'active'
