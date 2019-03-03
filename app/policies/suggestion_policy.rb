@@ -20,6 +20,6 @@ class SuggestionPolicy < ApplicationPolicy
   end
 
   def like?
-    user.present? and user != record.user
+    user.present?
   end
 end
