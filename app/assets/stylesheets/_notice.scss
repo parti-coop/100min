@@ -1196,7 +1196,10 @@
 		}
 	}
 	@include respond-to(pc) {
-		width: 1200px;
+		// 백엔드보정 *-
+		// width: 1200px;
+		max-width: 1200px;
+		// 백엔드보정 -*
 		margin: 0 auto;
 		.tab {
 			button {
@@ -1304,7 +1307,8 @@
 			}
 		}
 	}
-	@include respond-to(mobile) {
+	// 벡엔드보정
+	@include respond-to(tablet) {
 		.tab {
 			button {
 				position: relative;

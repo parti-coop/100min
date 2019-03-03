@@ -115,8 +115,10 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
 
     if !current_user.confirmation?
-      if !devise_controller? and !(controller_name == 'users' and action_name == 'confirm') and
-      !(controller_name == 'users' and action_name == 'confirm_form')
+      if !devise_controller? and
+          !(controller_name == 'users' and action_name == 'confirm') and
+          !(controller_name == 'users' and action_name == 'confirm_form') and
+          !(controller_name == 'users' and action_name == 'cancel')
         flash[:notice] = '더 진행하기 위해 약관에 동의하세요.'
         redirect_to users_confirm_form_path and return
       end

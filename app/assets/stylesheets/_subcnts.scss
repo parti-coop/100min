@@ -241,7 +241,8 @@
 	.sns-wrap {
 		margin-top: 30px;
 	}
-	@include respond-to(mobile) {
+	// 벡엔드보정
+	@include respond-to(tablet) {
 		margin-top: 40px;
 		.desc-box {
 			padding-top: 80px;
