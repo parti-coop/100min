@@ -1436,3 +1436,14 @@
 		}
 	}
 }
+
+body.app-pages-home {
+	min-width: auto;
+	@include respond-to(sTablet) {
+		min-width: 1024px;
+	}
+	@include respond-to(mMobile) {
+		min-width: auto;
+	}
+}
+
