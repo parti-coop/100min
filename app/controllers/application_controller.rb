@@ -15,43 +15,41 @@ class ApplicationController < ActionController::Base
   end
 
   if Rails.env.production? or Rails.env.staging?
-    rescue_from ActiveRecord::RecordNotFound, ActionController::UnknownFormat do |exception|
+    rescue_from ActionController::RoutingError, ActiveRecord::RecordNotFound, ActionController::UnknownFormat do |exception|
       render_404
     end
     rescue_from ActionController::InvalidCrossOriginRequest, ActionController::InvalidAuthenticityToken do |exception|
-      self.response_body = nil
-      if request.format.html?
-        redirect_to root_url, :alert => I18n.t('errors.messages.invalid_auth_token')
-      else
-        render_403
-      end
+      render_403
     end
   end
   rescue_from Pundit::NotAuthorizedError do |exception|
     policy_name = exception.policy.class.to_s.underscore
     flash[:alert] = t("#{policy_name}.#{exception.query}", scope: "pundit", default: :default)
-
-    self.response_body = nil
-    if request.format.html?
-      redirect_to root_url
-    else
-      render_403
-    end
+    render_401
   end
 
-  def render_404
+  def render_401
     self.response_body = nil
     respond_to do |format|
-      format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: 404 }
-      format.js { head 404 }
+      format.html { redirect_to error_401_path }
+      format.js { head 401 }
     end
   end
 
   def render_403
     self.response_body = nil
     respond_to do |format|
-      format.html { render file: "#{Rails.root}/public/403.html", layout: false, status: 403 }
+      format.html { redirect_to error_403_path }
       format.js { head 403 }
+    end
+  end
+
+
+  def render_404
+    self.response_body = nil
+    respond_to do |format|
+      format.html { redirect_to error_404_path }
+      format.js { head 404 }
     end
   end
 

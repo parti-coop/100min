@@ -19,6 +19,7 @@ module Centennial
     config.time_zone = 'Asia/Seoul'
     config.i18n.available_locales = [:en, :ko]
     config.i18n.default_locale = :ko
+    config.exceptions_app = self.routes
 
     I18n.backend.class.send(:include, I18n::Backend::Cascade)
   end
