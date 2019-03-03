@@ -34,7 +34,7 @@ header {
 			display: block;
 			width: 252px;
 			height: 48px;
-			background: asset_url('logo.png');
+			background: url('/images/logo.png');
 		}
 	}
 	.join {
@@ -91,16 +91,21 @@ header {
 			height: 100%;
 			background: #fff;
 			z-index: 10;
-			overflow: auto;
+			padding: 95px 30px 30px;
+			box-sizing: border-box;
+			.nav-inner {
+				overflow: hidden;
+				overflow-y: auto;
+				height: 100%;
+			}
 			nav {
-				padding: 95px 30px 0 30px;
 				> ul {
 					> li {
 						position: relative;
 						padding: 15px 0 20px;
 						font-size: 22px;
 						border-bottom: 1px solid #e8e8e8;
-						&.has-submenu:after {
+						&:after {
 							content: '';
 							position: absolute;
 							display: block;
@@ -259,7 +264,7 @@ header {
 						width: 16px;
 						height: 16px;
 						margin-right: 10px;
-						background: asset_url('icon_profile.png') no-repeat 0 0;
+						background: url('/images/icon_profile.png') no-repeat 0 0;
 					}
 					&:after {
 						@include arrow(#3e6999);
@@ -276,11 +281,10 @@ header {
 					right: 0;
 					width: 160px;
 					padding: 0 20px;
+					background: #fff;
 					border: 1px solid #d8d8d8;
 					border-radius: 10px;
 					box-sizing: border-box;
-					background-color: white;
-					z-index: 1;
 					a {
 						display: block;
 						border: none;
@@ -378,7 +382,7 @@ footer {
 			display: inline-block;
 			width: 78px;
 			height: 58px;
-			background: asset_url('logo.png') no-repeat 0 100%;
+			background: url('/images/logo.png') no-repeat 0 100%;
 		}
 		> p {
 			padding-top: 20px;
@@ -434,7 +438,7 @@ footer {
 					width: 12px;
 					height: 26px;
 					margin: 0 auto;
-					background: asset_url('sns_facebook.png') no-repeat 0 0;
+					background: url('/images/sns_facebook.png') no-repeat 0 0;
 					opacity: 0.5;
 				}
 				&:hover {
@@ -566,7 +570,7 @@ main {
 			width: 16px;
 			height: 16px;
 			margin-right: 7px;
-			background: asset_url('icon_list.png') no-repeat 0 0;
+			background: url('/images/icon_list.png') no-repeat 0 0;
 		}
 		&.date {
 			position: absolute;
@@ -701,7 +705,7 @@ main {
 .def-btn {
 	margin-top: 40px;
 	text-align: center;
-	a, input[type='submit'], button {
+	a {
 		display: inline-block;
 		width: 106px;
 		height: 54px;
@@ -718,7 +722,7 @@ main {
 		}
 	}
 	@include respond-to(mPc) {
-		a, input[type='submit'], button {
+		a {
 			width: 146px;
 			height: 64px;
 			margin: 0 3px;

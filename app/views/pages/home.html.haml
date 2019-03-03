@@ -11,33 +11,27 @@
         %div
           %span> 날짜
           2019년 3월~6월
-        %a{href: about_path} 100년 토론광장이란?
-    .bill-sug
+        %a{href: "#"} 100년 토론광장이란?
+    .bill-sug.bill2
       .cnts
         %strong
-          %img{alt: "100년 토론광장", src: asset_url('bill_text.png')}/
+          %img{alt: "우리가 만들 세상", src: asset_url('bill_text02.png')}/
         %p
-          민국 100년, 그들이 꿈꾼나라,
-          = succeed "우리가 만들 세상" do
+          새로운 대한민국, 무엇을 해야할까요?
+          = succeed "생각을 나눠 주세요!" do
             %br/
         %div
-          %span> 날짜
-          2019년 3월~6월
-        %a{href: "#"} 100년 토론광장이란?
-    .bill-sug
+          %a{href: "#"} 의견 작성하기
+    .bill-sug.bill3
       .cnts
         %strong
-          %img{alt: "100년 토론광장", src: asset_url('bill_text.png')}/
-        %p
-          민국 100년, 그들이 꿈꾼나라,
-          = succeed "우리가 만들 세상" do
-            %br/
+          %img{alt: "그들이 꿈꾼 나라", src: asset_url('bill_text03.png')}/
+        %p 3.1운동 및 임시정부수립 100주년
         %div
-          %span> 날짜
-          2019년 3월~6월
-        %a{href: "#"} 100년 토론광장이란?
+          %a{href: "#"} 영상보기
+
 %section.apply-box
-  %h1 100년 토론광장 시민 참여단 신청
+  %h1 100년 토론광장 국민 참여단 신청
   %div
     %h2 신청자격
     %ul
@@ -85,6 +79,10 @@
     앞으로의 100년을 이끌 우리 사회에 필요한 가치, 해결 과제는?
     = succeed "시민 여러분의 생각과 의견을 자유롭게 공유해 주세요." do
       %br/
+  / [0302] 버튼 추가
+  .btn
+    %a{href: "#"} 제안하기
+  / //[0302] 버튼 추가
   .part-wrap
     %div
       %p
@@ -100,7 +98,7 @@
           %em= number_with_delimiter(Suggestion.where(area: 'KS').count)
       %li
         = link_to suggestions_path(area: 'CH') do
-          충청권
+          충청남도‧충청북도
           %em= number_with_delimiter(Suggestion.where(area: 'CH').count)
       %li
         = link_to suggestions_path(area: 'HJ') do
