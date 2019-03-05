@@ -1,0 +1,55 @@
+// MOBILE //
+$breakpoints: (
+  'wide': (min-width: 1940px),
+  'pc': (min-width: 1500px),
+  'sPc': (min-width: 1100px),
+  'tablet': (max-width: 1100px),
+  'sTablet': (max-width: 860px),
+  'mobile': (max-width: 640px),
+  'subTablet': (max-width: 1170px),
+
+);
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+/* var */
+$color-def: #333;
+$color-sub: #606060;
+$color-ftr: #737373;
+$color-point: #006ebc;
+$font-def: 'NotoSans-Regular','Roboto','Droid Sans','Malgun Gothic','Helvetica','Apple-Gothic','애플고딕','Tahoma',dotum,'돋움',gulim,'굴림', sans-serif;
+$font-str: 'NotoSans-Bold','Roboto','Droid Sans','Malgun Gothic','Helvetica','Apple-Gothic','애플고딕','Tahoma',dotum,'돋움',gulim,'굴림', sans-serif;
+$font-thin: 'NotoSans-Thin','Roboto','Droid Sans','Malgun Gothic','Helvetica','Apple-Gothic','애플고딕','Tahoma',dotum,'돋움',gulim,'굴림', sans-serif;
+
+/* mixin */
+@mixin hiddenText {
+	overflow: hidden;
+	font-size: 1px;
+	line-height: 0;
+	text: {
+		indent: -9999px;
+		align: left;
+	}
+}
+@mixin clearfix {
+	&:after {
+		display: block;
+		content:'';
+		clear: both;
+	}
+}
