@@ -31,7 +31,9 @@
           %a{href: 'https://www.youtube.com/watch?v=XlQKIdkPDRU&feature=youtu.be', target: '_blank'} 영상보기
 
 %section.apply-box
-  %h1 100년 토론광장 국민 참여단 신청
+
+  %h1.hidden-mobile 100년 토론광장 국민 참여단 신청
+  %h1.visible-mobile-block 국민 참여단 신청
   %div
     %h2 신청 안내
     %ul
@@ -75,10 +77,18 @@
       / %a{href: group_path} 신청
 %section.make-w
   %h1 우리가 만들 세상
-  %p
+  %p.hidden-mobile
     앞으로의 100년을 이끌 우리 사회에 필요한 가치, 해결 과제는?
     = succeed "시민 여러분의 생각과 의견을 자유롭게 공유해 주세요." do
       %br/
+  %p.visible-mobile-block
+    앞으로의 100년을 이끌 우리 사회에
+    %br
+    필요한 가치, 해결 과제는?
+    %br
+    시민 여러분의 생각과 의견을 자유롭게
+    %br
+    공유해 주세요.
   / [0302] 버튼 추가
   .btn
     - if user_signed_in?
@@ -103,7 +113,7 @@
           %em= number_with_delimiter(Suggestion.where(area: 'KS').count)
       %li
         = link_to suggestions_path(area: 'CH') do
-          충청남도‧충청북도
+          충청권
           %em= number_with_delimiter(Suggestion.where(area: 'CH').count)
       %li
         = link_to suggestions_path(area: 'HJ') do

@@ -746,3 +746,21 @@ main {
 		}
 	}
 }
+// 백엔드보정 *-
+@include respond-to(mMobile) {
+	.hidden-mobile {
+		display: none;
+	}
+	.visible-mobile-block {
+		display: block;
+	}
+}
+@include respond-to(oMobile) {
+	.visible-mobile-block {
+		display: none;
+	}
+}
+.keep-all {
+   word-break: keep-all;
+}
+// 백엔드보정 -*

@@ -62,6 +62,10 @@ class User < ApplicationRecord
     confirmation_terms == true and confirmation_privacy == true
   end
 
+  def admin?
+    %w(sjjungkr@gmail.com contact@parti.xyz).include? self.email
+  end
+
   private
 
   def password_required?

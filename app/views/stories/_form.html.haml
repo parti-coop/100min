@@ -14,7 +14,7 @@
           = f.file_field :image, class: 'input-decorated'
           = f.label :image, '파일첨부'
           = f.text_field :image_title, title: "첨부파일명", readonly: true, class: 'js-upload-file-title', 'data-upload-file-titie-target-name': 'story[image]'
-        %p 권장 사이즈 000 X 000
+        %p 권장 사이즈 350px X 240px
         - if story.read_attribute(:image).present?
           .help-block
             = image_tag story.image.lg.url, style: 'max-width: 100px; vertical-align: bottom'

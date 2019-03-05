@@ -37,8 +37,7 @@ class ApplicationPolicy
   private
 
   def admin_only
-    # !user.blank? and user.admin?
-    true
+    !user.blank? and user.admin?
   end
 
   class Scope

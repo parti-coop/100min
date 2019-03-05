@@ -5,6 +5,7 @@ class ErrorsController < ApplicationController
   end
 
   def unauthorized
+    redirect_to new_user_session_path and return unless user_signed_in?
     render status: 401
   end
 
