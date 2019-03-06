@@ -63,7 +63,7 @@ class User < ApplicationRecord
   end
 
   def admin?
-    %w(sjjungkr@gmail.com contact@parti.xyz).include? self.email
+    %w(sjjungkr@gmail.com contact@parti.xyz roots96@hanmail.net).include? self.email
   end
 
   private
