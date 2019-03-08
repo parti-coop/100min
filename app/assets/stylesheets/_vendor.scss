@@ -1,4 +1,13 @@
 @import 'unobtrusive_flash_ui';
+
+#unobtrusive-flash-messages .unobtrusive-flash-message-wrapper {
+    padding: 0.7em 1em;
+    .unobtrusive-flash-message {
+        max-width: 960px;
+        width: 100%;
+    }
+}
+
 @import 'tooltipster.bundle';
 
 @media screen and (max-width: 515px) {
