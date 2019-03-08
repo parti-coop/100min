@@ -224,7 +224,8 @@
 		}
 	}
 	@include respond-to(mobile) {
-		a {
+		a,
+		.btn {
 			width: 80px;
 			height: 80px;
 			margin: 0 3px;
@@ -233,7 +234,14 @@
 				margin-top: 15px;
 				width: 26px;
 				height: 26px;
-				background-size: auto 100%;
+		    background-size: 220px;
+			}
+			&.active {
+				&:before {
+					background-position-x: 0px;
+			    background-position-y: -32px;
+			    background-size: 220px;
+				}
 			}
 			&.facebook {
 				&:before {
