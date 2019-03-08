@@ -673,6 +673,21 @@
 			}
 		}
 	}
+	// 백엔드보정 *-
+	@include respond-to(sMobile) {
+		.list-search {
+			.sch-box {
+				> span {
+					width: 100%;
+			    margin-top: 10px;
+					&:first-child {
+						padding-right: 0;
+					}
+				}
+			}
+		}
+	}
+	// 백엔드보정 -*
 }
 .notice-view,
 .contents-w {

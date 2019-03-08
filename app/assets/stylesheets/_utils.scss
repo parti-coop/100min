@@ -1,5 +1,6 @@
 // MOBILE //
 $breakpoints: (
+  'sMobile': (max-width: 330px),
   'mMobile': (max-width: 812px),
   'tablet': (max-width: 1197px),
   'mPc': (min-width: 1198px),
