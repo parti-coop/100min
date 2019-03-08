@@ -171,10 +171,9 @@
   %div
     %h2 자주 하는 질문 (FAQ)
     %p 100년 토론광장 자주하시는 질문입니다
-    - if @notices.any?
-      %ul
-        %li
-          준비 중입니다.
+    %ul
+      %li
+        준비 중입니다.
         -# @faqs.each do |faq|
         -#  %li
         -#     %a{href: faq_path(id: faq[:id], anchor: "anchor-faq-#{faq[:id]}")}= faq[:q]

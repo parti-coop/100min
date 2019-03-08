@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :stories, dependent: :destroy
   has_many :notices, dependent: :destroy
   has_many :suggestions, dependent: :destroy
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates_format_of       :email, with: Devise.email_regexp, allow_blank: true, if: :will_save_change_to_email?
   validates_presence_of     :password, if: :password_required?
