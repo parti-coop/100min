@@ -58,8 +58,8 @@
                   %a{href: stories_path} 소식
                 %li
                   %a{href: notices_path} 공지
-                %li
-                  %a{href: faq_path} FAQ
+                / %li
+                /   %a{href: faq_path} FAQ
         .join
           - unless user_signed_in?
             %a{href: new_user_session_path} 로그인
@@ -104,9 +104,10 @@
       $(function(){
         $('textarea.js-tinymce').each(function() {
           var $elm = $(this);
-
+          var content_css = $elm.data('content-css');
           var params =  {
-            target: this
+            target: this,
+            content_css: content_css
           }
           TinyMCERails.initialize('default', params);
         });

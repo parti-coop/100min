@@ -7,7 +7,7 @@
         = f.text_field :title
       %li
         = f.label :body, '내용'
-        = f.text_area :body, class: 'tinymce js-tinymce'
+        = f.text_area :body, class: 'tinymce js-tinymce', 'data-content-css': asset_url('tinymce_content.css')
   .def-btn
     %a{href: notices_path} 취소
     = f.submit (f.object.persisted? ? "수정" : "등록"), class: 'active'
