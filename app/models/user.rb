@@ -15,6 +15,9 @@ class User < ApplicationRecord
   validates_length_of       :password, within: Devise.password_length, allow_blank: true
   # validate :valid_confirmation, on: :create
 
+  scope :order_recent, -> { order(created_at: :desc) }
+  scoped_search on: [:name, :email]
+
   mount_uploader :profile_image, DefaultImageUploader
 
   def self.find_for_omniauth(provider, uid)

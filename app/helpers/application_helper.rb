@@ -8,4 +8,8 @@ module ApplicationHelper
   def static_day_f(date)
     date.strftime("%Y.%m.%d")
   end
+
+  def human_datetime_f(date)
+    date.strftime("%Y년 %m월 %d일 %H:%M")
+  end
 end

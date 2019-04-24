@@ -19,10 +19,18 @@
             %button{type: "submit"}
               %span 게시물 검색
       %p
-        = link_to suggestions_path do
-          전체 제안
+        - if @suggestion_user.present?
+          #{@suggestion_user.name} 제안
           = succeed "건" do
-            %em= Suggestion.count
+            %em= Suggestion.where(user: @suggestion_user).count
+          \/
+          = link_to suggestions_path do
+            전체보기
+        - else
+          = link_to suggestions_path do
+            전체 제안
+            = succeed "건" do
+              %em= Suggestion.count
     %ul
       - @suggestions.each do |suggestion|
         = render suggestion

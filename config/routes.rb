@@ -44,4 +44,8 @@ Rails.application.routes.draw do
   match '/401', to: 'errors#unauthorized', via: :all, as: :error_401
   match '/403', to: 'errors#forbidden', via: :all, as: :error_403
   match '/500', to: 'errors#internal_server_error', via: :all, as: :error_500
+
+  namespace :admin do
+    root to: 'users#index'
+  end
 end

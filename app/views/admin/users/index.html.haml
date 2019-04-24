@@ -1,0 +1,61 @@
+%section.contents-w
+  .c-inner
+    %h3 회원목록
+
+    %div{ style: 'text-align: right; margin-top: 20px' }
+      = form_with url: admin_root_path, method: :get do |f|
+        - if params[:q].present?
+          = link_to admin_root_path do
+            전체 보기
+          &nbsp;
+          \/
+          &nbsp;
+        = f.text_field :q, value: params[:q], placeholder: '이름이나 이메일', style: 'height: 30px'
+        = f.submit '찾기', style: 'height: 30px; border: 1px solid black; padding: 0 10px;'
+
+    %p .
+
+    %table.table.table-striped#users
+      %thead
+        %tr
+          %th{width: '5%'} #
+          %th{width: '20%'} 닉네임
+          %th{width: '20%'} 이메일
+          %th{width: '20%'} SNS
+          %th{width: '20%'} 가입일
+          %th{width: '15%'} 제안
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.name
+            %td= (user.email.present? ? link_to("#{user.email} →", "mailto:#{user.email}") : '')
+            %td= user.provider
+            %td= human_datetime_f(user.created_at)
+            %td
+              - suggestions_count = user.suggestions.count
+              = (suggestions_count > 0 ? link_to("#{suggestions_count}개 →", suggestions_path(user_id: user.id), target: '_blank') : '')
+
+:css
+  #users {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #users td, #users th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #users tr:nth-child(even){background-color: #f2f2f2;}
+
+  #users tr:hover {background-color: #ddd;}
+
+  #users th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4c4c4c;
+    color: white;
+  }

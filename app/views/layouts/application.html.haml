@@ -60,6 +60,9 @@
                   %a{href: notices_path} 공지
                 / %li
                 /   %a{href: faq_path} FAQ
+            - if user_signed_in? and current_user.admin?
+              %li
+                %a{href: admin_root_path} 회원목록(*)
         .join
           - unless user_signed_in?
             %a{href: new_user_session_path} 로그인

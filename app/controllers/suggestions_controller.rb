@@ -23,6 +23,10 @@ class SuggestionsController < ApplicationController
     if params[:category].present?
       @suggestions = @suggestions.where(category: params[:category])
     end
+    if params[:user_id].present?
+      @suggestion_user = User.find_by(id: params[:user_id])
+      @suggestions = @suggestions.where(user_id: @suggestion_user)
+    end
   end
 
   def show
