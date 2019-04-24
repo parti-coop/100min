@@ -5,9 +5,9 @@
     %button.js-menu-toggle{type: "button"} 지역별 자료집
     %ul
       %li
-        = link_to '핵심가치', dreams_value_path
+        = link_to '공통 자료집', dreams_value_path
       %li
-        = link_to '인터뷰영상', dreams_interview_path
+        = link_to '영상자료', dreams_interview_path
       %li.selected
         = link_to '지역별 자료집', dreams_data_path
   .c-inner
@@ -30,84 +30,7 @@
         %li
           .a-data
           %a{href: "#"} 보기
-    .comment-wrap
+    - comments_desc = capture do
       .com-desc
         %p 3.1운동 핵심 가치에 대한 여러분의 생각과 의견을 공유해주세요.
-      .cmt-write
-        %textarea{title: "댓글입력"}
-        %button{type: "button"} 등록
-      .cmt-list
-        %ul
-          %li
-            .info
-              %span.writer
-                %i> 작성자
-                홍길동
-              %span.date
-                %i> 날짜
-                2019.08.01
-              %span.like
-                %i> 좋아요
-                12
-            %p 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다.
-            .btn
-              %button.recomd 추천
-          %li
-            .info
-              %span.writer
-                %i> 작성자
-                홍길동
-              %span.date
-                %i> 날짜
-                2019.08.01
-              %span.like
-                %i> 좋아요
-                12
-            %p 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다.
-            .btn
-              %button.modify 수정
-              %button.delete 삭제
-              %button.recomd 추천
-          %li
-            .info
-              %span.writer
-                %i> 작성자
-                홍길동
-              %span.date
-                %i> 날짜
-                2019.08.01
-              %span.like
-                %i> 좋아요
-                12
-            .write-box
-              %textarea{title: "댓글입력"}
-              %button{type: "button"} 등록
-            .btn
-              %button.modify 수정
-              %button.delete 삭제
-              %button.recomd 추천
-          %li
-            .info
-              %span.writer
-                %i> 작성자
-                홍길동
-              %span.date
-                %i> 날짜
-                2019.08.01
-              %span.like
-                %i> 좋아요
-                12
-            %p 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다. 작성한 내용이 노출됩니다.
-            .btn
-              %button.recomd 추천
-      .paging
-        %a.prev{href: "#"}
-          %span 이전
-        %span
-          %strong 1
-          %a{href: "#"} 2
-          %a{href: "#"} 3
-          %a{href: "#"} 4
-          %a{href: "#"} 5
-        %a.next{href: "#"}
-          %span 다음
+    = render 'comments/panel', commentable: Kommentable.data, desc: comments_desc

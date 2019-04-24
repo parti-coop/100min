@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :stories, concerns: :commentable
   resources :notices, concerns: :commentable
   resources :suggestions, concerns: :commentable
+  resources :kommentables, concerns: :commentable
   resources :comments, only: :index
 
   post '/tinymce_assets', to: 'tinymce_assets#create'

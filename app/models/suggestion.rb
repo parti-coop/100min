@@ -19,11 +19,11 @@ class Suggestion < ApplicationRecord
   before_save :process_hashtags
 
   AREA_CODE = {
-    'KS': '강원‧인천‧수도권',
+    'KS': '수도권',
     'CH': '충청권',
-    'HJ': '호남‧제주권',
+    'HJ': '호남권',
     'BT': '영남권',
-    'FU': '미래세대'
+    'FU': '강원권'
   }
 
   CATEGORY_CODE = {

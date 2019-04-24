@@ -43,6 +43,7 @@ gem 'haml-rails', '~> 1.0'
 gem 'unobtrusive_flash'
 gem 'tinymce-rails', '~> 4.9', '>= 4.9.3'
 gem 'tinymce-rails-imageupload', '~> 4.0.17.beta.3'
+gem 'video_info', '~> 2.7'
 
 # seo
 gem 'meta-tags', '~> 2.11', '>= 2.11.1'

@@ -1,6 +1,6 @@
 .contents-w
   .c-inner
-    %h3 국민 참여단
+    %h3 참가신청
     %p 100년 토론광장의 국민 참여단 신청안내입니다
     .nat-part
       .desc-box
@@ -23,23 +23,23 @@
           %h4 신청 지역
           %div
             %ul
-              %li 강원‧인천‧수도권 (장소&middot;일시 미정)
-              %li 호남‧제주권 (장소&middot;일시 미정)
-              %li 충청권 (장소&middot;일시 미정)
-              %li 영남권 (장소&middot;일시 미정)
-              %li 미래세대 (장소&middot;일시 미정)
-        %div
-          %h4 신청방법
-          %div
-            %ul
-              %li 우리가 만들 세상에 글을 1개 이상 등록합니다.
-              %li 신청서 항목을 빠짐없이 작성합니다.
-            %a{href: suggestions_path} 글 등록하기
-      .tip
-        %h5 작성 팁
-        %p 우리가 만들 세상에 글을 등록하신 후 주소 복사 버튼을 누르시면 간편하게 내 글 주소를 입력할 수 있습니다.
-      .sns-wrap
+              %li 수도권 (일시&middot;장소 미정)
+              %li 강원권 (일시 미정 / 춘천 스카이컨벤션웨딩홀)
+              %li 호남권 (2019.6.5 / 광주 국립아시아문화전당)
+              %li 충청권 (2019.6.10 / 대전 컨벤션센터 그랜드볼룸)
+              %li 영남권 (2019.5.21 / 경남도청 대회의실)
+        -# %div
+          -# %h4 신청방법
+          -# %div
+            -# %ul
+              -# %li 국민제안에 글을 1개 이상 등록합니다.
+              -# %li 신청서 항목을 빠짐없이 작성합니다.
+            -# %a{href: suggestions_path} 글 등록하기
+      / .tip
+      /   %h5 작성 팁
+      /   %p 국민제안에 글을 등록하신 후 주소 복사 버튼을 누르시면 간편하게 내 글 주소를 입력할 수 있습니다.
+      .c-btn{ style: 'margin-top: 40px;' }
+        %a{href: application_path, target: '_blank'} 신청서 작성
+      .sns-wrap{ style: 'margin-top: 80px;' }
         %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{group_url}", target: '_blank', title: '공유하기'} 공유하기
         .btn.copy-url.cursor-pointer.js-clipboard{'data-clipboard-text': group_url} 주소복사
-      .c-btn
-        %a{href: application_path, target: '_blank'} 신청서 작성

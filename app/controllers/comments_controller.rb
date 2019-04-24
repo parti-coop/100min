@@ -16,11 +16,11 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     authorize @comment
     if @comment.save
-      redirect_to @commentable, notice: '댓글이 게시되었습니다.'
+      redirect_to commentable_url(@commentable), notice: '댓글이 게시되었습니다.'
     else
       errors_to_flash(@comment)
       session[:error_comment_body] = @comment.body
-      redirect_to @commentable
+      redirect_to commentable_url(@commentable)
     end
   end
 
@@ -56,6 +56,19 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def commentable_url commentable
+    case commentable.try(:path_slug)
+    when "kommentables_interview"
+      dreams_interview_path
+    when "kommentables_data"
+      dreams_data_path
+    when "kommentables_value"
+      dreams_value_path
+    else
+      polymorphic_url(commentable)
+    end
+  end
 
   def load_commentable
     if params[:commentable_type].present? and params[:commentable_id].present?

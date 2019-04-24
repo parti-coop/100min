@@ -1,4 +1,5 @@
 .comment-wrap
+  = local_assigns[:desc]
   - comment_list_dom_id = "rnd-#{SecureRandom.uuid}"
   = render 'comments/form', commentable: commentable, comment: Comment.new, class_name: 'cmt-write', list_dom_id: comment_list_dom_id
   - if commentable.comments_count > 0

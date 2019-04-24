@@ -41,6 +41,6 @@ class PagesController < ApplicationController
   end
 
   def application
-    redirect_to 'https://www.google.com/intl/ko_kr/forms/about/'
+    redirect_to 'http://bit.ly/백년토론광장'
   end
 end

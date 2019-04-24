@@ -1,5 +1,5 @@
 .top-billboard
-  .slides-container.js-slides-container
+  .slides-container
     .bill-sug
       .cnts
         %strong
@@ -11,24 +11,24 @@
         %div
           %span> 날짜
           2019년 3월~6월
-        %a{href: about_path} 100년 토론광장이란?
-    .bill-sug.bill2
-      .cnts
-        %strong
-          %img{alt: "우리가 만들 세상", src: asset_url('bill_text02.png')}/
-        %p
-          새로운 대한민국, 무엇을 해야할까요?
-          = succeed "생각을 나눠 주세요!" do
-            %br/
-        %div
-          %a{href: suggestions_path} 의견 작성하기
-    .bill-sug.bill3
-      .cnts
-        %strong
-          %img{alt: "그들이 꿈꾼 나라", src: asset_url('bill_text03.png')}/
-        %p 3.1운동 및 임시정부수립 100주년
-        %div
-          %a{href: 'https://www.youtube.com/watch?v=XlQKIdkPDRU&feature=youtu.be', target: '_blank'} 영상보기
+        %a{href: group_path} 참가신청
+    / .bill-sug.bill2
+    /   .cnts
+    /     %strong
+    /       %img{alt: "우리가 만들 세상", src: asset_url('bill_text02.png')}/
+    /     %p
+    /       새로운 대한민국, 무엇을 해야할까요?
+    /       = succeed "생각을 나눠 주세요!" do
+    /         %br/
+    /     %div
+    /       %a{href: suggestions_path} 의견 작성하기
+    / .bill-sug.bill3
+    /   .cnts
+    /     %strong
+    /       %img{alt: "그들이 꿈꾼 나라", src: asset_url('bill_text03.png')}/
+    /     %p 3.1운동 및 임시정부수립 100주년
+    /     %div
+    /       %a{href: 'https://www.youtube.com/watch?v=XlQKIdkPDRU&feature=youtu.be', target: '_blank'} 영상보기
 
 %section.apply-box
 
@@ -37,46 +37,74 @@
   %div
     %h2 신청 안내
     %ul
-      %li
-        우리 지역을 위한 제안 사전 등록하기
-        - if user_signed_in?
-          %a{href: new_suggestion_path} 글 등록하기
-        - else
-          %a{href: new_user_session_path} 글 등록하기
+      / %li
+      /   우리 지역을 위한 제안 사전 등록하기
+      /   - if user_signed_in?
+      /     %a{href: new_suggestion_path} 글 등록하기
+      /   - else
+      /     %a{href: new_user_session_path} 글 등록하기
       %li 거주 지역에 상관 없이 원하는 지역에 자유롭게 신청 (중복 지원 가능)
   %ul
     %li
-      %strong 강원・인천・수도권
+      %strong 수도권
       %span 국민 참여단
-      %p 일시: 추후 공지
-      %p 장소: 추후 공지
-      / %a{href: group_path} 신청
+      .apply
+        .apply-label 일시:
+        .apply-info 추후 공지
+      .apply
+        .apply-label 장소:
+        .apply-info 추후 공지
+      %a{href: group_path} 신청
+    %li
+      %strong 강원권
+      %span 국민 참여단
+      .apply
+        .apply-label 일시:
+        .apply-info 추후 공지
+      .apply
+        .apply-label 장소:
+        .apply-info
+          춘천
+          스카이컨벤션웨딩홀
+      %a{href: group_path} 신청
     %li
       %strong 충청권
       %span 국민 참여단
-      %p 일시: 추후 공지
-      %p 장소: 추후 공지
-      / %a{href: group_path} 신청
+      .apply
+        .apply-label 일시:
+        .apply-info 2019.6.10
+      .apply
+        .apply-label 장소:
+        .apply-info
+          대전
+          컨벤션센터 그랜드볼룸
+      %a{href: group_path} 신청
     %li
-      %strong 호남‧제주권
+      %strong 호남권
       %span 국민 참여단
-      %p 일시: 추후 공지
-      %p 장소: 추후 공지
-      / %a{href: group_path} 신청
+      .apply
+        .apply-label 일시:
+        .apply-info 2019.6.5
+      .apply
+        .apply-label 장소:
+        .apply-info
+          광주
+          국립아시아문화전당
+      %a{href: group_path} 신청
     %li
       %strong 영남권
       %span 국민 참여단
-      %p 일시: 추후 공지
-      %p 장소: 추후 공지
-      / %a{href: group_path} 신청
-    %li
-      %strong 미래세대
-      %span 국민 참여단
-      %p 일시: 추후 공지
-      %p 장소: 추후 공지
-      / %a{href: group_path} 신청
+      .apply
+        .apply-label 일시:
+        .apply-info 2019.5.21
+      .apply
+        .apply-label 장소:
+        .apply-info
+          경남도청
+          대회의실
+      %a{href: group_path} 신청
 %section.make-w
-  %h1 우리가 만들 세상
+  %h1 국민제안
   %p.hidden-mobile
     앞으로의 100년을 이끌 우리 사회에 필요한 가치, 해결 과제는?
     = succeed "시민 여러분의 생각과 의견을 자유롭게 공유해 주세요." do
@@ -96,45 +124,45 @@
     - else
       %a{href: new_user_session_path} 제안하기
   / //[0302] 버튼 추가
-  .part-wrap
-    %div
-      %p
-        = link_to suggestions_path do
-          전체 참여자수
-          %strong= number_with_delimiter(Suggestion.count)
-      %p
-        = link_to suggestions_path(area: 'FU') do
-          미래세대 참여자수
-          %strong= number_with_delimiter(Suggestion.where(area: 'FU').count)
-    %ul
-      %li
-        = link_to suggestions_path(area: 'KS') do
-          강원‧인천‧수도권
-          %em= number_with_delimiter(Suggestion.where(area: 'KS').count)
-      %li
-        = link_to suggestions_path(area: 'CH') do
-          충청권
-          %em= number_with_delimiter(Suggestion.where(area: 'CH').count)
-      %li
-        = link_to suggestions_path(area: 'HJ') do
-          호남‧제주권
-          %em= number_with_delimiter(Suggestion.where(area: 'HJ').count)
-      %li
-        = link_to suggestions_path(area: 'BT') do
-          영남권
-          %em= number_with_delimiter(Suggestion.where(area: 'BT').count)
+  -#.part-wrap
+  -#  %div
+  -#    %p
+  -#      = link_to suggestions_path do
+  -#        전체 참여자수
+  -#        %strong= number_with_delimiter(Suggestion.count)
+  -#    %p
+  -#      = link_to suggestions_path(area: 'FU') do
+  -#        미래세대 참여자수
+  -#        %strong= number_with_delimiter(Suggestion.where(area: 'FU').count)
+  -#  %ul
+  -#    %li
+  -#      = link_to suggestions_path(area: 'KS') do
+  -#        강원‧인천‧수도권
+  -#        %em= number_with_delimiter(Suggestion.where(area: 'KS').count)
+  -#    %li
+  -#      = link_to suggestions_path(area: 'CH') do
+  -#        충청권
+  -#        %em= number_with_delimiter(Suggestion.where(area: 'CH').count)
+  -#    %li
+  -#      = link_to suggestions_path(area: 'HJ') do
+  -#        호남‧제주권
+  -#        %em= number_with_delimiter(Suggestion.where(area: 'HJ').count)
+  -#    %li
+  -#      = link_to suggestions_path(area: 'BT') do
+  -#        영남권
+  -#        %em= number_with_delimiter(Suggestion.where(area: 'BT').count)
   - if @suggestion_new.present? and @suggestions.any?
     %ul
       = render @suggestion_new, show_new_badge: true
       - @suggestions.each do |suggestion|
         = render suggestion
   %a{href: suggestions_path}
-    %span> 우리가 만들 세상
+    %span> 국민제안
     더보기
 %section.dream
   .inner
     %div
-      %h1 그들이 꿈꾼 나라
+      %h1 사전 자료집
       %p 3.1운동 자료집과 영상을 보며 미리 토론을 준비할 수 있습니다.
       %ul
         - dream_url_1 = 'https://www.together100.go.kr/lay2/bbs/S1T11C23/G/6/view.do?article_seq=166&cpage=1&rows=8&condition=&keyword='

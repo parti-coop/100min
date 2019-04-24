@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+%i(data interview value).each do |slug|
+  unless Kommentable.exists?(slug: slug)
+    Kommentable.create(slug: slug)
+  end
+end

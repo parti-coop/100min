@@ -248,10 +248,15 @@ $(function(){
 
   $('.js-dimd-open').on('click', function(e) {
     $('.js-dimd-wrap').css('display', 'block');
+    var url = $(this).data('dimd-open-url');
+    if(url) {
+      $('.js-dimd-wrap iframe').attr('src', url + "?autoplay=1");
+    }
   });
 
   $('.js-dimd-close').on('click', function(e) {
     $('.js-dimd-wrap').css('display', 'none');
+    $('.js-dimd-wrap iframe').attr('src', '');
   });
 
   $('.js-fit-vids').fitVids();

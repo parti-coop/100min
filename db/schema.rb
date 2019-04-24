@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_08_141319) do
+ActiveRecord::Schema.define(version: 2019_04_24_100555) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 2019_03_08_141319) do
     t.string "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "kommentables", force: :cascade do |t|
+    t.integer "comments_count", default: 0
+    t.string "slug", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_kommentables_on_slug", unique: true
   end
 
   create_table "likes", force: :cascade do |t|
