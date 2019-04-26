@@ -14,6 +14,9 @@ class User < ApplicationRecord
   validates_confirmation_of :password, if: :password_required?
   validates_length_of       :password, within: Devise.password_length, allow_blank: true
   # validate :valid_confirmation, on: :create
+  validates :uid, uniqueness: { scope: [:provider] }
+
+  before_validation :downcase_email
 
   scope :order_recent, -> { order(created_at: :desc) }
   scoped_search on: [:name, :email]
@@ -66,10 +69,16 @@ class User < ApplicationRecord
   end
 
   def admin?
-    %w(100yearsKorea@gmail.com sjjungkr@gmail.com contact@parti.xyz roots96@hanmail.net foroso@gmail.com).include? self.email
+    %w(100yearskorea@gmail.com sjjungkr@gmail.com contact@parti.xyz roots96@hanmail.net foroso@gmail.com).include? self.email
   end
 
   private
+
+  def downcase_email
+    if self.email.present?
+      self.email = self.email.downcase
+    end
+  end
 
   def password_required?
     !persisted? || !password.nil? || !password_confirmation.nil?
