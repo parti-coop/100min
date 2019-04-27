@@ -18,13 +18,40 @@ class Suggestion < ApplicationRecord
 
   before_save :process_hashtags
 
-  AREA_CODE = {
-    'KS': '수도권',
-    'CH': '충청권',
-    'HJ': '호남권',
-    'BT': '영남권',
-    'FU': '강원권'
-  }
+  AREA_DETAIL = [
+    {
+      code: 'KS',
+      name: '수도권',
+      date: nil,
+      location: nil
+    },
+    {
+      code: 'FU',
+      name: '강원권',
+      date: '2019.6.28',
+      location: '춘천 스카이컨벤션웨딩홀'
+    },
+    {
+      code: 'HJ',
+      name: '호남권',
+      date: '2019.6.5',
+      location: '광주 국립아시아문화전당'
+    },
+    {
+      code: 'CH',
+      name: '충청권',
+      date: '2019.6.10',
+      location: '대전 컨벤션센터 그랜드볼룸'
+    },
+    {
+      code: 'BT',
+      name: '영남권',
+      date: '2019.5.30',
+      location: '경남도청 대회의실(창원)'
+    }
+  ]
+
+  AREA_CODE = Hash[Suggestion::AREA_DETAIL.map{ |area| [area[:code], area[:name]]}]
 
   CATEGORY_CODE = {
     'PO': '정치',

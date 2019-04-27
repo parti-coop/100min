@@ -43,63 +43,19 @@
       /     %a{href: new_user_session_path} 글 등록하기
       %li 거주 지역에 상관 없이 원하는 지역에 자유롭게 신청 (중복 지원 가능)
   %ul
-    %li
-      %strong 수도권
-      %span 국민 참여단
-      .apply
-        .apply-label 일시:
-        .apply-info 추후 공지
-      .apply
-        .apply-label 장소:
-        .apply-info 추후 공지
-      %a{href: group_path} 신청
-    %li
-      %strong 강원권
-      %span 국민 참여단
-      .apply
-        .apply-label 일시:
-        .apply-info 추후 공지
-      .apply
-        .apply-label 장소:
-        .apply-info
-          춘천
-          스카이컨벤션웨딩홀
-      %a{href: group_path} 신청
-    %li
-      %strong 충청권
-      %span 국민 참여단
-      .apply
-        .apply-label 일시:
-        .apply-info 2019.6.10
-      .apply
-        .apply-label 장소:
-        .apply-info
-          대전
-          컨벤션센터 그랜드볼룸
-      %a{href: group_path} 신청
-    %li
-      %strong 호남권
-      %span 국민 참여단
-      .apply
-        .apply-label 일시:
-        .apply-info 2019.6.5
-      .apply
-        .apply-label 장소:
-        .apply-info
-          광주
-          국립아시아문화전당
-      %a{href: group_path} 신청
-    %li
-      %strong 영남권
-      %span 국민 참여단
-      .apply
-        .apply-label 일시:
-        .apply-info 2019.5.21
-      .apply
-        .apply-label 장소:
-        .apply-info
-          경남도청 대회의실
-      %a{href: group_path} 신청
+    - Suggestion::AREA_DETAIL.each do |area|
+      %li
+        %strong= area[:name]
+        %span 국민 참여단
+        .apply
+          .apply-label 일시:
+          .apply-info
+            = area[:date] || '일시 추후 공지'
+        .apply
+          .apply-label 장소:
+          .apply-info
+            = area[:location] || '일시 추후 공지'
+        %a{href: group_path} 신청
 %section.make-w
   %h1 국민제안
   %p.hidden-mobile
