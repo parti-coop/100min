@@ -125,6 +125,13 @@
           %p 공통 자료집
           %a{href: dream_url_1} 자료 보기
 
+        - dream_url_3 = dreams_data_path
+        %li.js-link.cursor-pointer{ 'data-url': dream_url_3 }
+          .img
+            %img{alt: "지역별 자료집", src: asset_url('@thumb_dream.jpg')}/
+          %p 지역별 자료집
+          %a{href: dream_url_3} 자료 보기
+
         - dream_url_2 = dreams_interview_path
         %li.js-link.cursor-pointer{ 'data-url': dream_url_2 }
           .img
@@ -132,12 +139,6 @@
           %p 영상 자료
           %a{href: dream_url_2} 영상 보기
 
-        - dream_url_3 = dreams_data_path
-        %li.js-link.cursor-pointer{ 'data-url': dream_url_3 }
-          .img
-            %img{alt: "지역별 자료집", src: asset_url('@thumb_dream.jpg')}/
-          %p 지역별 자료집
-          %a{href: dream_url_3} 자료 보기
 .notice-wrap
   %div
     %h2 공지사항
