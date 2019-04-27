@@ -121,6 +121,116 @@
 		}
 	}
 }
+.schedule-wrap ol{
+	padding-left:215px
+}
+.schedule-wrap ol li{
+	position:relative;
+	margin-top:-10px;
+	padding:0 0 100px 65px;
+	border-left:1px solid #c2c2c2
+}
+.schedule-wrap ol li:last-child{
+	border:none
+}
+.schedule-wrap ol li:before{
+	content:'';
+	display:block;
+	position:absolute;
+	top:0;
+	left:-9px;
+	width:18px;
+	height:18px;
+	background:#006ebc;
+	border-radius:50%
+}
+.schedule-wrap ol li strong{
+	display:block;
+	position:absolute;
+	top:-15px;
+	left:-215px;
+	font-size:36px;
+	font-weight:normal
+}
+.schedule-wrap ol li>div{
+	position:relative;
+	top:-10px
+}
+.schedule-wrap ol li>div h4{
+	font-size:28px;
+}
+.schedule-wrap ol li>div p{
+	padding-top:30px;
+	color:#666;font-size:18px
+}
+.schedule-wrap ol li>div>a{
+	display:inline-block;
+	width:139px;
+	height:43px;
+	margin-top:29px;
+	border-radius:21px;
+	background:#006ebc;
+	color:#fff;
+	font-size:18px;
+	text-align:center;
+	line-height:41px
+}
+.schedule-wrap ol li>div>a:after{
+	content:'';
+	display:inline-block;
+	width:12px;
+	height:12px;
+	border-width:2px 0 0 2px;
+	border-color:#fff;
+	border-style:solid;
+	transform:rotate(135deg);
+	box-sizing:border-box
+}
+@media (max-width: 1000px){
+	.schedule-wrap ol li>div>a:after{
+		width:10px;
+		height:10px
+	}
+}
+.schedule-wrap .no-schedule{
+	padding:200px 0;
+	border-width:2px 0;
+	border-style:solid;
+	border-color:#868686;
+	font-size:20px;
+	text-align:center
+}
+@media (min-width: 1001px) {
+	.schedule-wrap{
+		width:1000px;
+		margin:140px auto 0
+	}
+}
+@media (max-width: 1000px){
+	.schedule-wrap{margin-top:70px}
+	.schedule-wrap ol{padding-left:110px}
+	.schedule-wrap ol li{padding:0 0 70px 30px}
+	.schedule-wrap ol li strong{
+		left:-110px;
+		font-size:18px
+	}
+	.schedule-wrap ol li>div h4{font-size:18px}
+	.schedule-wrap ol li>div p{
+		padding-top:15px;
+		font-size:14px
+	}
+	.schedule-wrap ol li>div>a{
+		width:120px;
+		height:39px;
+		margin-top:15px;
+		font-size:15px;
+		line-height:37px
+	}
+	.schedule-wrap ol li>div>a:after{
+		width:10px;
+		height:10px
+	}
+}
 .nat-part {
 	margin-top: 80px;
 	border-top: 2px solid #868686;
