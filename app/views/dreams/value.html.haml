@@ -13,14 +13,14 @@
   .c-inner
     %h3 100년 토론광장 공통 자료집
     %p
-      민국 100년, 그들이 꿈꾼 나라,
+      민국 100년, 선열이 꿈꾼 나라,
       = succeed "우리가 만들 세상" do
         %br/
     .video-wrap
-      .video #video
+      / .video #video
       .btn
-        %a.go-view{href: "#"} 바로보기
-        %a.download{href: "#"} 다운로드
+        / %a.go-view{href: "#"} 바로보기
+        %a.download{ href: "void(0);", onclick: "alert('준비 중입니다.');return false;" } 다운로드
     - comments_desc = capture do
       .com-desc
         %p 3.1운동 핵심 가치에 대한 여러분의 생각과 의견을 공유해주세요.

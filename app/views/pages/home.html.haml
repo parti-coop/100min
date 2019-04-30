@@ -5,7 +5,7 @@
         %strong
           %img{alt: "100년 토론광장", src: asset_url('bill_text.png')}/
         %p
-          민국 100년, 그들이 꿈꾼나라,
+          민국 100년, 선열이 꿈꾼나라,
           = succeed "우리가 만들 세상" do
             %br/
         %div
@@ -23,7 +23,7 @@
     / .bill-sug.bill3
     /   .cnts
     /     %strong
-    /       %img{alt: "그들이 꿈꾼 나라", src: asset_url('bill_text03.png')}/
+    /       %img{alt: "선열이 꿈꾼 나라", src: asset_url('bill_text03.png')}/
     /     %p 3.1운동 및 임시정부수립 100주년
     /     %div
     /       %a{href: 'https://www.youtube.com/watch?v=XlQKIdkPDRU&feature=youtu.be', target: '_blank'} 영상보기
@@ -54,7 +54,7 @@
         .apply
           .apply-label 장소:
           .apply-info
-            = area[:location] || '일시 추후 공지'
+            = area[:location] || '장소 추후 공지'
         %a{href: group_path} 신청
 %section.make-w
   %h1 국민제안
@@ -160,7 +160,7 @@
 %section.news
   .inner
     %h1 최신 소식
-    %p 민국 100년, 그들이 꿈꾼나라, 우리가 만들 세상의 새소식을 알려드립니다
+    %p 민국 100년, 선열이 꿈꾼나라, 우리가 만들 세상의 새소식을 알려드립니다
     - if @stories.any?
       %ul
         - @stories.each_with_index do |story, index|
@@ -223,6 +223,7 @@
 /       %li
 /         %a(href="")
 /           %img{alt: "대전광역시", src: asset_url('logo_daejeon.gif')}/
+
 /   %div
 /     %h2 후원
 /     %ul

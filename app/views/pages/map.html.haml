@@ -24,85 +24,24 @@
   .c-inner
     %h3 오시는 길
     %p 준비 중입니다.
-    / %p 100년 토론광장의 오시는 길을 알려드립니다
-    / .map-wrap
-    /   %h4 강원‧인천‧수도권
-    /   %ul.cp-list
-    /     %li
-    /       %span.tit> 주소
-    /       서울특별시 중구 동호로 249번지 신라호텔
-    /     %li
-    /       %span.tit> 전화번호
-    /       02-2032-3029
-    /     %li
-    /       %span.tit> 버스
-    /       장충체육관 앞 하차 (노선번호:144, 301, 407, 7212)
-    /     %li
-    /       %span.tit> 지하철
-    /       지하철 3호선 동대입구역 5번출구
-    /   .map-img
-    /     %img{alt: "", src: ''}/
-    /   %h4 호남‧제주권
-    /   %ul.cp-list
-    /     %li
-    /       %span.tit> 주소
-    /       서울특별시 중구 동호로 249번지 신라호텔
-    /     %li
-    /       %span.tit> 전화번호
-    /       02-2032-3029
-    /     %li
-    /       %span.tit> 버스
-    /       장충체육관 앞 하차 (노선번호:144, 301, 407, 7212)
-    /     %li
-    /       %span.tit> 지하철
-    /       지하철 3호선 동대입구역 5번출구
-    /   .map-img
-    /     %img{alt: "", src: ''}/
-    /   %h4 충청권
-    /   %ul.cp-list
-    /     %li
-    /       %span.tit> 주소
-    /       서울특별시 중구 동호로 249번지 신라호텔
-    /     %li
-    /       %span.tit> 전화번호
-    /       02-2032-3029
-    /     %li
-    /       %span.tit> 버스
-    /       장충체육관 앞 하차 (노선번호:144, 301, 407, 7212)
-    /     %li
-    /       %span.tit> 지하철
-    /       지하철 3호선 동대입구역 5번출구
-    /   .map-img
-    /     %img{alt: "", src: ''}/
-    /   %h4 영남권
-    /   %ul.cp-list
-    /     %li
-    /       %span.tit> 주소
-    /       서울특별시 중구 동호로 249번지 신라호텔
-    /     %li
-    /       %span.tit> 전화번호
-    /       02-2032-3029
-    /     %li
-    /       %span.tit> 버스
-    /       장충체육관 앞 하차 (노선번호:144, 301, 407, 7212)
-    /     %li
-    /       %span.tit> 지하철
-    /       지하철 3호선 동대입구역 5번출구
-    /   .map-img
-    /     %img{alt: "", src: ''}/
-    /   %h4 미래세대
-    /   %ul.cp-list
-    /     %li
-    /       %span.tit> 주소
-    /       서울특별시 중구 동호로 249번지 신라호텔
-    /     %li
-    /       %span.tit> 전화번호
-    /       02-2032-3029
-    /     %li
-    /       %span.tit> 버스
-    /       장충체육관 앞 하차 (노선번호:144, 301, 407, 7212)
-    /     %li
-    /       %span.tit> 지하철
-    /       지하철 3호선 동대입구역 5번출구
-    /   .map-img
-    /     %img{alt: "", src: ''}/
+    %p 100년 토론광장의 오시는 길을 알려드립니다
+    .map-wrap
+      - Suggestion::AREA_DETAIL.each_with_index do |area, index|
+        %h4= area[:name]
+        - if area[:address].nil?
+          %ul.cp-list
+            %li
+              %span.tit> 주소
+              미정
+        - else
+          %ul.cp-list
+            %li
+              %span.tit> 주소
+              = area[:address]
+            / %li
+            /   %span.tit> 전화번호
+            /   준비 중
+            / %li
+            /   %span.tit> 교통편
+            /   준비 중
+          %iframe.map-img{:allowfullscreen => "", :frameborder => "0", :height => "100%", :src => area[:map_url], :style => "border:0", :width => "100%"}
