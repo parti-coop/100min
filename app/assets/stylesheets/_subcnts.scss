@@ -367,11 +367,13 @@ ul.cp-list li .tit:after{
 		@include clearfix;
 		margin-top: 70px;
 		box-sizing: border-box;
+		display: flex;
 		> div {
-			float: left;
 			width: 600px;
 			margin-left: -1px;
 			box-sizing: border-box;
+	    display: flex;
+	    flex-flow: column;
 			h4 {
 				height: 60px;
 				border-left: 1px solid #fff;
@@ -386,7 +388,7 @@ ul.cp-list li .tit:after{
 			}
 			> div {
 				min-height: 240px;
-				padding: 35px 35px 0;
+				padding: 35px;
 				border: 1px solid #d6d6d6;
 				box-sizing: border-box;
 				ul {
@@ -441,6 +443,7 @@ ul.cp-list li .tit:after{
 					border-radius: 0 5px 0 0;
 				}
 				> div {
+			    height: 100%;
 					border-radius: 0 0 5px 0;
 				}
 			}
@@ -496,9 +499,11 @@ ul.cp-list li .tit:after{
 		}
 		.part-cnts {
 			margin-top: 40px;
+			display: block;
 			> div {
 				float: none;
 				width: auto;
+				flex: 1;
 				h4 {
 					border-left: none;
 					font-size: 18px;

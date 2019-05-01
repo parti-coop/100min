@@ -322,33 +322,42 @@
 				font-size: 18px;
 				padding-left: 15px;
 				text-indent: -15px;
-				> a {
-					display: inline-block;
-					height: 33px;
-					margin-left: 15px;
-					padding: 0 17px;
-					border-radius: 17px;
-					background: #006ebc;
-					color: #fff;
-					font-size: 16px;
-					line-height: 33px;
-					text-indent: 0;
-					&:after {
-						@include arrow(#fff);
-						width: 10px;
-						height: 10px;
-						margin-left: 6px;
-						vertical-align: 1px;
-					}
-					&:hover {
-						background: #0d588d;
-					}
-				}
 				&:before {
 					@include bult(5px, 5px, #122232);
 					margin-right: 10px;
 					vertical-align: 5px;
 				}
+			}
+		}
+	}
+	.btn {
+		margin-top: 50px;
+		@include respond-to(tablet) {
+			margin-top: 35px;
+		}
+		@include respond-to(mMobile) {
+			margin-top: 20px;
+		}
+		text-align: center;
+		> a {
+			display: inline-block;
+			height: 33px;
+			padding: 0 17px;
+			border-radius: 17px;
+			background: #006ebc;
+			color: #fff;
+			font-size: 16px;
+			line-height: 33px;
+			text-indent: 0;
+			&:after {
+				@include arrow(#fff);
+				width: 10px;
+				height: 10px;
+				margin-left: 6px;
+				vertical-align: 1px;
+			}
+			&:hover {
+				background: #0d588d;
 			}
 		}
 	}
@@ -394,7 +403,8 @@
 			ul {
 				padding: {
 					top: 30px;
-					left: 410px;
+					left: 330px;
+					right: 330px;
 				}
 			}
 		}
@@ -405,7 +415,8 @@
 			li {
 				float: left;
 				width: 239px;
-				height: 300px;
+				// height: 250px;
+				height: 255px;
 				padding-top: 25px;
 				border-left: 2px solid #afc2d4;
 				position: relative;
@@ -481,7 +492,8 @@
 				position: relative;
 				float: left;
 				width: 182px;
-				height: 255px;
+				// height: 255px;
+				height: 200px;
 				margin-left: 1px;
 				padding: 35px 0;
 				background: #fff;
@@ -494,8 +506,8 @@
 				}
 				> .apply {
 					padding: {
-						left: 40px;
-						right: 40px;
+						left: 20px;
+						right: 20px;
 					}
 					color: #666;
 					text-align: left;
@@ -556,7 +568,7 @@
 			li {
 				float: none;
 				width: auto;
-				height: 160px;
+				height: 120px;
 				padding: 17px 0 15px;
 				border-top: 2px solid #afc2d4;
 				position: relative;
@@ -578,6 +590,12 @@
 				}
 				&:first-child {
 					border-top: none;
+				}
+				> .apply {
+					padding: {
+						left: 45px;
+						right: 45px;
+					}
 				}
 			}
 		}
@@ -986,8 +1004,9 @@
 				ul {
 					@include clearfix;
 					margin-top: 78px;
+					text-align: center;
 					li {
-						float: left;
+						display: inline-block;
 						width: 395px;
 						height: 540px;
 						border-left: 2px solid #27479a;
@@ -1439,6 +1458,7 @@
 .partner {
 	h2 {
 		font-family: $font-def;
+		text-align: left;
 	}
 	> div {
 		ul {
@@ -1453,13 +1473,16 @@
 		width: 1200px;
 		margin: 0 auto;
 		padding-top: 125px;
+		text-align: center;
 		> div {
+			display: inline-block;
 			box-sizing: border-box;
-			padding-left: 45px;
 			ul {
-				margin-top: -15px;
+		    display: flex;
+        flex-wrap: wrap;
+		    align-items: center;
 				li {
-					padding: 19px 35px 0 0;
+					padding: 0 35px 0 0;
 				}
 			}
 		}
@@ -1468,9 +1491,18 @@
 		@include clearfix;
 		margin: 0 auto;
 		padding: 50px 20px 0;
+		text-align: center;
 		> div {
+			display: inline-block;
 			box-sizing: border-box;
+			> h2 {
+				text-align: center;
+				margin-bottom: 12px;
+			}
 			ul {
+				display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 				li {
 					margin-right: 15px;
 					img {

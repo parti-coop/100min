@@ -63,8 +63,8 @@ class CommentsController < ApplicationController
       dreams_interview_path
     when "kommentables_data"
       dreams_data_path
-    when "kommentables_value"
-      dreams_value_path
+    # when "kommentables_value"
+    # dreams_value_path
     else
       polymorphic_url(commentable)
     end

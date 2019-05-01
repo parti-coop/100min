@@ -4,8 +4,8 @@
     / 하위메뉴 열림 "selected" class 추가
     %button.js-menu-toggle{type: "button"} 영상자료
     %ul
-      %li
-        = link_to '공통 자료집', dreams_value_path
+      / %li
+      /   = link_to '공통 자료집', dreams_value_path
       %li
         = link_to '지역별 자료집', dreams_data_path
       %li.selected
@@ -30,6 +30,10 @@
           %button.js-dimd-close{:type => "button"}
             %span 동영상 레이어 닫기
       / //[02.18] 딤드레이어 추가
+
+      .btn
+        %a{href: "https://www.together100.go.kr/lay2/bbs/S1T11C23/G/6/list.do?cat=5", target: '_blank'} 더 보기
+
 
     - comments_desc = capture do
       .com-desc
