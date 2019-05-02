@@ -1503,6 +1503,7 @@
 				display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
 				li {
 					margin-right: 15px;
 					img {
@@ -1516,7 +1517,17 @@
 		width: auto;
 		> div {
 			width: auto;
-			flex: none;
+			ul {
+				display: table;
+				li {
+					display: table-row;
+					margin-right: 15px;
+					height: 80px;
+					img {
+						height: 45px;
+					}
+				}
+			}
 		}
 	}
 }

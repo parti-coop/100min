@@ -153,8 +153,7 @@ ul.cp-list li .tit:after{
 		color: #666;
 		font-size: 18px;
 		line-height: 1.7;
-    list-style-type: disc;
-    list-style-position: outside;
+    list-style-type: none;
 	}
 	@include respond-to(mobile) {
 		> ul > li {
