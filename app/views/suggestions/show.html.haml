@@ -9,7 +9,7 @@
     .info
       %span.writer
         %i> 작성자
-        = @suggestion.user.name
+        = @suggestion.user_name
       %span.date
         %i> 날짜
         = static_day_f(@suggestion.created_at)

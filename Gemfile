@@ -21,6 +21,7 @@ gem 'auto_strip_attributes', '~> 2.5'
 gem 'kaminari'
 gem 'scoped_search', '~> 4.1', '>= 4.1.6'
 gem 'by_star'
+gem 'roo'
 
 # auth
 gem 'devise', '~> 4.5'

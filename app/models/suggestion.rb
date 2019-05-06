@@ -66,7 +66,7 @@ class Suggestion < ApplicationRecord
     }
   ]
 
-  AREA_CODE = Hash[Suggestion::AREA_DETAIL.map{ |area| [area[:code], area[:name]]}]
+  AREA_CODE = Hash[Suggestion::AREA_DETAIL.map{ |area| [area[:code].to_sym, area[:name]]}]
 
   CATEGORY_CODE = {
     'PO': '정치',
@@ -91,6 +91,10 @@ class Suggestion < ApplicationRecord
 
   def category_name
     CATEGORY_CODE[self.category.to_sym]
+  end
+
+  def user_name
+    real_user_name || user.name
   end
 
   HASHTAG_REGEX = /(?:\s|^)(#(?!(?:\d+|[ㄱ-ㅎ가-힣a-z0-9_]+?_|_[ㄱ-ㅎ가-힣a-z0-9_]+?)(?:\s|$))([ㄱ-ㅎ가-힣a-z0-9\-_]+))/i
