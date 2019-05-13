@@ -33,7 +33,7 @@ class Suggestion < ApplicationRecord
       name: '호남•제주권',
       day: '2019.6.5(수)',
       time: '오후 2시',
-      location: '광주 국립아시아문화전당',
+      location: '광주 국립아시아문화전당 컨퍼런스홀',
       address: '광주광역시 동구 문화전당로 38 국립아시아문화전당 문화정보원 지하2층 콘퍼런스홀',
       map_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.3991281903914!2d126.91808081493929!3d35.146665466710836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35718c84de58c767%3A0x12e1ec7dd846322a!2z6rWt66a97JWE7Iuc7JWE66y47ZmU7KCE64u5!5e0!3m2!1sko!2skr!4v1556588616672!5m2!1sko!2skr'
     },
@@ -60,9 +60,9 @@ class Suggestion < ApplicationRecord
       name: '수도권',
       day: '2019.7.13(토)',
       time: '오후 2시',
-      location: nil,
-      address: nil,
-      map_url: nil
+      location: '서울 세종문화회관 세종홀',
+      address: '서울특별시 종로구 세종로 81-3 서울 세종문화회관 세종홀',
+      map_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.2569790735324!2d126.97372531500578!3d37.57256603154097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2eb510f3c45%3A0xb3c8d1f23ed86d50!2z7IS47KKF66y47ZmU7ZqM6rSA7IS47KKF7ZmA!5e0!3m2!1sko!2skr!4v1557758193854!5m2!1sko!2skr'
     }
   ]
 
