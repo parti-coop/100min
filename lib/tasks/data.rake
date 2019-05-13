@@ -24,7 +24,7 @@ namespace :data do
         category_text = row[index_category_text].try(:cell_value)
         body = row[index_body].try(:cell_value)
 
-        area = Suggestion::AREA_DETAIL.find { |area| area[:name] == area_text }.try(:fetch, :code)
+        area = Suggestion::AREA_DETAIL.find { |area| area_text.present? && (area[:name].gsub(/[^0-9A-Za-zㄱ-ㅎ가-힣]/, '') == area_text.gsub(/[^0-9A-Za-zㄱ-ㅎ가-힣]/, '')) }.try(:fetch, :code)
         if area.nil?
           raise "#{area_text} 지역은 인식할 수 없습니다"
         end
