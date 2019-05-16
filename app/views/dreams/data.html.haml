@@ -17,19 +17,19 @@
       %ul
         %li
           .a-data{ style: "background-image:url(#{asset_url('data_ks.jpg')})" }
-          %a{href: "#"} 보기
+          %a{href: "javascript:void(0)"} 준비 중
         %li
           .a-data{ style: "background-image:url(#{asset_url('data_fu.jpg')})" }
-          %a{href: "#"} 보기
+          %a{href: "javascript:void(0)"} 준비 중
         %li
-          .a-data{ style: "background-image:url(#{asset_url('data_hj.jpg')})" }
-          %a{href: "#"} 보기
+          .a-data.js-link.cursor-pointer{ 'data-url': "/100년토론광장자료집_호남제주.pdf", 'data-link-target': '_blank', style: "background-image:url(#{asset_url('data_hj.jpg')})" }
+          %a{href: "/100년토론광장자료집_호남제주.pdf", target: '_blank'} 보기
         %li
           .a-data{ style: "background-image:url(#{asset_url('data_ch.jpg')})" }
-          %a{href: "#"} 보기
+          %a{href: "javascript:void(0)"} 준비 중
         %li
           .a-data{ style: "background-image:url(#{asset_url('data_bt.jpg')})" }
-          %a{href: "#"} 보기
+          %a{href: "javascript:void(0)"} 준비 중
     - comments_desc = capture do
       .com-desc
         %p 3.1운동 핵심 가치에 대한 여러분의 생각과 의견을 공유해주세요.
