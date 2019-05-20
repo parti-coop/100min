@@ -8,7 +8,17 @@
           민국 100년! 선열이 꿈꾼 나라,
           = succeed "우리가 만들 세상" do
             %br/
-        %div
+        - video_url = 'https://www.youtube.com/embed/t00aDEjPuNk?t=98'
+        - video = VideoInfo.new(video_url)
+        .video.js-dimd-open.cursor-pointer{ 'data-dimd-open-url': video_url, style: "background-image: url(#{asset_url('main_key_visual.jpg')});" }
+          %button{type: 'button'}
+            %span 동영상 열기
+        .dimd-wrap.js-dimd-wrap
+          .dimd-inner
+            .video-layer
+              %iframe{ frameborder: "0", allowfullscreen: true, style: "top: 0; left: 0;"}
+            %button.js-dimd-close{:type => "button"}
+              %span 동영상 레이어 닫기
         %a{href: group_path} 참가신청
     / .bill-sug.bill2
     /   .cnts
