@@ -784,9 +784,11 @@
 		}
 		.part-wrap {
 			@include clearfix;
+			display: flex;
+			justify-content: center;
 			// 백엔드보정
 			// margin-top: 65px;
-			padding: 90px 0 70px 58px;
+			// padding: 90px 0 70px 58px;
 			border: {
 				width: 2px 0;
 				style: solid;
@@ -795,6 +797,9 @@
 			> div {
 				float: left;
 				padding-right: 60px;
+				&#cloud {
+					padding-right: 0;
+				}
 				> p {
 					margin-top: 15px;
 					font-size: 30px;

@@ -38,6 +38,12 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'file_validators'
 
+# wordcloud
+gem 'twitter-korean-text-ruby', '~> 0.9.2'
+gem 'rjb', '~> 1.5', '>= 1.5.9'
+gem 'd3-rails'
+gem 'd3-cloud-rails'
+
 # view
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'haml-rails', '~> 1.0'

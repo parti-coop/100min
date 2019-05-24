@@ -87,7 +87,78 @@
     - else
       %a{href: new_user_session_path} 제안하기
   / //[0302] 버튼 추가
-  -#.part-wrap
+  .part-wrap
+    #cloud
+  - if @suggestion_new.present? and @suggestions.any?
+    %ul
+      = render @suggestion_new, show_new_badge: true
+      - @suggestions.each do |suggestion|
+        = render suggestion
+  %a{href: suggestions_path}
+    %span> 국민제안
+    더 보기
+
+- data = Word.all.order(count: :desc).limit(50).map { |word| "{'word':'#{word.text}','url':'#{suggestions_path(q: word.text)}', 'count':#{word.count}}" }.join(",")
+:css
+  text:hover { opacity: .7 !important; font-weight: bold; }
+- content_for :script do
+  :javascript
+    $(function(){
+      var weight = 2,   // change me
+          width = 1000,
+          height = 500;
+
+      var base_data = [#{raw data}];
+      var countMax = d3.max(base_data, function(d){ return d.count} );
+      var wordScale = d3.scaleLinear().domain([0, countMax]).range([20, 100]).clamp(true);
+
+      var base_words = base_data.map(function(d) {
+        return {
+          text: d.word,
+          url: d.url,
+          size: wordScale(d.count)
+        };
+      });
+
+      var color = d3.scaleSqrt()
+        .domain([20,    30,     40,     50,     60,     70,     80,     90,        100])
+        .range(["#ddd", "#aaa", "#999", "#888", "#777", "#666", "#555", "#8900a5", "#713f95"]);
+
+      var draw = function(words) {
+        console.log(words)
+        d3.select("#cloud").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+            .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+          .selectAll("text")
+            .data(words)
+          .enter().append("text")
+            .style("cursor", "pointer")
+            .style("padding", "3px")
+            .style("font-size", function(d) { return d.size + "px"; })
+            .style("font-family", "Impact")
+            .style("fill", function(d, i) { return color(d.size - 5); })
+            .attr("text-anchor", "middle")
+            .attr("transform", function(d) {
+              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+            })
+          .text(function(d) { return d.text; })
+          .on("click", function (d, i){
+            location.href = d.url;
+          });
+      }
+
+      d3.cloud
+        .size([width, height])
+        .words(base_words)
+        .padding(true)
+        .rotate(0)
+        .font("Impact")
+        .fontSize(function(d) { return d.size; })
+        .on("end", draw)
+        .start();
+    });
   -#  %div
   -#    %p
   -#      = link_to suggestions_path do
@@ -114,14 +185,7 @@
   -#      = link_to suggestions_path(area: 'BT') do
   -#        영남권
   -#        %em= number_with_delimiter(Suggestion.where(area: 'BT').count)
-  - if @suggestion_new.present? and @suggestions.any?
-    %ul
-      = render @suggestion_new, show_new_badge: true
-      - @suggestions.each do |suggestion|
-        = render suggestion
-  %a{href: suggestions_path}
-    %span> 국민제안
-    더 보기
+
 %section.dream
   .inner
     %div

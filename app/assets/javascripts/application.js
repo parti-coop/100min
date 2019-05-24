@@ -12,6 +12,8 @@
 //= require tinymce-jquery
 //= require clipboard
 //= require jquery.fitvids
+//= require d3
+//= require d3-cloud
 
 UnobtrusiveFlash.flashOptions['timeout'] = 5000;
 

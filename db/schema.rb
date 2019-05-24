@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_104058) do
+ActiveRecord::Schema.define(version: 2019_05_24_025726) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -117,6 +117,13 @@ ActiveRecord::Schema.define(version: 2019_05_03_104058) do
     t.boolean "confirmation_mailing", default: false
     t.boolean "admin", default: false
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.string "text", null: false
+    t.integer "count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
