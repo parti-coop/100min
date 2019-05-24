@@ -51,6 +51,8 @@ class SuggestionsController < ApplicationController
       errors_to_flash(@suggestion)
       render :new
     end
+
+    WordParsingJob.perform_async(@suggestion.id)
   end
 
   def edit

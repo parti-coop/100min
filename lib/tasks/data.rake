@@ -64,7 +64,7 @@ namespace :data do
 
     word_dict = {}
     Suggestion.all.each do |suggestion|
-      source = suggestion.title + ' ' + suggestion.body
+      source = suggestion.title + ' ' + ActionView::Base.full_sanitizer.sanitize(suggestion.body)
       processor.tokenize(source).map do |token|
         next unless token.metadata.pos == :noun
         token.to_s

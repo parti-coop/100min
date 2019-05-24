@@ -55,6 +55,14 @@ gem 'video_info', '~> 2.7'
 # seo
 gem 'meta-tags', '~> 2.11', '>= 2.11.1'
 
+# scheduler
+gem 'sidekiq', '~> 4.2', '>= 4.2.10'
+gem 'sidekiq-cron', '~> 1.1'
+gem 'sidekiq-unique-jobs', '~> 6.0', '>= 6.0.12'
+gem 'redis', '~> 3.2', '>= 3.2.2'
+gem 'redis-namespace', '~> 1.5', '>= 1.5.2'
+
+
 # ssl
 gem 'acme_plugin'
 

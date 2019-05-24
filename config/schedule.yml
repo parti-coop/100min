@@ -1,0 +1,4 @@
+all_word_parsing_job:
+  class: AllWordParsingJob
+  cron: "*/50 * * * 1 Asia/Seoul"
+  queue: default
