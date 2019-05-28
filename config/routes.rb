@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get :map, to: 'pages#map'
   get :schedule, to: 'pages#schedule'
   get :application, to: 'pages#application'
+  get 'sites/:code', to: 'pages#site', as: :site
 
   get :group, to: 'pages#group'
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   resources :stories, concerns: :commentable
   resources :notices, concerns: :commentable
   resources :suggestions, concerns: :commentable
+  resources :snapshots, concerns: :commentable
   resources :kommentables, concerns: :commentable
   resources :comments, only: :index
 

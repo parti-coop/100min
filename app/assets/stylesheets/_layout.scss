@@ -689,7 +689,7 @@ main {
 			border: 0;
 		}
 	}
-	@include respond-to(mPc) {
+	@include respond-to(oMobile) {
 		> a {
 			@include hiddenText;
 		}

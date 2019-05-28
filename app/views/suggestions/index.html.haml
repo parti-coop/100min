@@ -5,7 +5,7 @@
         %span
           %select.js-select-link{title: "지역선택"}
             %option{ selected: params[:area].blank?, 'data-url': suggestions_path(area: nil, category: params[:category], q: params[:q]) } 지역별
-            = Suggestion::AREA_CODE.each do |code, name|
+            = Suggestion.area_options.each do |code, name|
               %option{ selected: (code.to_s == params[:area]), 'data-url': suggestions_path(area: code, category: params[:category], q: params[:q]) }= name
         %span
           %select.js-select-link{title: "분야선택"}

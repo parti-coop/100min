@@ -1,0 +1,18 @@
+%li
+  %a.cursor-pointer.js-snapshot-modal-toggle{ href: snapshot_path(snapshot), rel: "modal:open" }
+    - if snapshot.image?
+      .img{ style: "background-image: url(#{snapshot.image.lg.url});" }
+    - else
+      .img
+        %img.no-img{alt: "", src: local_assigns[:fallback_image_url] || asset_url("no-img.png")}/
+    %p= strip_tags snapshot.body
+    .info
+      %span.date
+        %i> 날짜
+        = static_day_f(snapshot.created_at)
+      %span.like
+        %i> 좋아요
+        = snapshot.likes_count
+      / %span.comment
+      /   %i> 댓글
+      /   = snapshot.comments_count

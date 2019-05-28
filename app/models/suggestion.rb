@@ -66,7 +66,7 @@ class Suggestion < ApplicationRecord
     }
   ]
 
-  AREA_CODE = Hash[Suggestion::AREA_DETAIL.map{ |area| [area[:code].to_sym, area[:name]]}]
+  AREA_CODE = Hash[Suggestion::AREA_DETAIL.map{ |area| [area[:code].to_sym, area]}]
 
   CATEGORY_CODE = {
     'PO': '정치',
@@ -78,7 +78,7 @@ class Suggestion < ApplicationRecord
   }
 
   def self.area_options
-    AREA_CODE.map{ |code, name| [name, code]}
+    AREA_DETAIL.map{ |area| [area[:name], area[:code]]}
   end
 
   def self.category_options
@@ -86,7 +86,7 @@ class Suggestion < ApplicationRecord
   end
 
   def area_name
-    AREA_CODE[self.area.to_sym]
+    AREA_CODE[self.area.to_sym].try(:fetch, :name)
   end
 
   def category_name

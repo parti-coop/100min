@@ -1,0 +1,27 @@
+- current_area ||= local_assigns[:current_area]
+.header.notice
+  %h2 토론 현장
+  %p.keep-all
+    “100년 토론광장의 생생한 현장을 공유합니다.”
+.notice-view.site-view
+  .tab.js-menu-header
+    / 하위메뉴 열림 "selected" class 추가
+    %button.js-menu-toggle{type: "button"}
+      #{current_area.try(:fetch, :name)} 토론 현장
+    %ul
+      - Suggestion::AREA_DETAIL.each do |area|
+        %li{ class: ('selected' if area[:code] == current_area.try(:fetch, :code)) }
+          %a{href: site_path(code: area[:code].downcase)}
+            = area[:name]
+  .c-inner
+    %h3 #{current_area.try(:fetch, :name)} 토론 현장
+    %p
+      #{current_area.try(:fetch, :name)} 100년 토론광장의
+      = succeed "사진을 공유해 주세요" do
+        %br/
+    = content
+
+#js-snapshot-modal.modal.fade{:role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg{:role => "document"}
+    .modal-content.js-snapshot-modal-content
+

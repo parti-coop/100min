@@ -14,6 +14,7 @@
 //= require jquery.fitvids
 //= require d3
 //= require d3-cloud
+//= require jquery.modal
 
 UnobtrusiveFlash.flashOptions['timeout'] = 5000;
 

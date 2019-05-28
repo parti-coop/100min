@@ -40,6 +40,21 @@ class PagesController < ApplicationController
   def terms
   end
 
+  def site
+    @current_area = Suggestion::AREA_CODE[params[:code].upcase.to_sym]
+    @snapshots = Snapshot.order_recent.where(area: @current_area.try(:fetch, :code)).page(params[:page]).per(6)
+    if params[:q].present?
+      query = params[:q]
+      if query.present?
+        @snapshots = @snapshots.search_for(query)
+      end
+    end
+    if params[:user_id].present?
+      @snapshot_user = User.find_by(id: params[:user_id])
+      @snapshots = @snapshots.where(user_id: @snapshot_user)
+    end
+  end
+
   def application
     redirect_to 'http://bit.ly/백년토론광장'
   end

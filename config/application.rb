@@ -20,6 +20,7 @@ module Centennial
     config.i18n.available_locales = [:en, :ko]
     config.i18n.default_locale = :ko
     config.exceptions_app = self.routes
+    config.action_view.field_error_proc = Proc.new { |t, i| t }
 
     I18n.backend.class.send(:include, I18n::Backend::Cascade)
   end

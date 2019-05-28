@@ -1,0 +1,30 @@
+- snapshot ||= (@snapshot || Snapshot.new)
+= form_with model: snapshot do |f|
+  .write-box
+    %ul
+      %li
+        = f.label :area do
+          지역
+          %span *
+        = f.select :area, options_for_select(Snapshot.area_options, selected: (local_assigns[:current_area].try(:fetch, :code) || f.object.area)), { include_blank: '지역을 선택해주세요',  }, 'aria-required': 'true'
+      %li
+        %em
+          사진
+          %span *
+        .file-wrap
+          = f.file_field :image, class: 'input-decorated'
+          = f.label :image, '파일첨부'
+          = f.text_field :image_title, title: "첨부파일명", readonly: true, class: 'js-upload-file-title', 'data-upload-file-titie-target-name': 'snapshot[image]'
+        %p 권장 사이즈 350px X 240px
+        - if snapshot.read_attribute(:image).present?
+          .help-block
+            = image_tag snapshot.image.lg.url, style: 'max-width: 100px; vertical-align: bottom'
+      %li
+        = f.label :body do
+          한마디
+          %span *
+        = f.text_area :body, class: 'tinymce js-tinymce', 'aria-required': 'true'
+  .def-btn
+    %a{href: snapshots_path(area: @snapshot.try(:area))} 취소
+    = f.submit (f.object.persisted? ? "수정" : "등록"), class: 'active'
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_025726) do
+ActiveRecord::Schema.define(version: 2019_05_26_063403) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -69,6 +69,20 @@ ActiveRecord::Schema.define(version: 2019_05_24_025726) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_notices_on_user_id"
+  end
+
+  create_table "snapshots", force: :cascade do |t|
+    t.string "image", null: false
+    t.string "body", null: false
+    t.string "area", null: false
+    t.integer "comments_count", default: 0
+    t.integer "reads_count", default: 0
+    t.integer "likes_count", default: 0
+    t.integer "user_id", null: false
+    t.string "real_user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_snapshots_on_user_id"
   end
 
   create_table "stories", force: :cascade do |t|
