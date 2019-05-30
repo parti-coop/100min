@@ -17,8 +17,8 @@ class SuggestionsController < ApplicationController
         @suggestions = @suggestions.search_for(query)
       end
     end
-    if params[:area].present?
-      @suggestions = @suggestions.where(area: params[:area])
+    if params[:area_code].present?
+      @suggestions = @suggestions.where(area_code: params[:area_code])
     end
     if params[:category].present?
       @suggestions = @suggestions.where(category: params[:category])
@@ -90,6 +90,6 @@ class SuggestionsController < ApplicationController
   private
 
   def suggestion_params
-    params.require(:suggestion).permit(:title, :body, :image, :raw_hashtags, :area, :category)
+    params.require(:suggestion).permit(:title, :body, :image, :raw_hashtags, :area_code, :category)
   end
 end

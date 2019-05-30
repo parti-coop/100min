@@ -7,7 +7,7 @@ class Suggestion < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
-  validates :area, presence: true
+  validates :area_code, presence: true
   validates :category, presence: true
 
   mount_uploader :image, DefaultImageUploader
@@ -86,7 +86,7 @@ class Suggestion < ApplicationRecord
   end
 
   def area_name
-    AREA_CODE[self.area.to_sym].try(:fetch, :name)
+    AREA_CODE[self.area_code.to_sym].try(:fetch, :name)
   end
 
   def category_name

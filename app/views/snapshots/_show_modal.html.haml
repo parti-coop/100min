@@ -1,0 +1,29 @@
+.notice-view.site-view
+  .c-inner
+    .viewbox
+      .cate
+        = link_to site_path(area_code: @snapshot.area_code) do
+          %span= @snapshot.area_name
+      .info
+        %span.writer
+          %i> 작성자
+          = @snapshot.user_name
+        %span.date
+          %i> 날짜
+          = static_day_f(@snapshot.created_at)
+        %span.view
+          %i> 조회
+          = @snapshot.reads_count
+      .cnts.cnts-img.js-fit-vids
+        = image_tag @snapshot.image.lg.url
+        %p!= @snapshot.body
+      .sns-wrap
+        = render 'likes/button', likable: @snapshot
+        %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{polymorphic_url(@snapshot)}", target: '_blank', title: '공유하기'} 공유하기
+        .btn.copy-url.cursor-pointer.js-clipboard{'data-clipboard-text': polymorphic_url(@snapshot)} 주소복사
+    .b-btn
+      - if policy(@snapshot).edit?
+        = link_to '수정', [:edit, @snapshot], class: 'modify'
+      - if policy(@snapshot).destroy?
+        = link_to '삭제', @snapshot, method: :delete, class: 'delete', 'data-confirm': '정말 삭제하시겠습니까?'
+    -# = render 'comments/panel', commentable: @snapshot

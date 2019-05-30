@@ -4,17 +4,17 @@
       .sch-box
         %span
           %select.js-select-link{title: "지역선택"}
-            %option{ selected: params[:area].blank?, 'data-url': suggestions_path(area: nil, category: params[:category], q: params[:q]) } 지역별
-            = Suggestion.area_options.each do |code, name|
-              %option{ selected: (code.to_s == params[:area]), 'data-url': suggestions_path(area: code, category: params[:category], q: params[:q]) }= name
+            %option{ selected: params[:area_code].blank?, 'data-url': suggestions_path(area_code: nil, category: params[:category], q: params[:q]) } 지역별
+            = Suggestion.area_options.each do |name, code|
+              %option{ selected: (code.to_s == params[:area_code]), 'data-url': suggestions_path(area_code: code, category: params[:category], q: params[:q]) }= name
         %span
           %select.js-select-link{title: "분야선택"}
-            %option{ selected: params[:category].blank?, 'data-url': suggestions_path(area: params[:area], category: nil, q: params[:q]) } 분야별
+            %option{ selected: params[:category].blank?, 'data-url': suggestions_path(area_code: params[:area_code], category: nil, q: params[:q]) } 분야별
             = Suggestion::CATEGORY_CODE.each do |code, name|
-              %option{ selected: (code.to_s == params[:category]), 'data-url': suggestions_path(area: params[:area], category: code, q: params[:q]) }= name
+              %option{ selected: (code.to_s == params[:category]), 'data-url': suggestions_path(area_code: params[:area_code], category: code, q: params[:q]) }= name
 
         %div
-          = form_with url: suggestions_path(area: params[:area], category: params[:category]), method: :get do |f|
+          = form_with url: suggestions_path(area_code: params[:area_code], category: params[:category]), method: :get do |f|
             %input{name: :q, value: params[:q], title: "검색어를 입력해주세요", type: "search"}/
             %button{type: "submit"}
               %span 게시물 검색
@@ -31,9 +31,13 @@
             전체 제안
             = succeed "건" do
               %em= Suggestion.count
-    %ul
-      - @suggestions.each do |suggestion|
-        = render suggestion
+    - if @suggestions.empty?
+      %p.help-block{ style: 'font-size: 18px; color: #aaa; text-align: center; padding-top: 86px; margin-top: 30px; padding: 55px 0 70px; border-width: 2px 0; border-style: solid; border-color: #868686;' }
+        "아직 등록된 제안이 없습니다. 가장 먼저 제안해보세요!"
+    - else
+      %ul
+        - @suggestions.each do |suggestion|
+          = render suggestion
     = paginate @suggestions
 
 = render 'suggestions/template', content: content

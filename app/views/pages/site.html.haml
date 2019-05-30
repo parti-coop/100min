@@ -1,13 +1,18 @@
 - content = capture do
   .list-box
     - if policy(Snapshot).new?
-      %a.btn-write{href: new_snapshot_path(code: @current_area.try(:fetch, :code).try(:downcase))} 사진 올리기
+      %a.btn-write{href: new_snapshot_path(area_code: @current_area.try(:fetch, :code).try(:downcase))} 사진 올리기
+    - elsif !user_signed_in?
+      %a.btn-write{href: new_user_session_path} 사진 올리기
     %ul.event-list
       - if @snapshots.empty?
         %p.help-block{ style: 'font-size: 18px; color: #aaa; text-align: center; padding-top: 80px' }
           "아직 등록된 사진이 없습니다. 가장 먼저 사진을 올려 보세요!"
       - else
         = render @snapshots
-    = paginate @snapshots
+    = paginate @snapshots, params: { snapshot_id: nil }
 
 = render 'pages/site_template', content: content, current_area: @current_area
+
+- if @current_snapshot.present?
+  %span.js-auto-modal{ 'data-url': snapshot_path(id: @current_snapshot.id, auto: 'true') }

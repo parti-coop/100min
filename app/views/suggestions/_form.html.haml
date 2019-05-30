@@ -3,10 +3,10 @@
   .write-box
     %ul
       %li
-        = f.label :area do
+        = f.label :area_code do
           지역
           %span *
-        = f.select :area, Suggestion.area_options, { include_blank: '지역을 선택해주세요' }, 'aria-required': 'true'
+        = f.select :area_code, Suggestion.area_options, { include_blank: '지역을 선택해주세요' }, 'aria-required': 'true'
       %li
         = f.label :category do
           분야

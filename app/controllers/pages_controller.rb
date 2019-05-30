@@ -41,8 +41,8 @@ class PagesController < ApplicationController
   end
 
   def site
-    @current_area = Suggestion::AREA_CODE[params[:code].upcase.to_sym]
-    @snapshots = Snapshot.order_recent.where(area: @current_area.try(:fetch, :code)).page(params[:page]).per(6)
+    @current_area = Suggestion::AREA_CODE[params[:area_code].upcase.to_sym]
+    @snapshots = Snapshot.order_recent.where(area_code: @current_area.try(:fetch, :code)).page(params[:page]).per(6)
     if params[:q].present?
       query = params[:q]
       if query.present?
@@ -52,6 +52,10 @@ class PagesController < ApplicationController
     if params[:user_id].present?
       @snapshot_user = User.find_by(id: params[:user_id])
       @snapshots = @snapshots.where(user_id: @snapshot_user)
+    end
+
+    if params[:snapshot_id].present?
+      @current_snapshot = Snapshot.find_by(id: params[:snapshot_id])
     end
   end
 

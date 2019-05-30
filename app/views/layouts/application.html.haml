@@ -50,11 +50,11 @@
             %li
               %a{href: suggestions_path} 국민제안
             %li.has-submenu.js-subhamburger-toggle
-              %a{href: site_path(code: Suggestion::AREA_DETAIL.first[:code].downcase)} 토론 현장
+              %a{href: site_path(area_code: Suggestion::AREA_DETAIL.first[:code].downcase)} 토론 현장
               %ul.js-submenu
                 - Suggestion::AREA_DETAIL.each do |area|
                   %li
-                    %a{href: site_path(code: area[:code].downcase)} #{area[:name]} 토론 현장
+                    %a{href: site_path(area_code: area[:code].downcase)} #{area[:name]} 토론 현장
             %li
               %a{href: group_path} 참가신청
             %li.has-submenu.js-subhamburger-toggle

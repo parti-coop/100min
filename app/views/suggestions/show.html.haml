@@ -1,7 +1,7 @@
 - content = capture do
   .viewbox
     .cate
-      = link_to suggestions_path(area: @suggestion.area) do
+      = link_to suggestions_path(area_code: @suggestion.area_code) do
         %span= @suggestion.area_name
       = link_to suggestions_path(category: @suggestion.category) do
         %span= @suggestion.category_name
@@ -27,7 +27,7 @@
       %a.facebook{href: "https://www.facebook.com/sharer/sharer.php?u=#{polymorphic_url(@suggestion)}", target: '_blank', title: '공유하기'} 공유하기
       .btn.copy-url.cursor-pointer.js-clipboard{'data-clipboard-text': polymorphic_url(@suggestion)} 주소복사
   .b-btn
-    %a.list{href: suggestions_path(page: params[:page], q: params[:q], area: params[:area], category: params[:category])} 목록
+    %a.list{href: suggestions_path(page: params[:page], q: params[:q], area_code: params[:area_code], category: params[:category])} 목록
     - if policy(@suggestion).edit?
       = link_to '수정', [:edit, @suggestion], class: 'modify'
     - if policy(@suggestion).destroy?

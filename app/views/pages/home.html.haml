@@ -40,7 +40,7 @@
 
 %section.apply-box
 
-  %h1.hidden-mobile 100년 토론광장 국민 참여단 신청
+  %h1.hidden-mobile 100년 토론광장 국민 참여단
   %h1.visible-mobile-block 국민 참여단 신청
   %div
     %h2 신청 안내
@@ -66,6 +66,18 @@
           .apply-label 장소:
           .apply-info
             = area[:location] || '장소 추후 공지'
+  - snapshots = Snapshot.all.order_recent.limit(50).to_a.shuffle
+  - if snapshots.count >= 12
+    %div{ style: 'margin-top: 80px'}
+      %h2 토론 현장
+      %div.site-images{ style: 'margin-top: 30px'}
+        .js-mosaic.mosaic{"data-max-row-height": "300", "data-max-rows": 3}
+          - snapshots.each do |snapshot|
+            %a.item.withImage{:href => site_path(area_code: snapshot.area_code.downcase, snapshot_id: snapshot.id), :style => "background-position: center; background-color: #eee; background-image: url('#{snapshot.image.md.url}');"}
+              .overlay.collapse
+                .texts
+                  %p{ style: 'text-overflow: ellipsis; white-space: nowrap; word-wrap: normal; overflow: hidden;' }
+                    != strip_tags snapshot.body
 %section.make-w
   %h1 국민제안
   %p.hidden-mobile
@@ -124,7 +136,6 @@
         .domain([20,    30,     40,     50,     60,     70,     80,     90,        100])
         .range(["#999", "#888", "#777", "#2a6792", "#1c69a0", "#0e6cae", "#006ebc", "#e55147", "#f54337"]);
       var draw = function(words) {
-        console.log(words)
         d3.select("#cloud").append("svg")
             .attr("width", width)
             .attr("height", height)

@@ -5,7 +5,7 @@ class Snapshot < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
 
   validates :body, presence: true
-  validates :area, presence: true
+  validates :area_code, presence: true
 
   mount_uploader :image, DefaultImageUploader
 
@@ -18,7 +18,7 @@ class Snapshot < ApplicationRecord
   end
 
   def area_name
-    Suggestion::AREA_CODE[self.area.to_sym].try(:fetch, :name)
+    Suggestion::AREA_CODE[self.area_code.to_sym].try(:fetch, :name)
   end
 
   def user_name

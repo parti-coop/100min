@@ -15,6 +15,7 @@
 //= require d3
 //= require d3-cloud
 //= require jquery.modal
+//= require jquery.mosaic
 
 UnobtrusiveFlash.flashOptions['timeout'] = 5000;
 
@@ -263,4 +264,15 @@ $(function(){
   });
 
   $('.js-fit-vids').fitVids();
+
+  $('.js-mosaic').Mosaic();
+
+  $('.js-auto-modal').each(function() {
+    var url = $(this).data('url');
+    if(url) {
+      $.get(url, function(html) {
+        $(html).appendTo('body').modal();
+      });
+    }
+  });
 });

@@ -11,6 +11,7 @@ ko:
         title: 제목
         body: 내용
         area: 지역
+        area_code: 지역
         category: 분류
         raw_hashtags: 해시태그
   pundit:

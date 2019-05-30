@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get :map, to: 'pages#map'
   get :schedule, to: 'pages#schedule'
   get :application, to: 'pages#application'
-  get 'sites/:code', to: 'pages#site', as: :site
+  get 'sites/:area_code', to: 'pages#site', as: :site
 
   get :group, to: 'pages#group'
 

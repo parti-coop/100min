@@ -101,3 +101,19 @@
     max-width: 700px;
 }
 
+@import 'jquery.mosaic';
+.jQueryMosaic {
+    float: none;
+    > .item:hover > .overlay {
+        display: block;
+    }
+    > .item > .overlay > .texts {
+        color: white;
+    }
+    @media (max-width: 812px) {
+        > .item > .overlay {
+            opacity: 1;
+            display: block;
+        }
+    }
+}

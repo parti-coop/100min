@@ -42,7 +42,7 @@ namespace :data do
         Suggestion.create(
           user: user,
           real_user_name: real_user_name,
-          area: area,
+          area_code: area,
           category: category,
           title: title,
           body: body,

@@ -3,10 +3,10 @@
   .write-box
     %ul
       %li
-        = f.label :area do
+        = f.label :area_code do
           지역
           %span *
-        = f.select :area, options_for_select(Snapshot.area_options, selected: (local_assigns[:current_area].try(:fetch, :code) || f.object.area)), { include_blank: '지역을 선택해주세요',  }, 'aria-required': 'true'
+        = f.select :area_code, options_for_select(Snapshot.area_options, selected: (local_assigns[:current_area].try(:fetch, :code) || f.object.area_code)), { include_blank: '지역을 선택해주세요',  }, 'aria-required': 'true'
       %li
         %em
           사진
@@ -25,6 +25,6 @@
           %span *
         = f.text_area :body, class: 'tinymce js-tinymce', 'aria-required': 'true'
   .def-btn
-    %a{href: snapshots_path(area: @snapshot.try(:area))} 취소
+    %a{href: site_path(area_code: @snapshot.try(:area_code).try(:downcase) || params[:area_code])} 취소
     = f.submit (f.object.persisted? ? "수정" : "등록"), class: 'active'
 

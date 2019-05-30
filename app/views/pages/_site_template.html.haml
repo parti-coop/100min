@@ -11,7 +11,7 @@
     %ul
       - Suggestion::AREA_DETAIL.each do |area|
         %li{ class: ('selected' if area[:code] == current_area.try(:fetch, :code)) }
-          %a{href: site_path(code: area[:code].downcase)}
+          %a{href: site_path(area_code: area[:code].downcase)}
             = area[:name]
   .c-inner
     %h3 #{current_area.try(:fetch, :name)} 토론 현장
