@@ -102,7 +102,12 @@ class ApplicationController < ActionController::Base
   end
 
   def storable_location?
-    request.get? && is_navigational_format? && !devise_controller? && !request.xhr? && controller_name != 'errors'
+    request.get? and is_navigational_format? and !devise_controller? and
+      !request.xhr? and controller_name != 'errors' and
+      !devise_controller? and
+      !(controller_name == 'users' and action_name == 'confirm') and
+      !(controller_name == 'users' and action_name == 'confirm_form') and
+      !(controller_name == 'users' and action_name == 'cancel')
   end
 
   def store_user_location!

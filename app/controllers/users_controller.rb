@@ -24,6 +24,6 @@ class UsersController < ApplicationController
     current_user.save
 
     flash[:success] = '가입이 완료되었습니다.'
-    redirect_to root_path
+    redirect_to after_sign_in_path_for(current_user)
   end
 end

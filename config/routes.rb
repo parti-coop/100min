@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   mount AcmePlugin::Engine, at: '/'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'user/omniauth_callbacks' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'user/omniauth_callbacks'
+  }
   root 'pages#home'
   get :faq, to: 'pages#faq'
 
