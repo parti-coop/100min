@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_135755) do
+ActiveRecord::Schema.define(version: 2019_06_10_054919) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_135755) do
 
   create_table "snapshots", force: :cascade do |t|
     t.string "image", null: false
-    t.string "body", null: false
+    t.text "body", null: false
     t.string "area_code", null: false
     t.integer "comments_count", default: 0
     t.integer "reads_count", default: 0
