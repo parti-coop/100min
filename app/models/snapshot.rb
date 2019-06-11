@@ -6,6 +6,8 @@ class Snapshot < ApplicationRecord
 
   validates :body, presence: true
   validates :area_code, presence: true
+  validates :image, presence: true
+  validates :image, file_size: { less_than_or_equal_to: 20.megabytes, greater_than: 0.byte }
 
   mount_uploader :image, DefaultImageUploader
 

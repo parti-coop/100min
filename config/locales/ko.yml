@@ -2,6 +2,17 @@ ko:
   errors:
     messages:
       blank: "을(를) 반드시 입력해야 합니다."
+      carrierwave_processing_error: "이미지 사이즈 조정에 실패했습니다."
+      carrierwave_integrity_error: "이미지 파일이 아닙니다."
+      carrierwave_download_error: "다운로드 할 수 없습니다."
+      extension_whitelist_error: "허용되지 않는 파일 종류입니다."
+      extension_blacklist_error: "허용되지 않는 파일 종류입니다."
+      content_type_whitelist_error: "허용되지 않는 파일 종류입니다."
+      content_type_blacklist_error: "허용되지 않는 파일 종류입니다."
+      rmagick_processing_error: "이미지 파일이 아니거나 처리할 수 없는 파일입니다."
+      mini_magick_processing_error: "이미지 파일이 아니거나 처리할 수 없는 파일입니다."
+      min_size_error: "파일사이즈가 너무 작습니다."
+      max_size_error: "파일사이즈가 너무 큽니다."
   activerecord:
     attributes:
       story:
@@ -14,5 +25,9 @@ ko:
         area_code: 지역
         category: 분류
         raw_hashtags: 해시태그
+      snapshot:
+        image: 사진
+        area_code: 지역
+        body: 한마디
   pundit:
    default: '권한이 없습니다'
