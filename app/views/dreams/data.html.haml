@@ -18,9 +18,9 @@
         / %li
         /   .a-data{ style: "background-image:url(#{asset_url('data_ks.jpg')})" }
         /   %a{href: "javascript:void(0)"} 준비 중
-        / %li
-        /   .a-data{ style: "background-image:url(#{asset_url('data_fu.jpg')})" }
-        /   %a{href: "javascript:void(0)"} 준비 중
+        %li
+          .a-data.js-link.cursor-pointer{ 'data-url': "/100년토론광장자료집_강원.pdf", 'data-link-target': '_blank', style: "background-image:url(#{asset_url('data_fu.jpg')})" }
+          %a{href: "/100년토론광장자료집_강원.pdf", target: '_blank'} 보기
         %li
           .a-data.js-link.cursor-pointer{ 'data-url': "/100년토론광장자료집_호남제주.pdf", 'data-link-target': '_blank', style: "background-image:url(#{asset_url('data_hj.jpg')})" }
           %a{href: "/100년토론광장자료집_호남제주.pdf", target: '_blank'} 보기
