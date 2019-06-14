@@ -35,6 +35,7 @@
             %td
               - suggestions_count = user.suggestions.count
               = (suggestions_count > 0 ? link_to("#{suggestions_count}개 →", suggestions_path(user_id: user.id), target: '_blank') : '')
+    = paginate @users
 
 :css
   #users {
