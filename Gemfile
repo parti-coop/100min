@@ -62,12 +62,15 @@ gem 'sidekiq-unique-jobs', '~> 6.0', '>= 6.0.12'
 gem 'redis', '~> 3.2', '>= 3.2.2'
 gem 'redis-namespace', '~> 1.5', '>= 1.5.2'
 
-
 # ssl
 gem 'acme_plugin'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# error
+gem 'exception_notification'
+gem 'slack-notifier'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
