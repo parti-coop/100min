@@ -19,7 +19,7 @@
               %iframe{ frameborder: "0", allowfullscreen: true, style: "top: 0; left: 0;"}
             %button.js-dimd-close{:type => "button"}
               %span 동영상 레이어 닫기
-        %a{href: group_path} 참가신청
+        %div{ style: 'display: inline-block; height: 64px; margin-top: 55px; padding: 0 35px; border-radius: 32px; border: 2px solid #777; box-sizing: border-box; background: #fff; color: #777; font-size: 22px; line-height: 58px; ' } 모든 행사가 종료되었습니다
     / .bill-sug.bill2
     /   .cnts
     /     %strong
@@ -49,8 +49,6 @@
         3‧1운동과 대한민국임시정부 수립과 지난 100년의 역사에서 우리가 계승할 가치를 찾아보고,
         앞으로 우리가 어떤 세상을 만들어야 하는지를 함께 토론하는 국민참여 행사입니다.
       %li 거주 지역에 상관 없이 원하는 지역에 자유롭게 신청 가능(중복 지원 가능)합니다.
-    .btn
-      %a{href: group_path} 참가신청
   %ul
     - Suggestion::AREA_DETAIL.each do |area|
       %li

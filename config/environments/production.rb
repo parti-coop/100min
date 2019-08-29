@@ -95,6 +95,6 @@ end
 
 Rails.application.config.middleware.use ExceptionNotification::Rack,
   slack: {
-    webhook_url: 'https://hooks.slack.com/services/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',
+    webhook_url: 'https://hooks.slack.com/services/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',
     username: '백년토론광장'
   }
