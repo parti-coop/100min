@@ -24,7 +24,7 @@ gem 'by_star'
 gem 'roo'
 
 # auth
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2', '~> 0.6.0'
